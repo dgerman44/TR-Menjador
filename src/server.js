@@ -4,7 +4,6 @@ import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import apiRoutes from './controller/api/products/productsRoutes.js';
 import uiRoutes from './controller/uiRoutes.js';
 import homeRoutes from './controller/auth/authRoutes.js';
 import userRoutes from './controller/user/userRoutes.js';
