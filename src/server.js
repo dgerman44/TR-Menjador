@@ -51,7 +51,6 @@ app.use((req, res, next) => {
 // routes
 app.use(homeRoutes);
 app.use(uiRoutes);
-app.use('/api', apiRoutes);
 app.use(userRoutes);
 app.use(comandesRoutes);
 app.use(menuRoutes);
