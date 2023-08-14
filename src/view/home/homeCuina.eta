@@ -1,0 +1,57 @@
+<% layout('../layouts/fullwidth-nav-logx') %>
+<div class="dgb-back">
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <img src="/public/images/logo comida.png" alt="logo" class="dgb-sice">
+    <h3 class=" dgb-letra my-3 text-uppercase fw-bold">Menjador</h3>
+  </div>
+</div>
+<div class="container-fluid" style="height: 400px">
+  <div class="row" style="height: 100%">
+    <div class="col homeTd3" style="text-align: center">
+      <div class="d-flex flex-column">
+        <%if (it.menu) {%>
+          <h3>Recompte de plats - <%=it.menu.formateaFecha()%></h3>
+          <div class="mt-2">
+            <h5 class="p-2">Primers:</h5>
+            <span class="p-2"><%=it.menu.prOpcio1%></span>
+            <span class="p-2"><%=it.totales.prOpcio1%></span>
+          </div>
+          <div>
+            <span class="p-2"><%=it.menu.prOpcio2%></span>
+            <span class="p-2"><%=it.totales.prOpcio2%></span>
+          </div>
+          <div>
+          <h5 class="p-2">Segons:</h5>
+            <span class="p-2"><%=it.menu.seOpcio1%></span>
+            <span class="p-2"><%=it.totales.seOpcio1%></span>
+          </div>
+          <div>
+            <span class="p-2"><%=it.menu.seOpcio2%></span>
+            <span class="p-2"><%=it.totales.seOpcio2%></span>
+          </div>
+          <div>
+          <h5 class="p-2">Postres:</h5>
+            <span class="p-2"><%=it.menu.poOpcio1%></span>
+            <span class="p-2"><%=it.totales.poOpcio1%></span>
+          </div>
+          <div>
+            <span class="p-2"><%=it.menu.poOpcio2%></span>
+            <span class="p-2"><%=it.totales.poOpcio2%></span>
+          </div>
+        <%} else {%>
+          <h3 class="mt-4">No hi ha cap menu per avui</h3>
+        <%}%>
+      </div>
+    </div>
+    <div class="col homeTd3" style="text-align: center">
+      <div class="d-flex flex-column">
+        <div class="p-2">
+          <a class="btn btn-primary mb-4" style="width: 18rem; margin-top: 100px" href="/comandes">Comandes actuals</a>
+        </div>
+        <div class="p-2">
+          <a class="btn btn-primary mt-4" style="width: 18rem; margin-top: 150px" href="/actualitzaMenu">Actualitza menú</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

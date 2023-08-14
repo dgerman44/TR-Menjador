@@ -1,0 +1,23 @@
+<% layout('./layouts/fullwidth-nav-logx') %>
+
+<h1 class="container">Products</h1>
+<div class="container vh-100">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+    <% it.products.forEach (p => { %>
+            <tr>
+                <th scope="row"><%=p.id%></th>
+                <td><%=p.name%></td>
+                <td><%=p.price%> €</td>
+            </tr>
+    <% }) %>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,1254 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "about:legacy-compat">
+<!-- RSisSelFormaPago --><html xmlns:java="http://xml.apache.org/xalan/java">
+<meta content="-1" http-equiv="Expires">
+<meta content="Monday, 01-Jan-90 00:00:00 GMT" http-equiv="Expires">
+<meta content="no-cache, no-store" http-equiv="Pragma">
+<meta content="no-cache, no-store, max-age=0, must-revalidate" http-equiv="Cache-Control">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+<link href="/public/sis/graficos/logotipos/comunes/9999favicon.ico" type="image/ico" rel="shortcut icon">
+<link href="/public/sis/graficos/logotipos/comunes/9999favicon.ico" type="image/ico" rel="icon">
+<title>Redsys</title>
+<link type="text/css" href="/public/sis/estilos/unica/9999redsys.css" rel="StyleSheet">
+<link type="text/css" href="/public/sis/estilos/unica/loading-modal.css" rel="StyleSheet">
+<link href="/public/sis/estilos/unica/ie7.css" type="text/css" rel="stylesheet">
+<link type="text/css" href="/public/sis/estilos/unica/9000-ni.css" rel="StyleSheet">
+<link type="text/css" href="/public/sis/estilos/unica/2100new-ni.css" rel="StyleSheet">
+<link rel="StyleSheet" type="text/css" href="/public/sis/estilos/unica/351409644-1--ni.css"><script type="text/javascript">
+			function fijarLiterales() {
+		   		
+		   			anadirLiteral("msg1", "Ha de rellenar los datos de la tarjeta");
+				
+		   			anadirLiteral("msg2", "La tarjeta es obligatoria");
+				
+		   			anadirLiteral("msg3", "La tarjeta ha de ser numérica");
+				
+		   			anadirLiteral("msg4", "La tarjeta no puede ser negativa");
+				
+		   			anadirLiteral("msg5", "El mes de caducidad de la tarjeta es obligatorio");
+				
+		   			anadirLiteral("msg6", "El mes de caducidad de la tarjeta ha de ser numerico");
+				
+		   			anadirLiteral("msg7", "El mes de caducidad de la tarjeta es incorrecto");
+				
+		   			anadirLiteral("msg8", "El año de caducidad de la tarjeta es obligatorio");
+				
+		   			anadirLiteral("msg9", "El año de caducidad de la tarjeta ha de ser numerico");
+				
+		   			anadirLiteral("msg10", "El año de caducidad de la tarjeta no puede ser negativo");
+				
+		   			anadirLiteral("msg11a", "El código de seguridad de la tarjeta ha de tener ");
+				
+		   			anadirLiteral("msg11b", " cifras");
+				
+		   			anadirLiteral("msg12", "El código de seguridad de la tarjeta ha de ser numerico");
+				
+		   			anadirLiteral("msg13", "El código de seguridad de la tarjeta no puede ser negativo");
+				
+		   			anadirLiteral("msg14", "El código de seguridad no es necesario para su tarjeta");
+				
+		   			anadirLiteral("msg15", "Debe Introducir un número de tarjeta válido (sin espacios ni guiones).");
+				
+		   			anadirLiteral("msg16", "Por favor, seleccione un método de pago");
+				
+		   			anadirLiteral("msg17", "El método de pago que ha seleccionado no está disponible temporalmente, por favor seleccione otro método de pago");
+				
+		   			anadirLiteral("msg18", "El titular de la tarjeta es obligatorio");
+				
+		   			anadirLiteral("msg19", "El número de documento es incorrecto");
+				
+		   			anadirLiteral("msg20", "El expediente es incorrecto");
+				
+		   			anadirLiteral("msg21", "La fecha de devengo es incorrecta");
+				
+		   			anadirLiteral("msg22", "El dato específico es incorrecto");
+				
+			}
+			
+			var dcc = 0;
+			function dccYes() {
+				if (dcc == 0) {
+					dcc++;
+					deshabilitarBotonPagarDCC();
+					document.dccYES.submit();
+				}
+			}
+			function dccNo() {
+				if (dcc == 0) {
+					dcc++;
+					deshabilitarBotonPagarDCC();
+					document.dccNO.submit();
+				}
+			}
+			
+			function fijarDivisaDCC(moneda, importe) {
+				document.getElementById("Sis_Divisa").value = moneda + '#' + importe;
+				document.formTarjeta.submit();
+			}
+		</script><script type="text/javascript">
+					function fijarFoco() {
+						if (document.getElementById('inputCard') && document.getElementById('inputCard').value == '') {
+							document.getElementById('inputCard').focus();
+						} else if (document.getElementById('cad1') && document.getElementById('cad1').value == '') {
+							document.getElementById('cad1').focus();
+						} else if (document.getElementById('codseg') && document.getElementById('codseg').value == '') {
+							document.getElementById('codseg').focus();
+						}
+						if (document.getElementById('mmaa')) {
+							if(!Modernizr.input.placeholder){
+									document.getElementById('mmaa').style.display = "";
+							} else {
+									document.getElementById('mmaa').style.display = "none";
+							}
+						}
+					}
+					
+						function cambiarIdiomaCheck(valor) {
+							document.getElementById("checkIdioma").value = valor;
+						}
+					 
+					function lanzarAmazon() {
+					
+			        }
+			        function cargarIdioma(){
+				      
+				        document.formTarjeta.classList.add('es');
+				      
+				      }
+
+				</script><script type="text/javascript">
+					function validarCuotas() {
+						var seleccionado = 0;
+						var cuotasTmp = 0;
+						var nuevaUX = false;
+						
+						
+						if(document.getElementById("card-number")){
+							nuevaUX = true;
+						}
+						
+						
+						if(document.getElementById("datosBNPLPAE").value === "true"){
+							if(document.getElementById("idCheckBnpl") || document.getElementsByClassName("radioPlazox")){
+								if(document.getElementById("idCheckBnpl")){
+									if (document.getElementById("idCheckBnpl").checked==true) {
+										if(document.formTarjeta.Ds_Merchant_BNPLAccept.value == "1"){
+											seleccionado = 1;
+											if(nuevaUX){
+												pago();
+											} else {
+												validar();
+											}
+										} else {
+											document.getElementById("textoErrorPAE").style.display = "block";
+											document.getElementById("textoErrorPAE").style.color = "red";
+											document.getElementById("textoErrorPAE").innerHTML = "*Debe aceptar las condiciones de financiación.";
+										}
+									}
+								}
+								if (document.getElementsByClassName("radioPlazox")){
+									var numBoxInfo = document.getElementsByClassName("radioPlazox");
+									for (i = 0; numBoxInfo.length > i; i++) {
+										if(document.getElementById("idCheckPlazo" + numBoxInfo[i].value).checked == true){
+											if(document.formTarjeta.Ds_Merchant_PAEAccept.value == "1"){
+												seleccionado = 1;
+												if(nuevaUX){
+													pago();
+												} else {
+													validar();
+												}
+											} else {
+												document.getElementById("textoErrorPAE").style.display = "block";
+												document.getElementById("textoErrorPAE").style.color = "red";
+												document.getElementById("textoErrorPAE").innerHTML = "*Debe aceptar las condiciones de financiación.";
+											}
+											break;
+										}
+									}
+								}
+								if(document.getElementById("idCheckNoBnpl")){
+									if (document.getElementById("idCheckNoBnpl").checked==true) {
+										if(nuevaUX){
+											pago();
+										} else {
+											validar();
+										}
+									}
+								}
+							}
+						} else {
+							if(nuevaUX){
+								pago();
+							} else {
+								validar();
+							}
+						}
+					}
+					
+					function validarDCC() {
+					
+						var nuevaUX = false;
+						if(document.getElementById("datosDCC").value === "true"){
+							
+							if(document.getElementById("card-number")){
+								nuevaUX = true;
+							}
+							
+							if (document.getElementById("idCheckDcc").checked==true
+								|| document.getElementById("idCheckNoDcc").checked==true) {
+								if(nuevaUX){
+									pago();
+								} else {
+									validar();
+								}
+							} else {
+								document.getElementById("textoErrorDCC").style.display = "block";
+									document.getElementById("textoErrorDCC").style.color = "red";
+									document.getElementById("textoErrorDCC").innerHTML = "*You must select a payment currency";
+							}
+						} else {
+							if(nuevaUX){
+								pago();
+							} else {
+								validarCookie();
+							}
+						}
+					}
+					function validarCookie() {
+						if(document.formTarjeta.selectSaveCard){
+							if(document.formTarjeta.selectSaveCard.value === "true" && document.formTarjeta.Sis_id_tarjeta_cookie !== ""){
+								deshabilitarBoton();
+								estiloBotonPagar();
+								document.formTarjeta.submit();
+							} else {
+								validar();
+							}
+						} else {
+							validar();
+						}
+					}
+				</script><script>
+		// Aplazame
+		
+		let aplazameAskEmail = false;
+		  	
+
+		function abrirBaseModal(baseModalSelector) {
+			document.querySelector('.base-modal' + baseModalSelector).style.display = 'block';
+			document.querySelector('body').style.overflowY = 'hidden';
+			document.querySelector('div#container').style.cssText = "position: static; height: 100%; overflow: hidden";
+		}
+		
+		function cerrarBaseModal(baseModalSelector) {
+			document.querySelector('.base-modal' + baseModalSelector).style.display = 'none';
+			document.querySelector('body').style.overflowY = 'auto';
+			document.querySelector('div#container').style.cssText = "position: inherit; height: 'auto; overflow: visible";
+		}
+		
+		function showMessageModal(title, message) {
+			document.querySelector('.message-modal .base-modal-title a').innerHTML = title;
+			document.querySelector('.message-modal .base-modal-message p').innerHTML = message;
+			abrirBaseModal('.message-modal');
+		}
+		
+		function showServiceNotAvailableModalAplazame() {
+			let title = "Servicio no disponible";
+			let message = "Ha ocurrido un error al intentar pagar con Aplázame, inténtelo con otro método de pago.";
+			showMessageModal(title, message);
+		}
+		
+		// Intentos fallidos permitidos para comunicarse con WeChat
+		var weChatAttempts = 4;
+		var qrUrl = null;
+		var wechatUrl = null;
+		
+		// Indica si se estÃ¡n enviando datos o no
+		var enviandoDatos = false;
+		
+		// Almacena la forma de pago seleccionada
+		var formaPagoSel = '';
+		/************************************************************
+		* 												[Ref0006]	
+		* Funcion: solicitaDatosAJAX
+		* Devuelve:
+		* Solicita al SIS los datos de un mÃ©todo de pago a travÃ©s de AJAX
+		************************************************************/
+		function solicitaDatosAJAX() {
+			if (!enviandoDatos) {
+				if(!['wechat', 'aplazame'].includes(formaPagoSel)) {
+					ocultaBoton();
+				}				
+				var url = '/sis' + "/formaPagoAJAX" + ';jsessionid=0000w_1kR7Oix8YBDj52dnmHCWm:1bc077oj9';
+				if (window.XMLHttpRequest) {
+					req = new XMLHttpRequest();
+				} else if (window.ActiveXObject) {
+					req = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+		
+				req.open("POST", url, true);
+				
+				req.onreadystatechange = respuestaConsultaAJAX;
+				req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				
+				let paramsToSend = "Ds_Merchant_PayMethod=" + formaPagoSel;
+				if(formaPagoSel == "aplazame") {
+					document.querySelector('.aplazame-background').classList.add('_is-closing');
+					document.querySelector('.aplazame-background').style.display = "none";
+					let email = document.getElementById("aplazame-email-input").value;
+					if(email !== undefined && email !== null && email !== "") {
+						paramsToSend += "&Ds_Merchant_CustomerMail=" + email;					
+					}
+				}
+				req.send(paramsToSend);
+			}
+		}
+		
+		
+		/************************************************************
+		* 												[Ref0007]	
+		* Funcion: respuestaConsultaAJAX
+		* Devuelve:
+		* Ejecutada una vez que hay respuesta de una llamada AJAX
+		************************************************************/
+		function respuestaConsultaAJAX() {
+			// Valores de "readyState"
+			// 0: request not initialized
+			// 1: server connection established
+			// 2: request received
+			// 3: processing request
+			// 4: request finished and response is ready
+
+			if (req.readyState == 4) {
+				var hayError = true;
+				if (req.status == 200) {
+					if (formaPagoSel == 'O') {
+						var urlOasys = dameValorElemento(req.responseXML, "urlOasys");
+						var petOasys = dameValorElemento(req.responseXML, "petOasys");
+						if (urlOasys && urlOasys != '' && petOasys && petOasys != '') {
+							// Se reenvÃ­a a Oasys
+							hayError = false;
+							document.frmOASYS.dato.value = petOasys;
+							document.frmOASYS.action = urlOasys;
+							ocultaBoton();
+							fProcesandoPeticion('S');
+							enviandoDatos = true;
+							document.frmOASYS.submit();	
+						}
+					}
+
+					if (formaPagoSel == 'V') {
+						var urlVme = dameValorElemento(req.responseXML, "urlVme");
+						if (urlVme && urlVme != '') {
+							var paramsVme = urlVme.substring(urlVme.indexOf("?"));
+							var sessionIdVme = paramsVme.substring(paramsVme.indexOf("=")+1);
+							// Se reenvÃ­a a Vme
+							hayError = false;
+							document.frmVme.action = urlVme;
+							document.frmVme.ott.value = sessionIdVme;
+							ocultaBoton();
+							fProcesandoPeticion('S');
+							enviandoDatos = true;
+							document.frmVme.submit();
+						}
+					}
+
+					if (formaPagoSel == 'S') {
+						var urlSafetyPay = dameValorElemento(req.responseXML, "urlSafetyPay");
+						if (urlSafetyPay && urlSafetyPay != '') {
+							var paramsSafetyPay = urlSafetyPay.substring(urlSafetyPay.indexOf("?"));
+				        	var TokenID = paramsSafetyPay.substring(paramsSafetyPay.indexOf("=")+1);
+							// Se reenvÃ­a a SafetyPay
+							hayError = false;
+							document.frmSAFETYPAY.action = urlSafetyPay;
+							ocultaBoton();
+							fProcesandoPeticion('S');
+							enviandoDatos = true;
+							document.frmSAFETYPAY.submit();
+						}
+					}
+
+					if (formaPagoSel == 'f') {
+/*						var urlMyBank = dameValorElemento(req.responseXML, "urlMyBank");
+						if (urlMyBank && urlMyBank != '') {
+							var paramsSafetyPay = urlMyBank.substring(urlMyBank.indexOf("?"));
+				        	var TokenID = paramsSafetyPay.substring(paramsSafetyPay.indexOf("=")+1);
+							// Se reenvÃ­a a SafetyPay
+							hayError = false;
+							document.frmSAFETYPAY.action = urlSafetyPay;
+							ocultaBoton();
+							fProcesandoPeticion('S');
+							enviandoDatos = true;
+							document.frmSAFETYPAY.submit();
+						}
+						*/
+					}
+					
+					if (formaPagoSel == 'wechat') {
+						document.getElementById("weChatQrImage").style.display = "block";
+						document.getElementById("weChatQrImageLoading").style.display = "none";
+						
+						hayError = false;
+						
+						qrUrl = dameValorElemento(req.responseXML, "qrUrl");
+						wechatUrl = dameValorElemento(req.responseXML, "url");
+						
+						if(qrUrl == null) {
+					  		document.getElementById("pInfoWeChat").innerHTML = "Ha ocurrido un error en el pago de WeChat";
+					  		document.getElementById("pInfoWeChat2").classList.add("hideWeChat");
+					  		document.getElementById("pCountdownWeChat").style.display = "none";	  		
+					  		document.getElementById("loading-wechat").style.display = "none";
+					  		document.getElementById("check-wechat").style.display = "none";
+					  		document.getElementById("cross-wechat").style.display = "inline-block";
+							weChatAttempts = 0;
+							document.getElementById("weChatQrImage").src="/public/sis/graficos/logotipos/comunes/vacio.png";
+						} else {
+							var attemptsReceived = dameValorElemento(req.responseXML, "attempts");
+						
+							if(attemptsReceived === null || attemptsReceived === undefined || isNaN(attemptsReceived)) {
+								weChatAttempts = 0;
+							} else {
+								weChatAttempts = parseInt(attemptsReceived);
+							}
+							document.getElementById("weChatQrImage").src="data:image/png;base64," + qrUrl;
+							document.getElementById("weChatUrl").href = wechatUrl;
+						}
+						
+	  					document.getElementById("loading-wechat").style.display = "none";
+						enviandoDatos = true;
+						queryOrderWeChat();
+					}
+					
+					if (formaPagoSel == 'aplazame') {
+						hayError = false;
+						let aplazameCheckoutId = dameValorElemento(req.responseXML, "aplazameCheckoutId");
+						cerrarBaseModal('.loading-modal');
+						if(aplazameCheckoutId != null) {
+						    (window.aplazame = window.aplazame || []).push(function (aplazame) {
+	   					       	aplazame.checkout(aplazameCheckoutId, {
+						            onClose: function (result_status) {
+						                switch (result_status) {
+									        case 'ko':
+									        case 'error':
+									          let boxAplazame = document.querySelector("#box-aplazame");
+									          boxAplazame.style.display = "none";						          
+											  break;
+								        }
+						            }}
+						        )
+						    })
+						} else {
+						  	 showServiceNotAvailableModalAplazame();
+							 let boxAplazame = document.querySelector("#box-aplazame");
+					         boxAplazame.style.display = "none";							          	
+						}
+					}
+					
+				}
+
+				if (hayError) {
+					muestraBoton();
+					if (formaPagoSel == 'O' || formaPagoSel == 'V' || formaPagoSel == 'S') {
+						alert(getError("msg17"));
+					} else {
+						alert(getError("msg15"));
+					}
+					return;
+				}
+			}
+		}
+
+		function seleccionaMetodoPago(payMethod) {
+			formaPagoSel = payMethod; // Se marca el valor de la variable global
+			if (payMethod == 'O' ) {
+          		// Para el pago Oasys lo trataremos como una llamada AJAX al SIS
+          		formaPagoSel = 'O';
+          		document.formModalidad.Ds_Merchant_PayMethod.value = payMethod;
+          		solicitaDatosAJAX();
+          	} else if (payMethod == 'V') {
+          		// Para el pago Vme lo trataremos como una llamada AJAX al SIS
+          		formaPagoSel = 'V';
+          		document.formModalidad.Ds_Merchant_PayMethod.value = payMethod;
+          		solicitaDatosAJAX();
+          	} else if (payMethod == 'S') {
+          		// Para el pago SafetyPay llamada AJAX al SIS
+          		formaPagoSel = 'S';
+          		document.formModalidad.Ds_Merchant_PayMethod.value = payMethod;
+          		solicitaDatosAJAX();
+			} else if(payMethod == 'z') { 
+          		formaPagoSel = 'z';
+				document.formModalidad.Ds_Merchant_PayMethod.value = payMethod;
+				document.formModalidad.submit();
+			} else if(payMethod == 'Z') { 
+          		formaPagoSel = 'Z';
+				document.formModalidad.Ds_Merchant_PayMethod.value = payMethod;
+				document.formModalidad.submit();
+			} else if(payMethod == 'zinia') { 
+          		formaPagoSel = 'zinia';
+				document.formModalidad.Ds_Merchant_PayMethod.value = payMethod;
+				document.formModalidad.submit();
+			} else if(payMethod == 'wechat') { 
+          		formaPagoSel = 'wechat';
+				document.formModalidad.Ds_Merchant_PayMethod.value = payMethod;
+				abrirModal('ventanaWeChat');
+				initWeChat();
+				if(qrUrl == null) {
+					solicitaDatosAJAX();
+				}
+			} else if(payMethod == 'aplazame') { 
+          		formaPagoSel = 'aplazame';
+				document.formModalidad.Ds_Merchant_PayMethod.value = payMethod;
+				enviandoDatos = false;
+
+				if(aplazameAskEmail == true) {
+					document.querySelector('.aplazame-background').classList.remove('_is-closing');
+					document.querySelector('.aplazame-background').style.display = "";
+				} else {
+					abrirBaseModal('.loading-modal');
+					solicitaDatosAJAX();				
+				}
+          	} else {
+          		document.formModalidad.Ds_Merchant_PayMethod.value = payMethod;
+				// fProcesandoPeticion('S');
+				// deshabilitamos botones para prevenir dobles consultas
+				var btnOtrasFormasPago = document.getElementsByClassName("boxInner");
+				for (var i = 0; i < btnOtrasFormasPago.length; i++) {
+				  btnOtrasFormasPago[i].style.pointerEvents = "none";
+				}
+          		document.formModalidad.submit();
+			}
+		}
+		
+		function seleccionaPagoQR(){
+		
+		
+		document.getElementById("qrcode").innerHTML = '';
+		
+		var token = "";
+		
+		
+			if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+					  xmlhttp=new XMLHttpRequest();
+			} else {// code for IE6, IE5
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			xmlhttp.onreadystatechange=function(){
+				if (xmlhttp.readyState==4){
+					try {
+						//Variable JSON
+						token = xmlhttp.responseText;	
+						
+						
+						// Options
+						var options = {
+							text: "https://sis-d.redsys.es/sis/realizarPagoMovil?tqr=" + token ,
+							width: 200,
+    						height: 200,
+    						logo: "/public/sis/graficos/logotipos/comunes/9999favicon.png",
+    						logoWidth: 40,
+    						logoHeight: 40,
+
+
+						};
+
+						// Create QRCode Object
+						new QRCode(document.getElementById("qrcode"), options);
+						
+						
+						abrirModal('ventanaPagoQR');
+						
+									
+												let socket = new WebSocket("wss://rest-tc479999-gateway-adq-desa.apps.ocp4-d.redsys.es/olimpoRuntimeOnline/WSService/ws/v1/SIS/"+token+"/");
+												
+												
+												socket.onopen = function(e) {
+									
+												 
+												  socket.send("Conectado desde cliente");
+									
+												};
+												
+												socket.onmessage = onMessage;
+											
+									
+												function onMessage(event) {
+													var datajson = atob(event.data);
+													var jsonObj = eval('(' + datajson +')');
+													cerrarModal('ventanaPagoQR');				
+												var b = document.createElement("INPUT");
+										  		var x = document.createElement("INPUT");
+													if(jsonObj.xPayType=="Apple"){		
+														b.setAttribute("type", "hidden");
+														b.setAttribute("name", "ApplePayData");
+														b.setAttribute("value", jsonObj.xPayData);
+														x.setAttribute("type", "hidden");
+														x.setAttribute("name", "ApplePayOrigen");
+														x.setAttribute("value", jsonObj.xPayOrigen);		  
+													}
+													if(jsonObj.xPayType=="Google"){		
+														b.setAttribute("type", "hidden");
+														b.setAttribute("name", "GooglePayData");
+														b.setAttribute("value", jsonObj.xPayData);
+														x.setAttribute("type", "hidden");
+														x.setAttribute("name", "GooglePayOrigen");
+														x.setAttribute("value", jsonObj.xPayOrigen);		  
+													}		
+													document.formTarjeta.appendChild(b);
+													document.formTarjeta.appendChild(x);
+													document.formTarjeta.submit();
+													
+												}
+					} catch(error){
+						console.error("No se pudo generar el token: " + error);
+					}
+					
+				}
+			}
+			var url =  "/public/sis" + "/services/rest/pagoQR/generaToken;jsessionid=0000w_1kR7Oix8YBDj52dnmHCWm:1bc077oj9";
+			xmlhttp.open("POST", url, true);
+			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xmlhttp.send();
+		
+
+
+		}
+		
+    	var timer;
+    	var end;
+
+	    function showRemaining() {
+	        var now = new Date();
+	        var distance = end - now;
+	        if (distance < 0) {
+	            clearInterval(timer);
+	            document.getElementById('pCountdownWeChat').innerHTML = '0';
+	            return;
+	        }
+	        var seconds = Math.floor(distance / 1000);
+	
+	        document.getElementById('pCountdownWeChat').innerHTML = seconds;
+	    }
+	    
+	    function startCountdown(secondsToRedirect) {
+			end = Date.now() + secondsToRedirect * 1000;
+			document.getElementById("pCountdownWeChat").style.display = 'inline-block';			  		
+			document.getElementById("pCountdownWeChat").innerHTML = (secondsToRedirect - 1);			  		
+			timer = setInterval(showRemaining, 1000);
+		}
+		
+		function initWeChat() {
+			enviandoDatos = false;
+	  		document.getElementById("loading-wechat").style.display = "none";
+	  		document.getElementById("check-wechat").style.display = "none";
+	  		document.getElementById("cross-wechat").style.display = "none";
+	  		document.getElementById("pCountdownWeChat").style.display = "none";
+	  		if(qrUrl == null) {
+		  		document.getElementById("weChatQrImageLoading").style.display = "flex";	  		
+		  		document.getElementById("weChatQrImage").style.display = "none";
+	  		}	  		
+	  		document.getElementById("pInfoWeChat").innerHTML = "Escanea el código QR en la aplicación de WeChat para realizar el pago";
+	  		document.getElementById("pInfoWeChat2").classList.remove("hideWeChat");
+		}
+		
+		
+		
+		function queryOrderWeChat() {
+			if(weChatAttempts == 0) {
+				return;
+			}
+			
+		  	// document.getElementById("loading-wechat").style.display = "display-block";
+	  		document.getElementById("loading-wechat").style.display = "none";
+	  		document.getElementById("check-wechat").style.display = "none";
+	  		document.getElementById("cross-wechat").style.display = "none";	
+		
+			var url = '/sis' + "/queryOrderWeChat" + ';jsessionid=0000w_1kR7Oix8YBDj52dnmHCWm:1bc077oj9';
+			if (window.XMLHttpRequest) {
+				req = new XMLHttpRequest();
+			} else if (window.ActiveXObject) {
+				req = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+	
+			req.open("POST", url, true);
+			
+			req.onreadystatechange = function() {
+				if(req.readyState !== 4) {
+					return;
+				}
+								
+				let result = "EMPTY";
+				if(req.status === 200) {
+					result = dameValorElemento(req.responseXML, "tradeState");
+				}
+				
+			  	if(["NOTPAY", "USERPAYING"].includes(result)) {
+			  		setTimeout(queryOrderWeChat, 8000);
+			  	} else if(result == "SUCCESS") {
+			  		const secondsToRedirect = 10;
+			  		
+			  		document.getElementById("pInfoWeChat").innerHTML = "Pago realizado correctamente. En unos instantes será redirigido a la web del comercio";
+  			  		document.getElementById("pInfoWeChat2").classList.add("hideWeChat");
+			  		document.getElementById("pCountdownWeChat").style.display = "inline-block";	  		
+			  		document.getElementById("loading-wechat").style.display = "none";
+			  		document.getElementById("check-wechat").style.display = "inline-block";
+			  		document.getElementById("cross-wechat").style.display = "none";
+			  		
+			  		startCountdown(secondsToRedirect);
+			  		
+			  		setTimeout(function() {
+				  		let redirect = '/sis' + "/redirectOkKoWeChat" + ';jsessionid=0000w_1kR7Oix8YBDj52dnmHCWm:1bc077oj9';
+				  		if(redirect != null) {
+					  		window.location.href = redirect;
+						}				  		
+			  		}, secondsToRedirect * 1000);
+			  	} else {
+			  		weChatAttempts = weChatAttempts - 1;
+			  		setTimeout(queryOrderWeChat, 8000);
+			  	}
+			};
+			req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			req.send(Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5), Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5));
+        }
+
+		function cargaValoresBrowser3DS() {
+			//browserJavaEnabled
+			document.formTarjeta.browserJavaEnabled.value=navigator.javaEnabled();
+			//browserJavascriptEnabled
+			document.formTarjeta.browserJavascriptEnabled.value=true;
+			//browserLanguage
+			var userLang = navigator.language || navigator.userLanguage;
+			document.formTarjeta.browserLanguage.value=userLang;
+			//browserColorDepth
+			var colorDepth = screen.colorDepth;
+			if (colorDepth === undefined || colorDepth === null
+				|| !(colorDepth == '1' || colorDepth == '4' || colorDepth == '8' || colorDepth == '15' || colorDepth == '16' || colorDepth == '24' || 
+						colorDepth == '32' || colorDepth == '48')) {
+				colorDepth = '24';
+			}
+			document.formTarjeta.browserColorDepth.value=colorDepth;
+			//browserScreenHeight
+			//browserScreenWidth
+			  var myWidth = 0, myHeight = 0;
+			  if( typeof( window.innerWidth ) == 'number' ) {
+			    //Non-IE
+			    myWidth = window.innerWidth;
+			    myHeight = window.innerHeight;
+			  } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+			    //IE 6+ in 'standards compliant mode'
+			    myWidth = document.documentElement.clientWidth;
+			    myHeight = document.documentElement.clientHeight;
+			  } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+			    //IE 4 compatible
+			    myWidth = document.body.clientWidth;
+			    myHeight = document.body.clientHeight;
+			  }
+			document.formTarjeta.browserScreenHeight.value=myHeight;
+			document.formTarjeta.browserScreenWidth.value=myWidth;
+			//browserTZ
+			var d = new Date();
+			document.formTarjeta.browserTZ.value=d.getTimezoneOffset();
+			//browserUserAgent
+			document.formTarjeta.browserUserAgent.value=navigator.userAgent;
+		}//# sourceURL=jsPagoQR.js		
+		</script>
+</head>
+<body class="notranslate" id="home" onload="lanzarAmazon();fijarLiterales();fijarFoco();inicializaCambioIdioma();fijarCVV2('4');cambiarIdiomaCheck('1');cargaValoresBrowser3DS();">
+<div id="container">
+<header id="header">
+<div class="container">
+<h1 style="display:none;">Redsys</h1>
+<div class="logoComercio">
+<img alt="" src="/public/sis/graficos/logotipos/351409644-1-1logo.png" title="JUMPING"></div>
+<div class="logoEntidad">
+<img alt="" src="/public/sis/graficos/logotipos/entidad/2100new.png"></div>
+<div class="lang-wr">
+<div class="left">
+<label for="checkIdioma">
+<p>
+<text lngid="seleccioneSuIdioma" id="seleccioneSuIdioma">Seleccione su idioma</text>
+</p>
+</label>
+</div>
+<div class="right">
+<select onChange="cambiarIdioma(this.value,'RSisSelFormaPago');" id="checkIdioma"> class="lang" 
+							<option value="1">Castellano</option><option value="3">Català</option><option value="13">Euskara</option><option value="12">Galego</option><option value="10">Valencià</option><option disabled value=""></option><option value="203">&#268;e&#353;tina</option> ÄeÅ¡tina Czech
+	<option value="156">&#20013;&#25991;</option> Chino
+	<option value="208">Dansk</option><option value="5">Deutsch</option><option value="233">Eesti keel</option> Estonian
+							<option value="300">&#949;&#955;&#955;&#951;&#957;&#953;&#954;&#940;</option> Greek ÎµÎ»Î»Î·Î½Î¹ÎºÎ¬
+							<option value="2">English</option><option value="4">Français</option><option value="191">Hrvatski</option>  Croatian
+							
+	<option value="392">&#26085;&#26412;&#35486;</option> Japones
+	<option value="428">Latvie&#353;u valoda</option> Latvian LatvieÅ¡u valoda
+							<option value="440">Lietuvi&#371; kalba</option> Lithuanian Å³
+							<option value="348">Magyar</option> Hungarian
+							<option value="470">Malti</option> Maltese
+							<option value="6">Nederlands</option><option value="7">Italiano</option><option value="642">Român&#259;</option> Romanian romÃ¢nÄƒ
+							<option value="8">Svenska</option><option value="11">Polski</option><option value="9">Português</option><option value="14">Aragonês</option><option value="643">&#1088;&#1091;&#769;&#1089;&#1089;&#1082;&#1080;&#1081; &#1103;&#1079;&#1099;&#769;&#1082;</option> Russkiy Ã‘â‚¬Ã‘Æ’Ã‘ÂÃ‘ÂÃÂºÃÂ¸ÃÂ¹
+							<option value="100">&#1073;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080; &#1077;&#1079;&#1080;&#1082;</option> Bulgaro Bu&#322;garskiy
+							<option value="705">Slovenski jezik</option> Slovenian
+							<option value="703">Slovenský jazyk</option> Slovak slovenskÃ½ jazyk
+							<option value="246">Suomi</option> Finnish
+							<option value="792">Türkçe</option><option value="356">Hindi</option></select>
+<div class="clear-fix"></div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+			//funciones utf8 encode y decode para mover al utilsis
+			function encode_utf8( s ) {
+			  return unescape( encodeURIComponent( s ) );
+			}
+			
+			function decode_utf8( s ) {
+			  return decodeURIComponent( escape( s ) );
+			}
+
+
+			// carga cadenas del idioma seleccionado:
+			function cambiarIdioma(lang, page) {
+			/* /sis */ 
+				var laUrl = "/public/sis/SerSvlLiterales";
+/*				var laUrl = "/public/sis/SerSvlLiterales?comercio=999008881&terminal=214&pagina=RSisSelFormaPago&idioma=3";*/
+				var losDatos = { comercio: '351409644', terminal: '1' ,pagina: 'RSisSelFormaPago', idioma: lang };
+				$.ajax( { url: laUrl, type: "POST", data: losDatos, dataType: "json", success: cambioIdiomaOK, error: cambioIdiomaKO} ); /* , contentType: "application/x-www-form-urlencoded;charset=UTF-" UTF-8 ISO-8859-15 */
+				$('#iframeIupay').attr({'src': '/sis/html/iuPayMockUp_' + lang + '.html'});
+			}
+
+			function inicializaCambioIdioma() {
+				$( ".trigger" ).changed = false;
+/*				$( ".trigger" ).on( "click", cambiarIdioma($( ".lang" ).val(), 'RSisSelFormaPago') );*/
+			}
+
+			function cambioIdiomaOK( obj, textStatus, jqXHR ) {
+				if (obj) {
+						var listaLngIds = document.querySelectorAll('[lngid]');
+						for (var i = 0; i < listaLngIds.length; i++) { 
+							$.each( obj, function( key, value ) {
+								if (listaLngIds[i].getAttribute("lngid") == key) {
+//									alert(decode_utf8(value));
+									if (listaLngIds[i].innerHTML) {
+										if (listaLngIds[i].innerHTML.length>0 && listaLngIds[i].innerHTML[0] != '?') {
+											listaLngIds[i].innerHTML = decodeURIComponent(value).replace(/\+/g, ' ' );
+										} else if (listaLngIds[i].innerHTML.length == 0) {
+											listaLngIds[i].innerHTML = decodeURIComponent(value).replace(/\+/g, ' ' );
+										}
+									}
+									if (listaLngIds[i].hasAttribute("value")) {
+										if (listaLngIds[i].getAttribute("value").length>0 && listaLngIds[i].getAttribute("value")[0] != '?') {
+											$(listaLngIds[i]).attr({
+												value: decodeURIComponent(value).replace(/\+/g, ' ' )
+											});
+										}
+									}
+									if (listaLngIds[i].hasAttribute("alt")) {
+										$(listaLngIds[i]).attr({
+											alt: decodeURIComponent(value).replace(/\+/g, ' ' ),
+											title: decodeURIComponent(value).replace(/\+/g, ' ' )
+										});
+									}
+								} else if (key == 'monthmonth') {
+									if (document.getElementById("cad1")) {
+										document.getElementById("cad1").placeholder = decodeURIComponent(value).replace(/\+/g, ' ' );
+									}
+									if (document.getElementById("cad1_upi")) {
+										document.getElementById("cad1_upi").placeholder = decodeURIComponent(value).replace(/\+/g, ' ' );
+									}
+								} else if (key == 'yearyear') {
+									if (document.getElementById("cad2")) {
+										document.getElementById("cad2").placeholder = decodeURIComponent(value).replace(/\+/g, ' ' );
+									}
+									if (document.getElementById("cad2_upi")) {
+										document.getElementById("cad2_upi").placeholder = decodeURIComponent(value).replace(/\+/g, ' ' );
+									}
+								} 
+							});
+						}
+					//ahora actualizamos los errores
+					if (errores) {
+						for (var i = 0; i < errores.length; i++) { 
+							$.each( obj, function( key, value ) {
+								if (key.substr(0,6) == 'error-') {
+									var msgerror = key.substr(6, key.length);
+									if (errores[i][0] == msgerror) {
+										errores[i][1] = decodeURIComponent(value).replace(/\+/g, ' ' );
+									}
+								}
+							});
+						}
+					}
+				}
+			}
+
+			function cambioIdiomaKO(jqXHR, textStatus, errorThrown ) {
+//				alert('cambio idioma KO');
+				alert(textStatus + '\n\n' + errorThrown.name + '\n\n' + errorThrown.message + '\n\n' + errorThrown.description);
+			}
+			
+          </script>
+</header>
+<ol class="steps-wr">
+<li id="s-method" class="step active">
+<label type="hidden" for="s-method" value="Paso 1. Selecione mï¿½todo de pago "></label><span class="num">1</span>
+<p lngid="seleccioneMetodoPago" tittle="" class="s-text">Seleccione método de pago</p>
+</li>
+<li id="s-auth" class="step ">
+<span class="num">2</span>
+<p lngid="comprobacionAutenticacion" class="s-text">Comprobación autenticación</p>
+</li>
+<li id="s-connect" class="step ">
+<span class="num">3</span>
+<p lngid="solicitandoAutorizacion" class="s-text">Solicitando Autorización</p>
+</li>
+<li id="s-result" class="step ">
+<span class="num">4</span>
+<p lngid="resultadoTransaccion" class="s-text">Resultado Transacción</p>
+</li>
+</ol>
+<div class="clear-fix"></div>
+<div id="body">
+<div class="col-wr left result">
+<div class="ticket-mod-wr">
+<div class="datosDeLaOperacion">
+<h1 class="datosDeLaOperacion" lngid="datosDeLaOperacion">Datos de la operación</h1>
+</div>
+<div class="ticket-header">
+<div class="circle half-circlel"></div>
+<div class="circle half-circler"></div>
+<div class="price">
+<div class="left">
+<p lngid="importe">Importe</p>
+</div>
+<div class="right">
+<p>33,00&nbsp;&euro;</p>
+</div>
+<br class="clear-fix">
+</div>
+</div>
+<div class="ticket-info">
+<table class="table-condensed">
+<tbody>
+<tr id="filaNombreComercio">
+<td lngid="comercio" class="text">Comercio:<br>
+<br>
+<br>
+</td><td class="numeric">JUMPING<br>
+<br>(ESPAÑA)
+                    	</td>
+</tr>
+<tr id="filaCodigoComercio">
+<td lngid="terminal" class="text">Terminal:</td><td class="numeric">351409644-1</td>
+</tr>
+<tr id="filaNumeroPedido">
+<td lngid="pedido" class="text">Pedido:</td><td class="numeric">23080907594</td>
+</tr>
+<tr id="filaFecha">
+<td lngid="fecha" class="text">Fecha:</td><td class="numeric">09/08/2023
+		                    &nbsp;
+	                    	22:32</td>
+</tr>
+<tr id="filaDescripcionProducto">
+<td lngid="descripcion" class="text">Descripción producto:</td><td class="numeric">Sesión 16/08/2023 JUMPERS TARDA AGOST 2 17:16-17:31</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="col-wr right">
+<div class="tituloSeleccioneMetodoDePago">
+<h3 class="tituloSeleccioneMetodoDePago" lngid="tituloSeleccioneMetodoDePago">Seleccione método de pago</h3>
+</div>
+<form autocomplete="off" name="formTarjeta" action="/pagoCompletado" method="POST">
+<input type="hidden" name="primero" value="<%=it.primer%>"></input>
+<input type="hidden" name="segundo" value="<%=it.segon%>"></input>
+<input type="hidden" name="postre" value="<%=it.postre%>"></input>
+<input type="hidden" name="tupper" value="<%=it.tupper%>"></input>
+<div style="min-height:16px !important; overflow-y: auto;" class="cards-mod-wr">
+<div class="tituloPagoTarjeta">
+<div style="float:left;" class="pagoConTarjeta">
+<div style="float:right;"></div>
+
+<div class="center-cards">
+<div class="microcard" id="micro-visa"></div>
+<div class="microcard" id="micro-master1"></div>
+<div class="microcard" id="micro-master2"></div>
+<div class="microcard" id="micro-american"></div>
+<div class="microcard" id="micro-dinners"></div>
+<div class="microcard" id="micro-discover"></div>
+<div class="microcard" id="micro-jcb"></div>
+<div class="microcard" id="micro-upi"></div>
+</div>
+
+
+
+<h2 lngid="pagoConTarjeta" class="pagoConTarjeta">Pagar con Tarjeta</h2>
+</div>
+<div style="float:right;"></div>
+</div>
+<div class="datosTarjeta">
+<div class="lineaPagoTarjeta">
+<div class="detalleTarjeta">
+<text lngid="tarjeta">Nº Tarjeta:</text>
+</div>
+<div class="inputTarjeta">
+<span style="float:left;" class="icon i-card"></span><label  style="visibility:hidden;line-height: 0px;" value="Nº de tarjeta"></label><input id="inputCard" name="Sis_Numero_Tarjeta" type="tel" class="left form-control numbersOnly" size="20" maxlength="19" lngid="altTarjeta" alt="Nº de tarjeta" title="Nº de tarjeta" autocomplete="cc-number" float="right" value="">
+</div>
+</div>
+<div class="lineaPagoTarjeta">
+<div class="detalleTarjeta">
+<text lngid="caducidad">Caducidad:</text>
+</div>
+<div class="inputTarjeta">
+<span style="float:left;" class="icon i-cal"></span><label for="cad1" style="visibility:hidden;line-height: 0px;" value="Mes"></label><input style="margin-right: 5px;" id="cad1" name="Sis_Caducidad_Tarjeta_Mes" placeholder="mm" type="tel" class="left form-control numbersOnly" size="2" maxlength="2" lngid="mes" alt="Mes" title="Mes" autocomplete="cc-exp-month" pattern="[0-9]{2}" value="">&nbsp;
+							<label for="cad2" style="visibility:hidden;line-height: 0px;" value="Año"></label><input id="cad2" name="Sis_Caducidad_Tarjeta_Anno" placeholder="aa" type="tel" class="left form-control numbersOnly" size="2" maxlength="2" lngid="agno" alt="Año" title="Año" autocomplete="cc-exp-year" pattern="[0-9]{2}" value="">
+<div style="display:none;" id="mmaa">&nbsp;(<span lngid="monthmonth" id="monthmonth" class="text">mm</span>/
+							<span lngid="yearyear" id="yearyear" class="text">aa</span>)</div>
+</div>
+</div>
+<div style="display: none;" id="caducidadOpcionalUPI" class="detalleTarjeta">
+<text style="font-size:12px" lngid="opcionalUPI">(*) Optional for Debit Card</text>
+</div>
+<div class="lineaPagoTarjeta">
+<div class="detalleTarjeta">
+<text lngid="codigoSeguridad">CVV:</text>
+</div>
+<div class="inputTarjeta">
+<span style="float:left;" class="icon i-lock"></span><label for="codseg" style="visibility:hidden;line-height: 0px;" value="CVV"></label><input id="codseg" name="Sis_Tarjeta_CVV2" type="tel" class="left form-control numbersOnly" maxlength="4" size="4" lngid="codigoSeguridad" alt="CVV" title="CVV" autocomplete="cc-csc" pattern="[0-9]{0,4}" value=""><label type="hidden" for="altCVV2info" style="visibility:hidden;line-height: 0px;" value="¿Qué es el CVV2?"></label><input type="button" id="altCVV2info" onClick="javascript:abrirModal('ventanaAyudaCVV2');return false" class="icon-cvc-help" value="?">
+</div>
+</div>
+<div style="display: none;" id="cvvOpcionalUPI" class="detalleTarjeta">
+<text style="font-size:12px" lngid="opcionalUPI">(*) Optional for Debit Card</text>
+</div>
+
+<div class="message hide" id="message01">Introduce un nÂº</div>
+<div id="iframe3DSMethod"></div>
+<input value="" name="browserJavaEnabled" id="browserJavaEnabled" type="hidden"><input value="true" name="browserJavascriptEnabled" id="browserJavascriptEnabled" type="hidden"><input value="" name="browserLanguage" id="browserLanguage" type="hidden"><input value="" name="browserColorDepth" id="browserColorDepth" type="hidden"><input value="" name="browserScreenHeight" id="browserScreenHeight" type="hidden"><input value="" name="browserScreenWidth" id="browserScreenWidth" type="hidden"><input value="" name="browserTZ" id="browserTZ" type="hidden"><input value="" name="browserUserAgent" id="browserUserAgent" type="hidden"><input value="U" name="threeDSCompInd" id="threeDSCompInd" type="hidden">
+</div>
+</div>
+<input style="display:none;visibility:hidden;" value="" name="bcancel" type="hidden">
+<button lngid="aceptar" id="divImgAceptar" class="btn btn-lg btn-accept" type="submit">Pagar</button>
+</form>
+<a href="/pagoCancelado"><button lngid="cancelar" id="divImgCancelar" class="btn btn-lg btn-cancel" type="button">Cancelar</button></a>
+<div class="preft">
+<div class="col-wr buttons-wr right">
+</div>
+</div>
+</div>
+<div class="verified">
+<ul>
+<li>
+<a id="iv-visa"><img alt="" src="/public/sis/graficos/logotipos/comunes/VerifiedByVisaLearnMore4.gif" id="logoVerifiedByVisa"></a>
+</li>
+<li>
+<a id="iv-mc" href="javascript:ventanaInfoMaster();"><img alt="" src="/public/sis/graficos/logotipos/comunes/MastercardSecureCodeLearnMore4.png" id="logoMasterCardSecureCode"></a>
+</li>
+<li>
+<a id="iv-aex"><img alt="" src="/public/sis/graficos/logotipos/comunes/9999verified_03.png" id="logoSafeKey"></a>
+</li>
+<li>
+<a id="iv-jcb"><img alt="" src="/public/sis/graficos/logotipos/comunes/9999verified_04.png" id="logoJCB"></a>
+</li>
+<li>
+<a id="iv-Discover"><img alt="" src="/public/sis/graficos/logotipos/comunes/discoverDiners.png" id="logoDiscover"></a>
+</li>
+</ul>
+</div>
+</div>
+<footer id="footer">
+<div id="footerGeneral">
+<div class="copyright">
+<center>
+<text lngid="copyright">
+				                    	(c) 2023 Redsys Servicios de Procesamiento. SL - Todos los derechos reservados.</text> | <a href="javascript:abrirModal('ventanaPoliticaCookies')">Política de Cookies</a>
+</center>
+</div>
+<p lngid="powered" class="powered">Powered by Redsys</p>
+</div>
+</footer>
+<form action="/public/sis/formaPago;jsessionid=0000w_1kR7Oix8YBDj52dnmHCWm:1bc077oj9" method="POST" name="formModalidad">
+<input value="" name="Ds_Merchant_PayMethod" type="hidden">
+</form>
+</div>
+<div class="modal ventanaPAE" id="modal">
+<div class="modal-content">
+<div name="lightbox-informacionPAE" id="lightbox-informacionPAE">
+<div class="cancel-wr">
+<div id="textoInfoPAE">
+<img src="/public/sis/graficos/logotipos/logoPAE.png" alt="Pago Aplazado"><h3>Con plazox podrás aplazar tus compras en 3, 6, 9 y 12 meses con tus tarjetas de crédito de las entidades adheridas.</h3>
+<p>Para más información, consulta en tu banco.</p>
+</div>
+<div id="entidadesPlazox"></div>
+<div id="condicionesPAE">
+<h4>* Consulta las entidades adheridas en sistemapay.com/plazox</h4>
+</div>
+</div>
+<div style="padding-top: 30px;" class="cancel-wr">
+<button type="button" class="btn btn-lg btn-close close-panel" onclick="javascript:cerrarModal('ventanaPAE');return false" lngid="cerrar">Cerrar</button>
+</div>
+</div>
+<div id="lightbox"></div>
+</div>
+</div>
+<script type="text/javascript">
+ 			var entidades = ''
+			var listaEntidades = entidades.split(",");
+			var sizeLista = listaEntidades.length;
+			for (i = 0; sizeLista > i ; i++) {
+				var url = '/sis/graficos/logotipos/entidad/' + listaEntidades[i] + ".png" ;
+				var imagen = document.createElement("img");
+				imagen.setAttribute("alt", listaEntidades[i]);
+				imagen.setAttribute("src", url);
+    			document.getElementById("entidadesPlazox").appendChild(imagen);
+			}
+		</script>
+<div class="modal ventanaAyudaCVV2" id="modal">
+<div class="modal-content">
+<div id="lightbox-panel">
+<div class="cancel-wr">
+<h2 lngid="codigoSeguridad">CVV</h2>
+<img alt="" src="/public/sis/graficos/logotipos/comunes/2100cvc-help.png"></div>
+<div class="help-text">
+<p lngid="codigoSeguridadTresDigitos">El código de seguridad son los tres últimos dígitos que aparecen en el reverso de las tarjetas de las marcas Visa, Visa Electron, Mastercard y Maestro.</p>
+<p lngid="casoTarjetasAmericanExpress">En el caso de las tarjetas American Express, el código son los cuatro dígitos que aparecen encima de la numeración de la tarjeta.</p>
+</div>
+<div class="cancel-wr">
+<button type="button" class="btn btn-lg btn-close close-panel" onclick="javascript:cerrarModal('ventanaAyudaCVV2');return false" lngid="cerrar">Cerrar</button>
+</div>
+</div>
+<div id="lightbox"></div>
+</div>
+</div>
+<div class="modal ventanaXelmon" id="modal">
+<div class="modal-content">
+<div style="display: flex; align-items: flex-end;">
+<img style="width: 40px;" src="/public/sis/graficos/logotipos/comunes/xelmon.png"><h2 style="padding-left: 10px; color: #000000;">Xelmon</h2>
+</div>
+<p class="textoXelmon">Xelmon es la nueva marca de tarjeta de las entidades financieras españolas.</p>
+<p class="textoXelmon">Al disponer de una tarjeta con diferentes marcas, debe seleccionar su opción de pago preferida. Esta selección no influirá en los datos de la operación.</p>
+<div style="text-align: right;">
+<input onClick="javascript:cerrarModal('ventanaXelmon');return false" alt="Entendido" value="Entendido" class="btn btn-lg btn-modal" id="acceptModal" type="button">
+</div>
+</div>
+</div>
+<div class="modal ventanaBNPL" id="modal">
+<div class="modal-content">
+<div class="apartadoModalBNPL">
+<img style="width: 50px" src="/public/sis/graficos/logotipos/comunes/BNPL-icon.svg"><p class="bnplText">Paga en 3 plazos sin intereses con tu entidad bancaria</p>
+<div class="listaInfoBNPL">
+<p>Puedes aplazar tus compras de más de 60&euro; en tres pagos mensuales sin intereses con tu entidad bancaria.</p>
+<p>El calendario de pagos es el que tengas establecido con tu entidad bancaria.</p>
+<p>Puedes consultar las entidades adheridas en <a href="https://www.sistemapay.com/" target="_blank">www.sistemapay.com</a>
+</p>
+</div>
+</div>
+<div class="espaciadoBNPL">
+<input type="button" id="acceptModal" class="btn btn-lg btn-modal" value="Cerrar" alt="Cerrar" onClick="javascript:cerrarModal(&quot;ventanaBNPL&quot;);return false">
+</div>
+</div>
+</div>
+<div class="modal ventanaEliminarTarjeta" id="modal">
+<div class="ventanaEmergente" id="ventanaEmergenteModal">
+<div id="cerrarVentanaEliminarTarjetaModal" class="close-box cerrarVentanaEliminarTarjeta">
+<img alt="" onclick="javascript:cerrarVentanaEliminarTarjetaModal()" src="/public/sis/graficos/botones/close.png"></div>
+<div class="ventanaEmergenteContent" id="ventanaEmergenteContentModal">
+<h2 id="ventanaEmergenteTitle">¿Eliminar esta tarjeta como método de pago guardado?</h2>
+<p>Si eliminas esta tarjeta, se eliminará de forma permanente en este dispositivo.</p>
+<div class="ventanaEmergenteButtonsBox" id="ventanaEmergenteButtonsBoxModal">
+<button onclick="javascript:cancelarBotonModal()" class="ventanaEmergenteButtons" id="cancelarEliminarTarjetaModal">No, mantener</button><button class="ventanaEmergenteButtons ventanaEmergenteBtnEliminar" id="confirmarEliminarTarjetaModal">Si, eliminar tarjeta</button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal ventanaPoliticaCookies" id="modal">
+<div class="modal-content">
+<div class="politicaCookiesBox">
+<h2>POLÍTICA DE COOKIES</h2>
+<div class="politicaCookiesBoxContent politicaCookiesTextBox">
+<h3>1. Definición y función genérica de las cookies</h3>
+<p>Para poder almacenar en este dispositivo el identificador asociado a la tarjeta utilizada por el usuario, en caso de que así se seleccione, este sitio web, operado por Redsys Servicios de Procesamiento, S.L. (con C.I.F. B-85955367 y domicilio social en Madrid, calle Francisco Sancha, n.º 12), como procesador de pago de las entidades financieras, utilizará una cookie, que funciona como un fichero que se descarga en el dispositivo del usuario y que permite registrar su actividad, almacenar y recuperar cierta información.</p>
+<h3>2. Tipos y finalidad de las cookies utilizadas</h3>
+<div class="politicaCookiesBoxContent">
+<p>El tipo de cookie utilizada en este sitio web, en caso de que se seleccione por el usuario la opción antes indicada, y el uso concreto de esta es el que se describe a continuación:</p>
+<ul>
+<li>
+<u> Según la entidad que la gestiona:</u> Es una cookie propia. Estas cookies son enviadas al dispositivo del usuario desde un equipo o dominio gestionado porel procesador de Redsys Servicios de Procesamiento, S.L., siendo esta a su vez, quien gestiona la información obtenida por medio de estas cookies para atender la solicitud del usuario.</li>
+<li>
+<u>Según la finalidad para la que se usa: </u>Es una cookie de preferencia o personalización. Estas cookies son aquellas que permiten recordar información para que el usuario acceda al servicio con determinadas características que puedan diferencia su experiencia de uso. </li>
+<li>
+<u> Según el plazo de tiempo que permanece activada: </u> Es una cookie persistente. Estas cookies son aquellas en las que los datos siguen almacenados en el dispositivo, y se puede acceder a ellos y ser tratados, durante un periodo de tiempo superior a la sesión.</li>
+</ul>
+<table class="default">
+<tr>
+<th>Nombre</th><th>Proveedor</th><th>Caducidad</th><th>Finalidad</th>
+</tr>
+<tr>
+<td>RTR_IDL</td><td>Redsys</td><td>6 meses</td><td>Sirve para almacenar un identificador asociado a la tarjeta empleada por el usuario como método de pago y recordarlo para futuras compras que se realicen sobre esta pasarela de pago, y a través del mismo dispositivo y explorador web.</td>
+</tr>
+</table>
+</div>
+<h3>3. Forma de aceptar, denegar, revocar el consentimiento o eliminar las cookies</h3>
+<div class="politicaCookiesBoxContent">
+<p>Cuando el usuario hace uso de este sitio web y al introducir sus datos de pago, selecciona la opción de &ldquo;Recordar tarjeta en este dispositivo&rdquo;, ello implica la aceptación de la cookie informada en virtud de esta Política de Cookies.</p>
+<p>El usuario podrá eliminar el consentimiento previamente otorgado seleccionado la opción de &ldquo;Eliminar esta tarjeta como método de pago guardado&rdquo;.</p>
+<p>De igual modo, puede bloquear la cookie en el navegador web utilizado. Estos ajustes suelen encontrarse en las &ldquo;opciones&rdquo; o &ldquo;preferencias&rdquo; de su navegador. Le orientamos a continuación de los pasos para acceder al menú de configuración de cookies en los siguientes navegadores principales:</p>
+<ul>
+<li>Internet Explorer: Herramientas -&gt; Opciones de Internet -&gt; Privacidad -&gt;Configuración. Para más información, puede consultar el soporte de Microsoft o la Ayuda del navegador.</li>
+<li> Firefox: Herramientas -&gt; Opciones -&gt; Privacidad -&gt; Historial -&gt; Configuración Personalizada. Para más información, puede consultar el soporte de Mozilla o la Ayuda del navegador. </li>
+<li> Chrome: Configuración - &gt; Mostrar opciones avanzadas - &gt; Privacidad -&gt; Configuración de contenido. Para más información, puede consultar el soporte de Google o la Ayuda del navegador.</li>
+<li> Safari: Preferencias -&gt; Seguridad. Para más información, puede consultar el soporte de Apple o la Ayuda del navegador. </li>
+</ul>
+</div>
+<h3>4. Información sobre destinatarios de los datos</h3>
+<div class="politicaCookiesBoxContent">
+<p>Salvo en caso de obligación legal, los datos del usuario no serán comunicados a terceros ni serán transferidos a terceros países u organizaciones internacionales. </p>
+</div>
+<h3>5. Cambios en la Política de Cookies</h3>
+<div class="politicaCookiesBoxContent">
+<p>En caso de que se introduzcan modificaciones en la presente Política de Cookies como consecuencia de cambios en los fines de uso perseguidos por esta u otros motivos, se informará debidamente al usuario y se le solicitará la renovación del consentimiento o, en su caso, la toma de una nueva decisión sobre las cookies. </p>
+<p>A estos efectos, la solicitud del nuevo consentimiento se realizará cuando el usuario acceda a este sitio web por primera vez tras la modificación de la Política.</p>
+</div>
+</div>
+<input type="button" id="acceptModal" class="btn btn-lg btn-modal" value="Cerrar" alt="Cerrar" onClick="javascript:cerrarModal(&quot;ventanaPoliticaCookies&quot;);return false">
+</div>
+</div>
+</div>
+<div class="loading-modal base-modal">
+<div class="base-modal-content-wrapper">
+<div class="base-modal-content">
+<div id="lds-ellipsis-loading-wrapper">
+<div class="lds-ellipsis-loading">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="message-modal base-modal">
+<div class="base-modal-content-wrapper">
+<div class="base-modal-content">
+<div class="base-modal-title">
+<a></a>
+</div>
+<div class="base-modal-message">
+<p></p>
+</div>
+<div class="base-modal-buttons">
+<button onclick="cerrarBaseModal('.message-modal')" class="btn btn-lg btn-modal">Cerrar</button>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+<script id="f5_cspm">(function(){var f5_cspm={f5_p:'NMHJJFIHFCKOHGGEEJGOOJIKLEGAGPMKBILIIBMDOJDJOMEICCEDNPODJBPKAOOCNLKBAMJPAANAICFLJEIAOJDKAALPEFJHEPLAAPJHGGAECFKDFCMBDDEPLPLMOJJI',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='f5avr1335237276aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/';}
+return;}}
+catch(err){return;}
+setTimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='f5_cspm'&&pair[1]=='1234')
+{var d=new Date();d.setTime(d.getTime()-1000);window.document.cookie='f5_cspm=;expires='+d.toUTCString()+';path=/;';setTimeout(f5_cspm.wait_perf_data,100);}}}}
+f5_cspm.go();}());</script>

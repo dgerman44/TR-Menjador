@@ -1,0 +1,8 @@
+<% layout('./layouts/fullwidth-nav-logx') %>
+
+<main>
+    <section class="vh-100 container pt-2 text-center justify-content-center align-items-center">
+        <h1 class="display-1">About</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur saepe ut vel quibusdam! Hic quae repellat vitae eveniet, quibusdam et mollitia optio earum suscipit adipisci ipsa commodi, fuga sequi ratione incidunt dolor atque accusamus explicabo necessitatibus? Corporis velit, at sapiente doloribus exercitationem pariatur maiores quae aliquam consectetur officiis dignissimos mollitia dolorum ipsa corrupti ad facere sed eaque explicabo tenetur nam! Cumque omnis quis, illum placeat ex sed maiores! Saepe, ea. Sapiente, possimus dolorum. Quia reprehenderit, consequuntur, sint, nihil nobis asperiores reiciendis sit aliquid illo error magni? Voluptatum praesentium nemo accusantium quo cum sapiente nostrum maxime assumenda tenetur consectetur mollitia repudiandae perspiciatis aspernatur impedit repellendus, explicabo deleniti modi quam dicta sint quibusdam maiores. Beatae ratione suscipit quia, velit magnam enim illum saepe provident dolorum quae! Officia eum aliquid nostrum, nihil saepe velit in distinctio perspiciatis porro? A incidunt alias id dolorem labore, est consectetur adipisci assumenda in voluptate tempora explicabo sit accusantium. Nobis reiciendis aperiam enim reprehenderit tenetur quae at saepe quas labore illo a, quam facere omnis accusantium corrupti esse non voluptate ipsa vitae tempore praesentium corporis. Harum, atque voluptatem cum amet magni totam fugit accusamus in hic nesciunt quod enim dignissimos quaerat nemo facere eaque libero. Autem, alias voluptatum!</p>
+    </section>
+</main>

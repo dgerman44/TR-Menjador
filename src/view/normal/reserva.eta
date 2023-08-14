@@ -1,0 +1,326 @@
+<% layout('../layouts/fullwidth-nav-logx') %>
+<div class="container">
+  <div class="row">
+    <div class="col ">
+      <h1 class="my-4">Fes la teva reserva</h1>
+      <form name="calendarForm" action="/newReserva" method="POST">
+        <input type="hidden" name="dia" id="dia" value="<%=it.dia%>">
+        <div>
+          <label for="mes">Mes:</label>
+          <select name="mes" id="mes" onchange="cargarCalendario()">
+            <option value="1" <%=it.mes==1? 'selected': ''%>>Gener</option>
+            <option value="2" <%=it.mes==2? 'selected': ''%>>Febrer</option>
+            <option value="3" <%=it.mes==3? 'selected': ''%>>Març</option>
+            <option value="4" <%=it.mes==4? 'selected': ''%>>Abril</option>
+            <option value="5" <%=it.mes==5? 'selected': ''%>>Maig</option>
+            <option value="6" <%=it.mes==6? 'selected': ''%>>Juny</option>
+            <option value="7" <%=it.mes==7? 'selected': ''%>>Juliol</option>
+            <option value="8" <%=it.mes==8? 'selected': ''%>>Agost</option>
+            <option value="9" <%=it.mes==9? 'selected': ''%>>Setembre</option>
+            <option value="10" <%=it.mes==10? 'selected': ''%>>Octubre</option>
+            <option value="11" <%=it.mes==11? 'selected': ''%>>Novembre</option>
+            <option value="12" <%=it.mes==12? 'selected': ''%>>Decembre</option>
+          </select>
+          <label for="anio">Any:</label>
+          <input type="number" name="anio" id="anio" value="<%=it.anio%>" style="width: 50px" onchange="cargarCalendario()">
+        </div>
+        <table id="calendario">
+          <!-- El contenido del calendario será generado dinámicamente aquí -->
+        </table>
+      </form>
+    </div>
+    <% if (it.reserva && it.menu && it.mode === 'edit') {%>
+    <div class="col menDia mt-4">
+      <form name="reservaForm" action="/pago" method="POST">
+        <h3>Data: <%=it.menu.formateaFecha()%> </h3>
+        <h4>Selecciona una opció de cada grup</h4>
+        <h5 class="mt-4">Primer plat</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="primer" id="primer_1" value="1" onchange="actualizaPrecio()">
+          <label class="form-check-label" for="primer_1">
+            <%=it.menu.prOpcio1%>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="primer" id="primer_2" value="2" onchange="actualizaPrecio()">
+          <label class="form-check-label" for="primer_2">
+            <%=it.menu.prOpcio2%>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="primer" id="primer_3" value="" onchange="actualizaPrecio()">
+          <label class="form-check-label" for="primer_3">
+            No vull primer
+          </label>
+        </div>
+        <h5 class="mt-4">Segon plat</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="segon" id="segon_1" value="3" onchange="actualizaPrecio()">
+          <label class="form-check-label" for="segon_1">
+            <%=it.menu.seOpcio1%>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="segon" id="segon_2" value="4" onchange="actualizaPrecio()">
+          <label class="form-check-label" for="segon_2">
+            <%=it.menu.seOpcio2%>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="segon" id="segon_3" value="" onchange="actualizaPrecio()">
+          <label class="form-check-label" for="segon_3">
+            No vull segon
+          </label>
+        </div>
+        <h5 class="mt-4">Postre</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="postre" id="postre_1" value="5" onchange="actualizaPrecio()">
+          <label class="form-check-label" for="postre_1">
+            <%=it.menu.poOpcio1%>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="postre" id="postre_2" value="6" onchange="actualizaPrecio()">
+          <label class="form-check-label" for="postre_2">
+            <%=it.menu.poOpcio2%>
+          </label>
+        </div>
+        <div class="form-check mb-4">
+          <input class="form-check-input" type="radio" name="postre" id="postre_3" value="" onchange="actualizaPrecio()">
+          <label class="form-check-label" for="postre_3">
+            No vull postre
+          </label>
+        </div>
+        <div class="form-check mb-4">
+          <input class="form-check-input" type="checkbox" name="tupper" value="true" id="tupper" onchange="actualizaPrecio()">
+          <label class="form-check-label" for="tupper">
+            Necessites tupper?
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="col menDia ms-4 mt-4">
+      <h3>Preu</h3>
+      <div class="px-4 d-flex py-2" id="tipoMenu">
+        <div class="me-auto" id="tipoMenu_texto"></div>
+        <div id="tipoMenu_precio"></div>
+      </div>
+      <div class="px-4 d-flex" id="suplemento">
+        <div class="me-auto" id="suplemento_texto"></div>
+        <div id="suplemento_precio"></div>
+      </div>
+      <div class="px-4 py-4">
+        <hr>
+      </div>
+      <div class="px-4 d-flex" id="suplemento">
+        <div class="me-auto px-4 mt-auto">Preu total:</div>
+        <div id="total_precio"></div>
+      </div>
+      <div class="px-4 d-flex">
+        <div class="me-auto"></div>
+        <div class="px-4 py-4">
+          <button type="button" class="btn btn-primary" onclick="goPago()">Paga</button>
+        </div>
+        <div></div>
+      </div>
+    </div>
+    <%} else if (it.reserva && it.menu) {%>
+
+    <div class="col menDia mt-4">
+      <h3>Data: <%=it.menu.formateaFecha()%> </h3>
+
+      <h5 class="mt-4">Primer plat</h5>
+      <div id="primer"></div>
+      <h5 class="mt-4">Segon plat</h5>
+      <div id="segon"></div>
+      <h5 class="mt-4">Postre</h5>
+      <div id="postre"></div>
+
+      <%if (it.reserva.tupper === true) {%>
+      <div class="my-4">Amb tupper</div>
+      <%}%> 
+      <%if (it.reserva.estado === 'noProcesado') {%>
+        <form method="POST" action="/cancelaPedido">
+          <input type="hidden" name="idReserva" value="<%=it.reserva._id%>">
+          <button type="submit" class="mb-4 btn btn-primary">Cancel·la la comada</button> 
+        </form> 
+      <%}%>   
+    </div>
+    <%}%>
+  </div>
+</div>
+
+<script>
+<%
+    if (it.reserva && it.menu) {
+      var primer = it.reserva.getPrimer();
+      var primero = primer ? primer : 'Sense primer';
+      var segon = it.reserva.getSegon();
+      var segundo = segon ? segon : 'Sense segón';
+      var postra = it.reserva.getPostre();
+      var postre = postra ? postra : 'Sense postre';
+
+%>
+      var primerDiv = document.getElementById('primer');
+      if (primerDiv) primerDiv.innerHTML = "<%=primero%>";
+      if (primerDiv && <%=!primer%>) primerDiv.setAttribute('style', 'color:red;');
+      var segonDiv = document.getElementById('segon');
+      if (segonDiv) segonDiv.innerHTML = "<%=segundo%>";
+      if (segonDiv && <%=!segon%>) segonDiv.setAttribute('style', 'color:red;');
+      var postreDiv = document.getElementById('postre');
+      if (postreDiv) postreDiv.innerHTML = "<%=postre%>";
+      if (postreDiv && <%=!postra%>) postreDiv.setAttribute('style', 'color:red;');
+<% } %>
+
+      function goPago() {
+        document.forms.reservaForm.submit();
+      }
+
+      function actualizaPrecio() {
+        const primeroSel = document.querySelector('input[name="primer"]:checked');
+        const segundoSel = document.querySelector('input[name="segon"]:checked');
+        const postreSel = document.querySelector('input[name="postre"]:checked');
+        const tupperChk = document.querySelector('input[name="tupper"]');
+        const platoTexto = document.getElementById('tipoMenu_texto');
+        const suplementoTexto = document.getElementById('suplemento_texto');
+        const platoPrecio = document.getElementById('tipoMenu_precio');
+        const suplementoPrecio = document.getElementById('suplemento_precio');
+        const precioTotal = document.getElementById('total_precio')
+
+        if (!primeroSel || !segundoSel || !postreSel) return;
+        if (primeroSel.value && segundoSel.value && postreSel.value) {
+          //menu complert
+          platoTexto.innerHTML = '- Menú complert';
+          platoPrecio.innerHTML = '8 €';
+          precioTotal.innerHTML = '8 €';
+        } else if (primeroSel.value && segundoSel.value) {
+          //menu primer i segon sese postre
+          platoTexto.innerHTML = '- Menú sense postre';
+          platoPrecio.innerHTML = '6 €';
+          precioTotal.innerHTML = '6 €';
+        } else if (primeroSel.value && postreSel.value) {
+          //menu primer i postre sense segon
+          platoTexto.innerHTML = '- Menú sense segon';
+          platoPrecio.innerHTML = '6 €';
+          precioTotal.innerHTML = '6 €';
+        } else if (segundoSel.value && postreSel.value) {
+          //menu segon i postre sese primer
+          platoTexto.innerHTML = '- Menú sense primer';
+          platoPrecio.innerHTML = '6 €';
+          precioTotal.innerHTML = '6 €';
+        } else {
+          platoTexto.innerHTML = '<span style="color: red">Escull com a mínim dos plats</span>';
+          platoPrecio.innerHTML = '';
+        }
+        if (tupperChk.checked) {
+          suplemento_texto.innerHTML = '- Suplement tupper';
+          suplemento_precio.innerHTML = '2 €';
+          if (primeroSel.value && segundoSel.value && postreSel.value) {
+            precioTotal.innerHTML = '10 €';
+          } else {
+            precioTotal.innerHTML = '8 €';
+          }
+        } else {
+          suplemento_texto.innerHTML = '';
+          suplemento_precio.innerHTML = '';
+        }
+      }
+
+      function diaClick(diaActual) {
+        var diaHidden = document.getElementById('dia');
+        diaHidden.value = diaActual;
+        document.forms.calendarForm.submit();
+        return false;
+      }
+
+      var diasConMenu = eval('[' + '<%=it.diasConMenu%>' + ']');
+
+      function tieneMenu(d) {
+        for (let i = 0; i < diasConMenu.length; i++) {
+          if (d === diasConMenu[i]) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      function cargarCalendario() {
+      	var mesSeleccionado = parseInt(document.getElementById('mes').value);
+      	var anioSeleccionado = parseInt(document.getElementById('anio').value);
+      	var primerDiaMes = new Date(anioSeleccionado, mesSeleccionado - 1, 1);
+      	var ultimoDiaMes = new Date(anioSeleccionado, mesSeleccionado, 0);
+      	var numDiasMes = ultimoDiaMes.getDate();
+      	var primerDiaSemana = primerDiaMes.getDay();
+
+      	var calendario = document.getElementById('calendario');
+      	calendario.innerHTML = ''; // Limpiar contenido previo
+
+      	var filaEncabezado = document.createElement('tr');
+      	var diasSemana = ['Dg', 'Dl', 'Dt', 'Dc', 'Dj', 'Dv', 'Ds'];
+
+      	for (var i = 0; i < 7; i++) {
+      		var th = document.createElement('th');
+      		th.className = "p-2";
+      		th.textContent = diasSemana[i];
+      		filaEncabezado.appendChild(th);
+      	}
+      	calendario.appendChild(filaEncabezado);
+
+      	var fila = document.createElement('tr');
+      	for (var i = 0; i < primerDiaSemana; i++) {
+      		var td = document.createElement('td');
+      		fila.appendChild(td);
+      	}
+      	var diaActual = 1;
+      	while (diaActual <= numDiasMes) {
+      		var td = document.createElement('td');
+      		const diaSel = diaActual === <%=it.dia%> ? 'tdSeleccionado' : '';
+      		td.setAttribute('class', diaSel)
+      		td.setAttribute('id', 'd' + diaActual)
+
+      		if (tieneMenu(diaActual)) {
+      			var a = document.createElement('a');
+      			a.setAttribute('onclick', 'diaClick(' + diaActual + ')');
+      			a.setAttribute('class', 'link');
+      			a.setAttribute('href', '#');
+
+      			td.appendChild(a);
+      			a.textContent = diaActual;
+      		} else {
+      			td.textContent = diaActual;
+      			td.setAttribute('class', 'desactivado');
+      		}
+
+      		if (diaActual === new Date().getDate() && mesSeleccionado === (new Date().getMonth() + 1) && anioSeleccionado === new Date().getFullYear()) {
+      			td.style.border = 'solid';
+      			td.style.borderColor = '#007bff';
+      			td.style.color = 'blue';
+      			td.style.fontWeight = 'bold';
+      		}
+
+      		fila.appendChild(td);
+      		if ((primerDiaSemana + diaActual) % 7 === 0) {
+      			calendario.appendChild(fila);
+      			fila = document.createElement('tr');
+      		}
+      		diaActual++;
+      	}
+
+      	while ((primerDiaSemana + diaActual) % 7 !== 0) {
+      		var td = document.createElement('td');
+      		fila.appendChild(td);
+      		diaActual++;
+      	}
+      	calendario.appendChild(fila);
+
+      }
+
+      cargarCalendario(); // Cargar el calendario inicialmente
+
+      var diasConReserva = eval('[' + '<%=it.diasConReserva%>' + ']');
+      for (let i = 0; i < diasConReserva.length; i++) {
+      	var id = 'd' + diasConReserva[i];
+      	var td = document.getElementById(id);
+      	td.setAttribute('class', 'diaConReserva');
+      }
+    </script>

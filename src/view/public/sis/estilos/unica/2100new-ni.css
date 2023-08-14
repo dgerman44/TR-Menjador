@@ -1,0 +1,764 @@
+table .linkwrap{
+    word-wrap: normal;
+}
+
+.cancel-wr h2{
+    color: black;
+}
+
+.verified ul li a#iv-visa{
+    background-color: white;
+}
+
+.verified ul li a#iv-mc{
+    background-color: white;
+}
+
+.verified ul li a#iv-aex{
+    background-color: white;
+}
+
+.verified ul li a#iv-upi{
+    background-color: white;
+}
+
+.table-condensed td.text.green, .table-condensed td.textb.green, td.text.green, .text.green{
+    color: #19398A;
+}
+
+h3.sarrow {
+    background-image:url(/public/sis/graficos/logotipos/comunes/9999red-arrow.png);
+    background-repeat:no-repeat;
+    background-position:0 50%;
+    padding-left:10px;
+    cursor:pointer
+}
+
+.btn-accept, .btn-continue {
+    color:white;
+    font-weight:bold;
+    background-color:#000;
+    background-image: url(/public/sis/graficos/fondos/0049bg_boton_c.gif) #fafafa repeat-x center 50%;
+}
+
+.result-header {
+    background-color: #5F6062;
+    font-weight: bold;
+}
+
+#result-error .result-header {
+    background-color: #5F6062;
+    font-weight: bold;
+}
+
+.result-header .result-code {
+    font-weight: bold;
+}
+
+body {
+    background-color:white;
+    
+}
+
+.ticket-header {
+    color: black;
+    background-color: #000;
+}
+
+.ticket-info, .cards-mod-wr, .cards-mod-wr-upi {
+    background-color: #F6F6F6;
+    background-image: url(/public/sis/graficos/fondos/bg_degr1.gif) #fff repeat-x 50% bottom;
+}
+
+.table-condensed {
+
+}
+
+header#header {
+    padding:15px 0;
+    border-bottom:3px solid #EEE;
+    background-color:#f8f8f8;
+}
+
+.logoEntidad{
+    position: relative;
+    float: left;
+    left: 0;
+    margin-right: 0;
+}
+
+footer#footer {
+    border-top: red 4px solid;
+    background-color: #fafafa;
+    background-image: url(/public/sis/graficos/fondos/0049bg_cab3.gif) #fafafa repeat-x center 50% !important;
+}
+
+/*
+.ticket-info {
+    background-image: url(/public/sis/graficos/fondos/0049bg_cab3.gif) #fafafa repeat-x center 50%;
+}*/
+
+.half-circlel, .half-circler {
+    background: white !important;
+}
+
+.form-control {
+    background-color:white;
+}
+
+.icon-cvc-help {
+    background-color: #2198ED;
+}
+
+
+
+body .steps-wr .step.active {color: #2198ED}
+body div.trigger:after {border-top-color: #2198ED!important;}
+
+/*body #s-method.active {background-image: url(img/s-method-azul-a.png)!important;}
+body #s-auth.active {background-image: url(img/s-auth-azul-a.png)!important;}
+body #s-connect.active {background-image: url(img/s-connect-azul-a.png)!important;}
+body #s-result.active {background-image: url(img/s-result-azul-a.png)!important;}
+body .icon-cvc-help {background-image: url(img/icon_cvc-azul-help.png)!important;}
+body h3.sarrow {background-image: url(img/blue-arrow.png)!important;}*/
+
+.active.step .num{ 
+color: #2198ED; 
+}
+
+
+
+
+/*.boxIupay{
+    background-color: #F6F6F6;
+}*/
+
+.boxIupay:hover{
+   background-color:#fff;
+}
+
+
+.boxIupay{border-radius: 5px;}
+
+.ticket-header .price{
+    background-color: white;
+}
+
+
+
+
+
+/*
+------------------------------------------------
+************ --- REDISEÃ‘O CSS --- **************
+------------------------------------------------
+*/
+
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(../fonts/9k-RPmcnxYEPm8CNFsH2gg.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url(../fonts/wkfQbvfT_02e2IWO3yYueQ.woff) format('woff');
+}
+
+html,body{font-family: 'Lato', sans-serif;!important}
+
+header#header {
+    padding:15px 0;
+    border-bottom:3px solid #EEE;
+    background-color:#f8f8f8;
+}
+
+footer#footer{
+    border-top:3px solid #EEE;
+    background-color:#f8f8f8;
+    position: relative;
+}
+
+.logoComercio img{
+    max-width: 135px;
+    padding-right: 8px;
+}
+
+.logoEntidad{
+    position: relative;
+    float: left;
+    left: 0;
+    margin-right: 0;
+}
+
+.logoEntidad img{max-width: 140px;}
+
+
+.steps-wr{
+    width: 940px;
+    padding-left: 0;
+}
+
+.steps-wr .step{
+    width: 235px;
+    height: auto;
+    float: left;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0;
+}
+
+
+#s-method{background-image: url(/public/sis/graficos/logotipos/comunes/paso1-active.png);}
+#s-auth{background-image: url(/public/sis/graficos/logotipos/comunes/paso2.png);}
+#s-connect{background-image: url(/public/sis/graficos/logotipos/comunes/paso3.png);}
+#s-result{background-image: url(/public/sis/graficos/logotipos/comunes/paso4.png);}
+
+.step .num{
+    float: left;
+    font-size: 48px;
+    margin-left: 35px;
+    color: #d1d1d1;
+    margin-right: 7px;
+    line-height: 70px;
+    font-weight: 300;
+}
+
+.steps-wr .step p{
+    color: #d1d1d1;
+    margin: 0px 12px 0px 5px;
+    float: left;
+    width: 90px;
+    font-size: 12px;
+    line-height: 13px;
+    padding: 20px 0;
+}
+
+.steps-wr .step.active p{color: #333333;}
+
+#s-auth,li#s-connect,#s-result{
+    width: 235px;
+    left: 0;
+    padding-left: 0;
+}
+
+#body{
+    width: 940px;
+    margin:5px auto;
+}
+
+#header .container{
+    width: 940px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.ticket-header{
+    background-color: #f8f8f8;
+    color:#333;
+}
+
+.ticket-header .price{
+    border-bottom: 1px solid #DDD;
+    border-top: 2px solid #DDD;
+    border-left: none;
+    border-right: none;
+    padding: 10px 0px;
+}
+
+.ticket-header .price .left p{
+    text-align: left;
+    line-height: 21px;
+}
+
+.ticket-header .price .right p{
+    font-weight: 700;
+    font-size: 18px;
+    text-align: left;
+}
+
+.price .right{float: left!important;width: auto!important;}
+
+.ticket-header .half-circlel{display: none;}
+
+.ticket-header .price{background-color:#f8f8f8;}
+
+.ticket-header{padding: 10px 15px 0px 15px;}
+
+.ticket-header .price .left{width: 38%;}
+
+.ticket-info table tr{border-bottom: 1px solid #DDDDDD}
+
+.ticket-info{
+    background-color: #f8f8f8;
+    padding: 0px 18px;
+}
+.ticket-info .table-condensed>tbody>tr>td{padding: 12px 0;}
+
+.ticket-info table .text{
+    text-align: left;
+    font-weight: 700!important;
+    width: 37%;
+}
+
+.ticket-info table .numeric{
+    font-weight: normal;
+}
+
+table{width: 100%;}
+
+.ticket-header .circle{display: none;}
+
+.ticket-mod-wr{
+    background-color: #f8f8f8;
+    border: 1px solid #EEE;
+    border-radius: 6px;
+}
+
+div.datosDeLaOperacion{display: block;}
+
+.datosDeLaOperacion h1{
+    margin-bottom: 0;
+    color: #2198ED;
+    font-size: 22px;
+    font-weight: normal;
+    padding: 16px 0 0 16px;
+}
+
+.verified ul li a#iv-visa{
+    background: url(/public/sis/graficos/logotipos/comunes/9999verified_sm.png) 50% 50% no-repeat;
+    margin-top: 10px;
+}
+.verified ul li a#iv-mc{
+    background: url(/public/sis/graficos/logotipos/comunes/9999master_sm.png) 50% 50% no-repeat;
+    margin-top: 10px;
+}
+
+#body .col-wr{
+    width: 600px;
+}
+
+.result{
+    width: 290px!important;
+}
+
+.method-mod-wr{
+    padding: 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+h3.sarrow{
+    background-color: #F8F8F8;
+    border:1px solid #E5E5E5;
+    padding: 17px;
+    background-image: none;
+    margin-bottom: 0;
+    background-position: 97% 19px;
+    -webkit-transition: all 200ms ease-in-out;
+-moz-transition: all 200ms ease-in-out;
+-ms-transition: all 200ms ease-in-out;
+-o-transition: all 200ms ease-in-out;
+transition: all 200ms ease-in-out;
+}
+
+h3.sarrow:hover{background-color: #EEE;}
+
+.box-method-wr{
+    border-right: 1px solid #E5E5E5;
+    border-left: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.box{
+    width: 11%;
+    margin:0 3% 3% 3%;
+    min-width: 60px;
+}
+
+.cards-mod-wr{
+    border: 1px solid #E5E5E5;
+    padding: 0;
+    background-color: #FFF;
+    border-radius: 5px;
+}
+
+.cards-mod-wr-upi{
+    border: 1px solid #E5E5E5;
+    padding: 0;
+    background-color: #FFF;
+    border-radius: 5px;
+}
+
+input{
+    border:1px solid #CCC!important;
+    padding: 4px 6px;
+    height: 27px;
+}
+
+.datosTarjeta{
+    width: 235px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.datosTarjetaUPI{
+    width: 235px;
+    overflow: hidden;
+    margin: 0 auto;
+    /*display: none;*/
+}
+
+
+.tituloPagoTarjeta{
+    background-color: #F8F8F8!important;
+    border-bottom:1px solid #E5E5E5;
+    padding: 16px 0 3px 13px;
+    background-image: none;
+    margin-bottom: 0;
+    cursor: pointer;
+    background: no-repeat;
+    background-position: 97% 19px;
+    -webkit-transition: all 200ms ease-in-out;
+-moz-transition: all 200ms ease-in-out;
+-ms-transition: all 200ms ease-in-out;
+-o-transition: all 200ms ease-in-out;
+transition: all 200ms ease-in-out;
+}
+
+.tituloPagoTarjeta:hover{background-color: #EEE!important;}
+
+.tituloPagoTarjetaUPI{
+    background-color: #F8F8F8!important;
+    border-bottom:1px solid #E5E5E5;
+    padding: 16px 0 3px 13px;
+    background-image: none;
+    margin-bottom: 0;
+    cursor: pointer;
+    background: no-repeat;
+    background-position: 97% 19px;
+    -webkit-transition: all 200ms ease-in-out;
+-moz-transition: all 200ms ease-in-out;
+-ms-transition: all 200ms ease-in-out;
+-o-transition: all 200ms ease-in-out;
+transition: all 200ms ease-in-out;
+}
+
+.tituloPagoTarjetaUPI:hover{background-color: #EEE!important;}
+
+h3{font-size: 17px;color:#333;}
+
+#imgiupay{max-width: 65px}
+
+div.textoIupay{
+    vertical-align: 50%;
+}
+
+.enlaceTitleBox{
+padding: 9px 0 9px 13px;
+}
+
+.titleBoxIupay{
+    border: 1px solid #E5E5E5;
+background: #f8f8f8;
+background-color:#F8F8F8;
+border-radius: 5px;
+-webkit-transition: all 200ms ease-in-out;
+-moz-transition: all 200ms ease-in-out;
+-ms-transition: all 200ms ease-in-out;
+-o-transition: all 200ms ease-in-out;
+transition: all 200ms ease-in-out;
+}
+
+
+#inputCard{
+    width: 207px;
+}
+
+.center-cards{
+    min-width: none;
+    max-width: none;
+    margin-left: 15px;
+    width: auto;
+    margin-top: 3px;
+}
+
+.buttons-wr{
+    width: 235px!important;
+    margin: 12px 0;
+}
+
+.btn-accept,.btn-cancel{
+-webkit-transition: all 200ms ease-in-out;
+-moz-transition: all 200ms ease-in-out;
+-ms-transition: all 200ms ease-in-out;
+-o-transition: all 200ms ease-in-out;
+transition: all 200ms ease-in-out;
+}
+
+.btn-accept{
+    background-color: #2198ED;
+    float:right;
+    color:#EEE;
+    padding:7px 0;
+    text-transform: capitalize;
+}
+
+.btn-accept:hover{
+    background-color: #4FC1FB;
+    color:#FFF;
+}
+
+.btn-cancel{
+    padding: 7px 0;
+    float:left;
+    text-transform: capitalize;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+
+.btn-cancel:hover{background-color: #C1C1C1;border-color:#C1C1C1;}
+
+
+div.logoEsquemaServired{
+    width: 100px!important;
+    height: 31px!important;
+    margin-right: 9px;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+.logoEsquemaServired img{width: 100px!important;}
+
+.verified ul li{
+    height: 40px;
+    width: 77px;
+}
+
+.verified ul li a img{
+    max-width: 
+}
+
+.iv-aex{display: none;}
+
+.copyright{
+    margin-left: 0!important;
+    text-align: center;
+    width: 100%!important;
+    color: #777;
+    margin-top: 0px!important;
+}
+
+p.powered{
+    float: none;
+    display: block;
+    margin: 15px auto 7px auto;
+}
+
+.titleBox a .enlaceTitleBox{padding: 0;}
+
+.verified ul li a#iv-aex{background: url(/public/sis/graficos/logotipos/comunes/safekey_bf.png) 50% 50% no-repeat;margin-top: 5px;}
+.verified ul li a#iv-jcb{background: url(/public/sis/graficos/logotipos/comunes/jcb_bf.png) 50% 50% no-repeat;margin-top: 5px;}
+.verified ul li a#iv-4b{background: url(/public/sis/graficos/logotipos/comunes/secure-4b_bf.png) 50% 50% no-repeat;margin-top: 5px;}
+.verified ul li a#iv-upi{background: url(/public/sis/graficos/logotipos/comunes/9999upi.png) 50% 50% no-repeat;margin-top: 5px; background-size: 76px 40px;}
+
+.header-mobile{
+    display:none;
+    background: -moz-linear-gradient(top, rgba(221,221,221,0.8) 0%, rgba(222,222,222,0.8) 1%, rgba(255,255,255,0.8) 32%, rgba(255,255,255,0.8) 66%, rgba(221,221,221,0.8) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(221,221,221,0.8)), color-stop(1%,rgba(222,222,222,0.8)), color-stop(32%,rgba(255,255,255,0.8)), color-stop(66%,rgba(255,255,255,0.8)), color-stop(100%,rgba(221,221,221,0.8)));
+background: -webkit-linear-gradient(top, rgba(221,221,221,0.8) 0%,rgba(222,222,222,0.8) 1%,rgba(255,255,255,0.8) 32%,rgba(255,255,255,0.8) 66%,rgba(221,221,221,0.8) 100%);
+background: -o-linear-gradient(top, rgba(221,221,221,0.8) 0%,rgba(222,222,222,0.8) 1%,rgba(255,255,255,0.8) 32%,rgba(255,255,255,0.8) 66%,rgba(221,221,221,0.8) 100%);
+background: -ms-linear-gradient(top, rgba(221,221,221,0.8) 0%,rgba(222,222,222,0.8) 1%,rgba(255,255,255,0.8) 32%,rgba(255,255,255,0.8) 66%,rgba(221,221,221,0.8) 100%);
+background: linear-gradient(to bottom, rgba(221,221,221,0.8) 0%,rgba(222,222,222,0.8) 1%,rgba(255,255,255,0.8) 32%,rgba(255,255,255,0.8) 66%,rgba(221,221,221,0.8) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccdddddd', endColorstr='#ccdddddd',GradientType=0 );
+
+    box-shadow: 0px 1px 12px #999999;
+}
+
+
+.verified{
+    padding-left: 0;
+    margin-left: 11px;
+}
+
+/*cuadro iupay*/
+.enlaceTitleBox{padding: 0;}
+.titleBoxIupay{background-color:#FFF;}
+.pagoConIupay{
+    padding: 12px 0 3px 13px;
+    width: 100%;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #EEE;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+
+.pagoConIupay:hover{background-color: #EEE;}
+
+h3.pagoConIupay{background-position: 97% 50%;}
+.divFrameIuPay{
+    width: 295px;
+    margin: 0 auto;
+}
+
+
+.ieInputMail{
+    position: absolute;
+    margin-top: 34px;
+    width: 598px;
+    border: none!important;
+    right: 20%;
+    left: 40%;
+    background: url(/public/sis/graficos/logotipos/comunes/bg-fakeinput.png);
+    background-repeat: repeat;
+    color: #FFF;
+}
+
+/* PersonalizaciÃ³n Sabadell */
+/*.divFrameIuPay{display: none;}*/
+.datosTarjeta input:focus,.datosTarjeta input:active{box-shadow: 0 0 5px #2198ED;border: 1px solid #2198ED;}
+.datosTarjetaUPI input:focus,.datosTarjetaUPI input:active{box-shadow: 0 0 5px #2198ED;border: 1px solid #2198ED;}
+
+
+
+input[type="text"]#cad1, input[type="text"]#cad2{height:27px!important;}
+.inputTarjeta{width: 100%!important;}
+
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 979px){
+    #body,.steps-wr,#header .container{width: 724px;}
+    .steps-wr .step,#s-auth, li#s-connect, #s-result{width: 180px;background-position: 143px center;}
+    .step .num{margin-left: 7px;margin-right: 4px;line-height: 49px;}
+    .steps-wr .step p, #s-auth p{width: 85px;} 
+    .steps-wr li{padding-right: 0!important;}
+    .step{background-color: #FFF;border: 1px solid #EEE;}
+    .step.active{background-color: #F8F8F8;}
+    #s-method{background-image: url(/public/sis/graficos/logotipos/comunes/ico-paso1.png);}
+    #s-auth{background-image: url(/public/sis/graficos/logotipos/comunes/ico-paso2.png);}
+    #s-connect{background-image: url(/public/sis/graficos/logotipos/comunes/ico-paso3.png);}
+    #s-result{background-image: url(/public/sis/graficos/logotipos/comunes/ico-paso4.png);}
+    .steps-wr .step p{padding: 11px 0;}
+    #body{padding: 0;}
+    #body .col-wr{width: 425px;}
+}
+
+@media (max-width: 750px){
+    header#header{display: none;}
+    .steps-wr{display: none;}
+    #body{width: 100%;margin:0;}
+    .result{width: 100%!important;}
+    #body .col-wr{width: 100%;margin-top: 63px;}
+    .ticket-header .price{padding-left: 5px;}
+    .ticket-mod-wr{width: 90%;margin:20px auto;box-shadow:0px 7px 14px #CCC;}
+    .titleBoxIupay{margin-bottom: 0;}
+    .cards-mod-wr{margin-bottom: 0;}
+    .cards-mod-wr-upi{margin-bottom: 0;}
+    .method-mod-wr,.cards-mod-wr,.cards-mod-wr-upi,.titleBoxIupay{border-radius: 0;}
+    .verified{padding-left: 0;margin-left: 0;width:100%;margin:0 auto;}
+    .verified ul{width: 300px;padding-left: 4%;margin: 0 auto!important;}
+    .ticket-header{padding: 0px 15px 0px 15px;}
+    .ticket-header .price{border-top: 0;}
+    .datosDeLaOperacion h3{padding: 11px 0 10px 16px;background-color: #EEE;color: #000;text-align: center;border-bottom: 1px solid #DDD;}
+    .result{margin-bottom: 15px;}
+    h3.sarrow{}
+    .tituloPagoTarjeta{border-bottom: 0;}
+    .tituloPagoTarjetaUPI{border-bottom: 0;}
+    h3.sarrow,.cards-mod-wr,.cards-mod-wr-upi,.titleBoxIupay{border-right: 0;border-left: 0;}
+    .ticket-info table .text,.ticket-info .table-condensed>tbody>tr>td.numeric{font-size:14px;}
+	.header-mobile{display:block;color:#FFF;height:63px;position:fixed;top:0px;z-index:1;width:100%;}
+    .comercio-mobile, .precio-mobile{width:48%;display:block;float:left;margin-top:11px;}
+    .comercio-mobile{margin-left:2%;font-size: 14px;line-height: 19px;}
+    .precio-mobile{text-align:right;font-size:26px;line-height:37px;font-weight:700;margin-right:2%;color:#333;}
+    .col-wr.left, .col-wr.right{float: left;}
+    .datosTarjeta .col-wr{margin-top: 0!important;}
+    .datosTarjetaUPI .col-wr{margin-top: 0!important;}
+    .logoComercio img{border: none;max-width: auto;padding: 0;max-height: 45px}
+    .result{margin-top: 0!important;}
+    .box{margin: 0 10% 3% 3%;min-width: 70px;}
+
+    /*mostrar elementos desplegados o replegados en versiÃ³n mÃ³vil*/
+    .divFrameUPI{display: block;}
+    /*.divFrameIuPay{display: none;}
+    .box-method-wr{display: none;}*/
+
+}
+
+@media (max-width: 700px){
+.ticket-header .price{background-color: #f8f8f8;border-bottom:1px solid #DDD;}
+.ticket-header .price .left p,.ticket-header .price .right p{color:#333;}
+.ticket-header .price .left p{font-size: 14px;}
+.center-cards{display: block;}
+.btn-cancel,.btn-accept{width: auto;height: auto;margin-top: 23px;}
+.col-wr.left, .col-wr.right{float: left;}
+.datosTarjeta .col-wr{margin-top: 0;}
+.datosTarjetaUPI .col-wr{margin-top: 0;}
+}
+
+@media only screen and (max-width :479px) and (min-width :421px) {
+.verified{float: left;}
+}
+
+
+
+
+/* parte mÃ³vil */
+/*@media only screen and (max-width :700px) {
+
+header#header  {
+    min-height: 105px !important;
+}
+
+.lang-wr{
+    top: 75px !important;
+}
+
+.lang-wr .left p {
+    display: none;
+}
+
+.ticket-header .half-circlel, .ticket-header .half-circler{
+    display:none;
+}
+
+.ticket-header .price{
+    padding: 10px 10px 10px 10px !important;
+    border: 0px transparent;
+}
+
+.ticket-header .price .left{
+    width:none;
+}
+
+.ticket-header .price .left p{
+    text-align: left;
+    font-weight: bold;
+}
+.ticket-header .price .right{
+    text-align: right;
+    width:none;
+    font-weight: bold;
+    color:white;
+}
+
+.ticket-header .price .right p{
+    font-weight: bold;
+    color:white;
+    font-size: 14pt;
+}
+
+.ticket-header {
+    color: black;
+    background-color: white;
+    padding: 0px 0px 0px 0px;
+}
+
+}*/

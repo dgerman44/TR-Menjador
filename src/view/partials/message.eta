@@ -1,0 +1,18 @@
+<% 
+if (typeof(it.message) !== 'undefined' && it.message && it.message.text) {
+    const alertTypeClass = it.message.type === 'error' ? 
+        'alert-danger' : 
+        (it.message.type === 'warn' ?
+            'alert-warning' :
+            (it.message.type === 'ok' ?
+                'alert-success' :
+                'alert-info'));
+%>
+<div class="alert <%=alertTypeClass%> alert-dismissible fade show" role="alert">
+    <%=it.message.text%>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar">
+    </button>
+</div>
+<% 
+} 
+%>

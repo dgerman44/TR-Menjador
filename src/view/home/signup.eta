@@ -1,0 +1,47 @@
+<% layout('../layouts/fullwidth-nav') %>
+
+<div class="col-md-4 offset-md-4">
+  <div class="card mt-4 text-center">
+    <div class="card-header">
+      <h3>Registrar nueva cuenta</h3>
+    </div>
+    <div class="card-body">
+      <form action="/signup" method="POST">
+        <div class="d-grid gap-2">
+          <div class="form-floating">
+            <input type="text" name="firstName" id="firstName" placeholder="Nombre" class="form-control">
+            <label for="firstName">Nombre</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" name="lastName" id="lastName" placeholder="Apellidos" class="form-control">
+            <label for="lastName">Apellidos</label>
+          </div>
+          <div class="form-floating">
+            <input type="email" name="email" id="email" placeholder="Correo electrónico" class="form-control">
+            <label for="email">Correo electrónico</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" name="password" id="password" placeholder="Contraseña" class="form-control">
+            <label for="password">Contraseña</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" name="password2" id="password2" placeholder="Confirmar contraseña" class="form-control">
+            <label for="password">Confirmar contraseña</label>
+          </div>
+          <div class="form-floating">
+            <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="phoneNumber" class="form-control">
+            <label for="phoneNumber">Numero de telefon</label>
+          </div>
+          <button type="submit" class="btn btn-primary mt-4">
+            Register
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="p-5">
+  <a href="/login">Volver a Inicio de sesión</a>
+</div>

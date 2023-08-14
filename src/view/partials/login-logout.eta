@@ -1,0 +1,22 @@
+<% 
+if (it.currentUser) {
+  var href = '/logout';
+  var imgsrc = '/public/images/logout.png';
+  var title = 'Log out';
+} else {
+  var href = '/login';
+  var imgsrc = '/public/images/account.png';
+  var title = 'Login / Sign up';
+}  
+%>     
+<div>
+  
+  <% if (it.currentUser) { %>
+  <span class="text-white fs-6 ms-5"><%=it.currentUser.email%></span>
+  <% } %>
+
+  <a href="<%=href%>">
+      <img src="<%=imgsrc%>" alt="" title="<%=title%>">
+  </a>
+
+</div>

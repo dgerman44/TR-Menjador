@@ -1,0 +1,98 @@
+<% layout('../layouts/fullwidth-nav-logx') %>
+<br>
+<header>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <img class="img-dgb" src="/public/images/persona.jpg">
+        <h1><%= it.currentUser.firstName%></h1>
+        <br>
+        <h2>Informació personal</h2>
+        <form action="/profile-edit" method="POST">
+            <input type="hidden" name="_id" value="<%= it.currentUser._id %>" />
+            <table id="profileTable" class="table-dgb table-bordered">
+                <tr>
+                    <td>
+                        <h5>Nom:</h5>
+                    </td>
+                    <td id="td1">
+                        <span id="rem1"><%= it.currentUser.firstName%></span>
+                        <span id="pen1" class="fa fa-pencil" onclick="pen1('td1', 'rem1', 'pen1', 'Nombre')"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Cognoms:</h5>
+                    </td>
+                    <td id="td2">
+                        <span id="rem2"><%= it.currentUser.lastName%></span>
+                        <span id="pen2" class="fa fa-pencil" onclick="pen1('td2', 'rem2', 'pen2', 'Cognoms')"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Correu:</h5>
+                    </td>
+                    <td id="td3">
+                        <span id="rem3"><%= it.currentUser.email%></span>                        
+                    </td>
+                </tr>
+                <%if (it.currentUser.authType === 'local'){%>
+                <tr id="trCon">
+                    <td>
+                        <h5>Contrasenya:</h5>
+                    </td>
+                    <td id="td4">
+                        <span id="pen4" class="fa fa-pencil" onclick="pen2 ('td4', 'pen4', 'Contrasenya')"></span>
+                    </td>
+                </tr>
+                <%}%>
+                <tr>
+                    <td>
+                        <h5>Telèfon:</h5>
+                    </td>
+                    <td id="td5">
+                        <span id="rem5">
+                        <% if (it.currentUser.phoneNumber !== null) { %>                    
+                        <%=it.currentUser.phoneNumber%>
+                        <%}%>
+                        </span>
+                        <span id="pen5" class="fa fa-pencil" onclick="pen1('td5', 'rem5', 'pen5', 'Telefon')"></span>
+                    </td>
+                </tr>
+            </table>
+            <button class="btn btn-primary mt-2" type="submit">Guarda</button>
+        </form>
+        <br>
+    </div>
+<header>
+<script>
+    function pen1 (idPadre,idRem, idPen, name) {
+        const Text1 = document.createElement ('input');
+        const rem = document.getElementById (idRem);
+        const continer = document.getElementById (idPadre);
+        const pen = document.getElementById (idPen);
+        pen.remove();
+        Text1.setAttribute('type', 'text');
+        Text1.setAttribute('name', name)
+        Text1.value = rem.textContent;
+        rem.remove();
+        continer.appendChild(Text1);
+    };
+    function pen2 (idPadre, idPen) {
+        const pwd1 = document.createElement ('input')
+        const pwd2 = document.createElement ('input');
+        const pen = document.getElementById (idPen);
+        const continer = document.getElementById (idPadre);
+        pen.remove();
+
+        pwd1.setAttribute('type', 'password');
+        pwd1.setAttribute('name', 'pwd1');
+        pwd1.placeholder = 'Canvia la contrasenya';
+
+        pwd2.setAttribute('type', 'password');
+        pwd2.setAttribute('name', 'pwd2');
+        pwd2.placeholder = 'Confirma contrasenya';
+        
+        continer.appendChild(pwd1);
+        continer.appendChild(pwd2);
+    };
+</script>

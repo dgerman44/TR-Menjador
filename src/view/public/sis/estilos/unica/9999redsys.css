@@ -1,0 +1,3321 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	font:inherit;
+	vertical-align:baseline
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display:block
+}
+body {
+	line-height:1
+}
+ol, ul {
+	list-style:none
+}
+blockquote, q {
+	quotes:none
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content:'';
+	content:none
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0
+}
+body {
+	background-color:#eeeeef
+}
+*, *:before, *:after {
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box
+}
+
+/* IE conditional styles
+================================================== */
+input[type="radio"].ieradio{
+	display: inline;
+}
+input[type="radio"].ieradio + label:before{
+	content: none;
+	background: none;
+	display: inline;
+	width: auto;
+	height: auto;
+}
+input[type="radio"].ieradio:checked + label:before{
+	content: none;
+	background: none;
+}
+input[type="checkbox"].iecheckbox{
+	display: inline;
+}	
+input[type="checkbox"].iecheckbox + label:before{
+	display: inline;
+	width: auto;
+	height: auto;
+	background: none;
+	position: static;
+}
+input[type="checkbox"].iecheckbox:checked + label:before{
+	position: static;
+	top: auto;
+	background: none;
+	color: none;
+}
+
+.equal-height{
+	background:#fff;
+}
+
+div.evuala-select {
+	position:relative;
+	font-size:10pt;
+	color:#46565d
+}
+div.evuala-select.disabled {
+	opacity:.5
+}
+div.evuala-select select:focus+div.trigger.open {
+	box-shadow:none
+}
+div.evuala-select div.trigger {
+	border-radius:4px;
+	cursor:pointer;
+	padding:10px 24px 9px 9px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	position:relative;
+	background:#f6f5f4;
+	color:#4b5468;
+	width:200px;
+	transition:all 240ms ease-out;
+	-webkit-transition:all 240ms ease-out;
+	-moz-transition:all 240ms ease-out;
+	-ms-transition:all 240ms ease-out;
+	-o-transition:all 240ms ease-out
+}
+div.evuala-select div.trigger:after {
+	content:"";
+	display:block;
+	position:absolute;
+	width:0;
+	height:0;
+	border:5px solid transparent;
+	border-top-color:#fdb411;
+	top:16px;
+	right:9px
+}
+div.evuala-select div.trigger.open {
+	background:#e6e6e6;
+	color:#7a8498;
+	box-shadow:none
+}
+div.evuala-select div.trigger.open:after {
+	border-top-color:#fda306
+}
+div.evuala-select ul.options {
+	list-style:none;
+	margin:0;
+	position:absolute;
+	top:10px;
+	left:0;
+	visibility:hidden;
+	opacity:0;
+	z-index:50;
+	max-height:200px;
+	overflow:auto;
+	background:#fdb411;
+	border-radius:4px;
+	border-top:1px solid #fda306;
+	box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+	min-width:200px;
+	padding:6px 0;
+	transition:opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+	-webkit-transition:opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+	-moz-transition:opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+	-ms-transition:opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+	-o-transition:opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out
+}
+div.evuala-select ul.options.open {
+	visibility:visible;
+	top:40px;
+	opacity:1;
+	transition:opacity 300ms ease-out, top 300ms ease-out;
+	-webkit-transition:opacity 300ms ease-out, top 300ms ease-out;
+	-moz-transition:opacity 300ms ease-out, top 300ms ease-out;
+	-ms-transition:opacity 300ms ease-out, top 300ms ease-out;
+	-o-transition:opacity 300ms ease-out, top 300ms ease-out
+}
+div.evuala-select ul.options.overflowing {
+	top:auto;
+	bottom:40px;
+	transition:opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+	-webkit-transition:opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+	-moz-transition:opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+	-ms-transition:opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+	-o-transition:opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out
+}
+div.evuala-select ul.options.overflowing.open {
+	top:auto;
+	bottom:50px;
+	transition:opacity 300ms ease-out, bottom 300ms ease-out;
+	-webkit-transition:opacity 300ms ease-out, bottom 300ms ease-out;
+	-moz-transition:opacity 300ms ease-out, bottom 300ms ease-out;
+	-ms-transition:opacity 300ms ease-out, bottom 300ms ease-out;
+	-o-transition:opacity 300ms ease-out, bottom 300ms ease-out
+}
+div.evuala-select ul.options li {
+	padding:6px 12px;
+	color:#fff;
+	cursor:pointer;
+	white-space:nowrap;
+	transition:all 150ms ease-out;
+	-webkit-transition:all 150ms ease-out;
+	-moz-transition:all 150ms ease-out;
+	-ms-transition:all 150ms ease-out;
+	-o-transition:all 150ms ease-out
+}
+div.evuala-select ul.options li.hover {
+	color:#ededee
+}
+
+.ieselect{
+	font-family: Arial, Helvetica, "Lucida Grande", sans-serif;
+	font-size: 10pt;
+	line-height: 20px;
+	height: 28px;
+	width: auto;
+	height: auto;
+	position: relative;
+	top: auto;
+	left: auto;
+	opacity: 1;
+}
+
+
+
+/* @import url(../fonts/cssFontUbuntu.css); */
+html, body {
+	margin:0;
+	padding:0;
+/*	height:100%;*/
+	font-family:'Ubuntu', sans-serif;
+	font-size:10pt;/*0.750em*/
+	color:#2b2b2b;
+	min-width: 300px;
+}
+h2.pagoConTarjeta {
+	font-weight:bold;
+	font-size:17px;
+	margin-bottom:12px;
+	color:#333;
+}
+h3 {
+	font-weight:bold;
+	font-size:11pt;
+	margin-bottom:12px
+}
+
+div.datosDeLaOperacion{
+	display:none;
+}
+
+div.datosDeLaOperacion h1 {
+	margin-bottom: 0;
+    font-size: 22px;
+    font-weight: normal;
+    padding: 16px 0 0 16px;
+}
+
+div.tituloSeleccioneMetodoDePago{
+	display:none;
+}
+
+#container {
+	min-height:100%;
+	position:relative
+}
+header#header {
+	float: left;
+	width: 100%;
+	margin-top: 0px;
+	top: 0px;
+	position: relative;
+	margin-bottom: 5px;
+	clear:both;
+
+	min-height:60px;
+	background:#fff;
+	padding-top:10px;
+	padding-bottom:8px;
+	border-bottom:4px solid #ce5c25
+}
+
+header#header.headerTieneLogoComercio {
+	min-height: 84px;
+}
+
+header#header div.container div.btn-volver-responsive {
+	display: none;
+}
+
+div#body div.header-mobile {
+    justify-content: space-between;
+}
+div#body div.header-mobile div.comercio-mobile {
+	margin: 0 0 0 10px;
+    align-self: center;
+}
+div#body div.header-mobile div.precio-mobile {
+	margin: 0 10px 0 0;
+    align-self: center;
+    font-size: 26px;
+}
+
+#body {
+	width:640px;
+	margin:14px auto;
+	padding:10px;
+	padding-top:10px;
+	padding-bottom:58px
+}
+#body .col-wr {
+	width:290px;
+}
+footer#footer {
+/*	position:fixed; */
+	float:left;
+	bottom:0px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	margin-top: 40px;
+	width:100%;
+/*	padding-top:24px;*/
+	min-height:72px;
+	max-height:200px;
+	background:#fff;
+	border-top:4px solid #ce5c25;
+	z-index: -2;
+}
+.clear-fix {
+	clear:both
+}
+.left {
+	float:left
+}
+.right {
+	float:right;
+	clear:right;
+}
+.hide {
+	display:none
+}
+.visible {
+	display:block
+}
+.row {
+	margin-right:0;
+	margin-left:0
+}
+.img-responsive {
+	display:block;
+	height:auto;
+	max-width:100%
+}
+.lang-wr {
+	float: right;
+	margin-right: 10px;
+}
+
+/*.lang-wr*/ .idiomasTieneLogoComercio {
+	position: absolute;
+	float: right;
+	/*top: 55px;*/
+	bottom: 5px;
+	right: 5px;
+	margin: 0 5px 0 0 !important;
+}
+
+.langline-wr{display: none}
+.lang-wr .left p {
+	line-height:34px;
+	color:#464646;
+	font-size:10pt;
+	margin-right:8px;
+	margin-top:-5px;
+	padding-right:4px;
+}
+
+.lang-wr .right select {
+	margin-top:5px;
+}
+
+.logoComercio{
+	position:relative;
+	float: left;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-top: -5px;
+	margin-left: 10px !important;
+}
+.logoComercio img{
+	min-height: 44px;
+	width: auto;
+	max-width: 170px;
+}
+
+
+.logoEntidad{
+	position:absolute;
+	float: right;
+	left:45%;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-top: -5px;
+	
+}
+.logoEntidad img{
+/*	height: 44px; */
+	width: auto;
+	max-width: 167px;
+}
+
+/*.logoEntidad.*/.logoEntidadTieneLogoComercio {
+	position: relative;
+	left: 0;
+	right: 5px;
+	margin: 0 15px 0 0 !important;
+}
+
+.logoEntidadNoHayLogoComercio {
+	position: inherit;
+    float: left;
+    margin: 0 0 0 10px;
+}
+
+/*h1.logo {
+	width:110px;
+	height:39px;
+	display:block;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999logo.png);
+	background-repeat:no-repeat;
+	font:0/0 a;
+	text-shadow:none;
+	color:transparent;
+	position:absolute;
+	left:50%;
+	margin-left:-55px;
+}*/
+
+h3.sarrow {
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999yellow-arrow.png);
+	background-repeat:no-repeat;
+	background-position:0 50%;
+	padding-left:10px;
+	cursor:pointer
+}
+
+h3.pagoConIupay {
+	text-decoration:none !important;
+	background-repeat:no-repeat;
+	background-position:0 50%;
+	cursor:pointer;
+	padding-left:10px;
+	margin:0;
+	display:table;
+}
+
+div.textoIupay {
+	margin:auto;
+	display: inline;
+	text-decoration:none !important;
+	vertical-align: 100%;
+}
+
+div.logoIupayClick{
+	display: inline;
+	margin-left:10px;
+}
+
+a.linkIupay{
+	text-decoration:none;
+}
+
+
+p.powered {
+	width: 134px;
+	height: 30px;
+	display: block !important;
+	float: none !important;
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999powered.png);
+	background-repeat: no-repeat;
+	font: 0/0 a;
+	text-shadow: none;
+	color: transparent;
+    margin: 15px auto 7px auto;
+}
+
+p.letraPAE {
+	margin-top: 18px;
+	font-weight: bold;
+}
+
+div.logoEsquemaServired {
+	float: left;
+	display:inline-block;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+div.copyright {
+	float:left;
+	font-size:8pt;
+	display:inline-block;
+	/*margin-top: 20px;*/
+	margin-top: 0px !important;
+	/*margin-left: 25%;*/
+	margin-left: 0 !important;
+	margin-bottom:10px;
+	/*width: 33%;*/
+    width: 100% !important;
+    text-align: center;
+    color: #777;
+}
+
+
+
+div.logoEsquema4b {
+	float: left;
+	display:inline-block;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+}
+
+div.logoEsquemaEuro6000 {
+	float: left;
+	display:inline-block;
+	margin-top: 10px;
+	margin-left: 24px;
+	margin-bottom: 10px;
+}
+
+.main-wrapper {
+	padding:40px;
+	text-align:center
+}
+.steps-wr {
+/*	margin-top: 14px;*/
+	text-align: center;
+	width: 640px;
+	margin: 0px auto 0px;
+	display: block;
+	padding-left: 10px;
+}
+.steps-wr .step {
+	width:152px;
+	height:34px;
+	float: left;
+/*	background-color:#f6f6f7;*/
+	background-repeat:no-repeat;
+	padding:6px 40px 6px 5px;
+	font-size:8pt;
+/*	font-size:0.625em;*/
+/*	line-height:1.1em;*/
+	color:#b4b4b4
+}
+.steps-wr .step p {
+	display: inline-block;
+	text-align: left;
+	width: 78px; /*82*/
+	float: left;
+	margin-top: -4px;
+}
+.steps-wr .step.active {
+/*	background-color:#fff;*/
+	color:#fdb411
+}
+#s-method {
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999s-method.png)
+}
+#s-auth {
+	width:159px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999s-auth.png);
+	position:relative;
+	left:-2px;
+	padding-left:20px;
+}
+#s-auth p{
+	width: 78px;
+}
+#s-connect {
+	width:164px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999s-connect.png);
+	padding-left:20px;
+	position:relative;
+	left:-4px;
+}
+#s-result {
+	width:154px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999s-result.png);
+	padding-left:20px;
+	position:relative;
+	left:-8px;
+}
+#s-result p{
+	width: 70px;
+}
+/*
+#s-method.active {
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999s-method-a.png)
+}
+#s-auth.active {
+	width:160px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999s-auth-a.png);
+	position:relative;
+	left:-4px;
+}
+#s-connect.active {
+	width:164px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999s-connect-a.png);
+	padding-left:48px;
+	position:relative;
+	left:-4px;
+}
+#s-result.active {
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999s-result-a.png);
+	padding-left:48px;
+	position:relative;
+	left:-8px;
+}
+*/
+.main-wrapper h3 {
+	margin:0;
+	padding:0;
+	font-size:14pt; /* 1.000em; */
+	font-weight:bold;
+	text-align:left;
+	margin-bottom:20px
+}
+.steps {
+	margin-top:30px;
+	margin-bottom:20px;
+	width:100%;
+	overflow:hidden;
+	margin-left:-15px;
+}
+.step .num {
+	display:inline-block;
+	margin-right:2px;
+	font-size:24pt;
+	line-height: 20px;
+	color: #D5D5D5;
+	font-weight: bold;
+	float: left;
+	margin-top: 1pt;
+}
+.step.active .num {
+	color:#fdb411;
+}
+.step .txt {
+	display:inline-block;
+}
+
+.numeric {
+	text-align:right;
+	margin-top: 7px;
+}
+
+
+.tituloPagoTarjeta {
+	width: 100%;
+	float:left;
+	clear:both;
+}
+
+.tituloPagoTarjetaUPI {
+	width: 100%;
+	float:left;
+	clear:both;
+}
+
+.lineaPagoTarjeta {
+	width: 100%;
+	float:left;
+	clear:both;
+	min-height:40px;
+}
+
+.detalleTarjeta{
+	float:left;
+	clear:left;
+	text-align:left;
+	margin-top: 6px;
+	width: 28%;
+	margin-right: 5px;
+}
+
+.inputTarjeta{
+	float:left;
+	width: 100%!important;
+}
+
+
+/* Ponemos en siguiente lï¿½nea porque para 12pt es demasiado grande */
+.lineaPagoTarjeta {
+	margin-top: 7px;
+	height: 50px;
+}
+
+.detalleTarjeta {
+	width: 100%;
+}
+
+.inputTarjeta {
+	margin-top: 4px;
+}
+
+
+div.cards-mod-wr div.datosTarjeta div#ofrecerPAE {
+	width: 100%;
+    margin: 10px auto 10px auto;
+    text-align: center;
+    line-height: 24px;
+    font-size: 13px;
+    float: left;
+}
+div.cards-mod-wr div.datosTarjeta div#ofrecerPAE img:hover,
+div.cards-mod-wr div.datosTarjeta div#ofrecerPAE input[type="button"]#infoPAE.icon-cvc-help:hover {
+	cursor: pointer;
+}
+
+div.cards-mod-wr div.datosTarjeta div#ofrecerPAE img{
+	max-height: 53px;
+}
+
+div.cards-mod-wr div.datosTarjeta div#ofrecerBNPL {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+    margin: 10px auto 0 auto;
+    text-align: center;
+    line-height: 24px;
+    font-size: 13px;
+    float: left;
+}
+
+td.numeric, th.numeric {
+	text-align:right;
+}
+table {
+	width:290px;
+	max-width:100%;
+	border-collapse:collapse;
+	border-spacing:0;
+}
+.table {
+	width:100%;
+	margin-bottom:18px
+}
+.table th, .table td {
+	padding:8px;
+	line-height:18px;
+	text-align:left;
+	vertical-align:top;
+	border-top:1px solid #ddd
+}
+.table th {
+	font-weight:bold
+}
+.table thead th {
+	vertical-align:bottom
+}
+.table thead:first-child tr th, .table thead:first-child tr td {
+	border-top:0
+}
+.table tbody+tbody {
+	border-top:2px solid #ddd
+}
+.table-condensed th, .table-condensed td {
+	padding:4px 5px
+}
+.table-bordered thead:first-child tr:first-child th, .table-bordered tbody:first-child tr:first-child th, .table-bordered tbody:first-child tr:first-child td {
+	border-top:0
+}
+.table-bordered thead:first-child tr:first-child th:first-child, .table-bordered tbody:first-child tr:first-child td:first-child {
+	-webkit-border-radius:4px 0 0 0;
+	-moz-border-radius:4px 0 0 0;
+	border-radius:4px 0 0 0
+}
+.table-bordered thead:first-child tr:first-child th:last-child, .table-bordered tbody:first-child tr:first-child td:last-child {
+	-webkit-border-radius:0 4px 0 0;
+	-moz-border-radius:0 4px 0 0;
+	border-radius:0 4px 0 0
+}
+.table-bordered thead:last-child tr:last-child th:first-child, .table-bordered tbody:last-child tr:last-child td:first-child {
+	-webkit-border-radius:0 0 0 4px;
+	-moz-border-radius:0 0 0 4px;
+	border-radius:0 0 0 4px
+}
+.table-bordered thead:last-child tr:last-child th:last-child, .table-bordered tbody:last-child tr:last-child td:last-child {
+	-webkit-border-radius:0 0 4px 0;
+	-moz-border-radius:0 0 4px 0;
+	border-radius:0 0 4px 0
+}
+.table-striped tbody tr:nth-child(odd) td, .table-striped tbody tr:nth-child(odd) th {
+background-color:#f9f9f9
+}
+.table tbody tr:hover td, .table tbody tr:hover th {
+	background-color:#f5f5f5
+}
+table .span1 {
+	float:none;
+	width:44px;
+	margin-left:0
+}
+table .span2 {
+	float:none;
+	width:124px;
+	margin-left:0
+}
+table .span3 {
+	float:none;
+	width:204px;
+	margin-left:0
+}
+table .span4 {
+	float:none;
+	width:284px;
+	margin-left:0
+}
+table .span5 {
+	float:none;
+	width:364px;
+	margin-left:0
+}
+table .span6 {
+	float:none;
+	width:444px;
+	margin-left:0
+}
+table .span7 {
+	float:none;
+	width:524px;
+	margin-left:0
+}
+table .span8 {
+	float:none;
+	width:604px;
+	margin-left:0
+}
+table .span9 {
+	float:none;
+	width:684px;
+	margin-left:0
+}
+table .span10 {
+	float:none;
+	width:764px;
+	margin-left:0
+}
+table .span11 {
+	float:none;
+	width:844px;
+	margin-left:0
+}
+table .span12 {
+	float:none;
+	width:924px;
+	margin-left:0
+}
+.tblock{
+	display: block;
+	min-width: 100px;
+}
+.icon {
+	display:block;
+	width:19px;
+	height:18px;
+	background-repeat:no-repeat;
+	position:relative;
+	bottom:-4px
+}
+.icon.i-card {
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999icon_card.png);
+	margin-right: 4px;
+}
+.icon.i-cardName {
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999icon_cardName.png);
+	margin-right: 4px;
+}
+.icon.i-cal {
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999icon_cal.png);
+	margin-right: 4px;
+}
+.icon.i-lock {
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999icon_lock.png);
+	margin-right: 4px;
+}
+.icon.i-mail {
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999icon_mail.png);
+	margin-right: 4px;
+}
+
+.buttons-wr {
+	text-align:right;
+	padding-top:3px
+}
+.btn:focus {
+	outline:0
+}
+.btn {
+/*	min-width:98px;*/
+	text-align:center;
+	white-space:nowrap;
+	vertical-align:middle;
+	cursor:pointer;
+	background-image:none;
+	border:1px solid transparent;
+	border-radius:4px;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	-o-user-select:none;
+	user-select:none;
+	display:inline-block;
+	padding:4px 12px;
+	margin-bottom:0;
+	font-size:10pt;
+	letter-spacing:.05em;
+	line-height:20px;
+	color:#333;
+	text-align:center;
+	vertical-align:middle;
+	cursor:pointer;
+	background-color:#f5f5f5;
+	text-transform:uppercase
+}
+
+
+.form-control {
+	display:block;
+/*	width:80%;*//*100%*/
+	height:24px;
+	padding:6px 12px;
+	font-size:10pt;
+	line-height:1.428571429;
+	color:#555;
+	vertical-align:middle;
+	background-color:#f6f5f4;
+	background-image:none;
+	border:0;
+	border-radius:4px;
+	outline:0;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+-webkit-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+input[type="text"]#cad1, input[type="text"]#cad2, input[type="text"]#cad1_upi, input[type="text"]#cad2_upi {
+	min-width:55px;
+	float:left
+}
+input[type="text"]#cad1, input[type="text"]#cad1_upi {
+	margin-right:8px
+}
+input[type="password"]#codseg {
+	width:70px
+}
+input[type="password"]#codseg_upi {
+	width:70px
+}
+
+/*RECORDAR TARJETA*/
+.saveCardList p {
+	margin: 0;
+}
+.labelSaveCard {
+	display: flex!important;
+    align-items: center;
+    gap: 10px;
+    width: 100%!important;
+    cursor: pointer;
+}
+.savecard-image {
+  	background-image: url("/public/sis/graficos/formulario/cc-front.svg"); 
+  	background-repeat: no-repeat;
+  	background-position-x: center;
+  	height: 24px;
+  	width: 35px;
+  	border: 1px solid #c3c3c3;
+  	border-radius: 4px;
+}
+.savecard-image.visa {
+	background-image: url("/public/sis/graficos/formulario/cc-visa-minicon.svg");
+}
+.savecard-image.mc {
+	background-image: url("/public/sis/graficos/formulario/cc-mc-minicon.svg");
+}
+.savecard-image.amex {
+	background-image: url("/public/sis/graficos/formulario/cc-amex-minicon.svg");
+}
+.savecard-image.disc {
+	background-image: url("/public/sis/graficos/formulario/cc-disc-minicon.svg");
+}
+.savecard-image.dinners {
+	background-image: url("/public/sis/graficos/formulario/cc-dinners-minicon.svg");
+}
+.savecard-image.jcb {
+	background-image: url("/public/sis/graficos/formulario/cc-jcb-minicon.svg");
+}
+.savecard-image.upi {
+	background-image: url("/public/sis/graficos/formulario/cc-upi-minicon.svg");
+}
+
+.cards-mod-wr table {
+	font-size:10pt
+}
+
+.cards-mod-wr-upi table {
+	font-size:10pt
+}
+
+.form-control:focus {
+	outline:0
+}
+.center-cards {
+	min-width: 50%;
+	max-width: 70%;
+	margin-left: 25%;
+	margin-top: 10px;
+	float:left;
+	/* width:100%; */
+}
+
+.center-cards .microcard{
+	display: table-cell;
+	width: 30px;
+	background-repeat: no-repeat;
+	height: 14px;
+	text-align: center;
+}
+
+#micro-visa.microcard{
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999minicon-visa.jpg);
+}
+
+#micro-master1.microcard{
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999minicon-mastercard.jpg);
+}
+
+#micro-master2.microcard{
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999minicon-mastercard2.jpg);
+}
+
+#micro-american.microcard{
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999minicon-americanexpress.jpg);
+}
+
+#micro-jcb.microcard{
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999minicon-jcb.jpg);
+}
+
+#micro-dinners.microcard{
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999minicon-dinners.jpg);
+}
+
+#micro-discover.microcard{
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999minicon-discover.jpg);
+	height: 20px;
+}
+
+#micro-upi.microcard{
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999minicon-upi.jpg);
+}
+
+#micro-xelmon.microcard{
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999minicon-xelmon.png);
+	height: 20px;
+}
+
+.xelmon-image{
+	background-image: url(/public/sis/graficos/logotipos/entidad/49.png);
+}
+
+/************** XELMON **************/ 
+.modal-content h2{
+	font-size: 1.5em;
+}
+
+
+
+div.xelmon-container {
+	margin-top : 10px;
+	text-align: left;
+	color: #717782;
+	font-size: 12px;
+	float: left;
+	width: 100%;
+}
+
+div.xelmon-container div#xelmon {
+	display: grid;
+	grid-auto-flow: column;
+	align-items: center;
+	grid-template-columns: 48% 0% 52%;
+}
+
+div.xelmon-container div#xelmon div.centerXelmon {
+	display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+    grid-template-columns: 20% 80%;
+    height: 40px;
+}
+
+div.xelmon-container div#xelmon div.centerXelmon input[type="radio"] {
+	height: auto !important;
+}
+div.xelmon-container div#xelmon div.centerXelmon img#entity-image { height: 25px; }
+div.xelmon-container div#xelmon div.centerXelmon img.marca-image { height: 40px; }
+
+div.xelmon-container div#xelmon div.centerXelmon input[type="radio"]:hover,
+div.xelmon-container div#xelmon div.centerXelmon img#entity-image:hover,
+div.xelmon-container div#xelmon div.centerXelmon img.marca-image:hover {
+	cursor: pointer;
+}
+
+/* Ventana modal XELMON */
+div#modal.ventanaXelmon div.modal-content div#tituloXelmon {
+	display: flex;
+	align-items: flex-end;
+}
+div#modal.ventanaXelmon div.modal-content div#tituloXelmon img {
+	width: 40px;
+}
+div#modal.ventanaXelmon div.modal-content div#tituloXelmon h2 {
+	padding-left: 10px;
+	color: #000000;
+}
+div#modal.ventanaXelmon div.modal-content p.textoXelmon {
+	margin: 1em 0;
+}
+div#modal.ventanaXelmon div.modal-content div#botoneraXelmon {
+	text-align: right;
+}
+
+/* En la actual UX no se utiliza el xelmon responsive */
+div.xelmon-container div#xelmonResponsive {
+	display: none;
+}
+
+/* Ventana modal BNPL*/
+.apartadoModalBNPL{
+	padding: 30px;
+	background-color: #efefef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 10px;
+    justify-content: space-around;
+}
+
+.espaciadoBNPL {
+	margin: 10px;
+}
+.boldText {
+	font-weight: bold;
+}
+.bnplText {
+	margin: 10px;
+    color: #376cbd;
+    font-weight: bold;
+    text-align: center;
+}
+.infoPlazosBNPL{
+	text-align: center;
+    margin-top: 10px;
+    font-size: 13px;
+}
+.listaInfoBNPL, 
+.textoInfoWeChat{
+	font-size: 15px;
+    text-align: justify;
+}
+
+.textoInfoWeChat{
+	display: flex;
+    flex-direction: column;
+}
+
+.listaInfoBNPL > p {
+    margin-top: 15px;
+}
+
+.textoInfoBnpl{
+    color: #789FF9;
+    font-weight: bold;
+}
+
+div#modal.ventanaBNPL div.modal-content,
+div#modal.ventanaWeChat div.modal-content{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 17px;
+}
+
+/* WeChat */
+.btn-red {
+	background-color: #e60000 !important;
+	font-weight: bold;
+	color: white;
+}
+
+.qrWeChatWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.apartadoModalWeChat>*:not(:first-child) {
+	margin-top: 30px;
+}
+
+.btn-big{
+	padding: 7px 30px !important;
+	border-radius: 8px;
+	height: auto !important;
+}
+
+.apartadoModalWeChat {
+	padding: 30px;
+	background-color: #98E084;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	justify-content: space-around;
+}
+/* END WeChat */
+
+.ticket-mod-wr {
+	background:#fff
+}
+.ticket-header {
+	background-color:#fdb411;
+	padding:14px 28px;
+	position:relative
+}
+.ticket-info{
+	min-height:140px;
+}
+
+.result-mod-wr {
+	background:#fff
+}
+#result-ok .result-header {
+	background-color: #779500;
+	padding: 14px 28px;
+	padding-right: 20px;
+	position: relative;
+}
+
+#result-ok .paymentbox{
+	padding: 16px 22px 20px 50px;
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999paymentbox.png);
+	background-position: -35px -16px;
+	margin-top: 24px;
+}
+
+#result-ok .paymentbox .col{
+	width: 48.5%;
+}
+
+#result-ok .paymentbox h4{
+	font-size: 12pt;
+	margin-bottom: 4px;
+	font-weight: bold;
+}
+
+#result-ok .paymentbox p, #result-ok .paymentbox ul li{
+	font-size: 10pt;
+	line-height: 1.2em;
+}
+
+#result-ok .paymentbox ul{
+	margin-bottom: 10px;
+}
+
+#result-error .result-header{
+	background-color:#b41100;
+	padding:14px 28px;
+	position:relative
+}
+
+.result-header .result-code{
+	color: #fff;
+	padding: 12px 12px;
+	padding-left: 60px;
+}
+
+.result-header .result-code.ok{
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999thumbup.png);
+	background-repeat: no-repeat;
+}
+
+.result-header .result-code.error{
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999thumbdown.png);
+	background-repeat: no-repeat;
+	background-position: 0 8px;
+}
+
+.result-header .result-code p{
+	font-size: 10pt;
+}
+
+.result-info {
+	min-height:178px;
+}
+
+div#result-info div.buttons-wr input[type="button"] {
+    padding: 4px 12px !important;
+}
+
+.result-info .tableresults>tbody>tr>td {
+	padding:10px 0;
+	padding-left: 6px;
+}
+.result-info .tableresults>tbody>tr>td.numeric {
+	padding-left:4px;
+	font-size: 10pt
+}
+.result-info table .text {
+	font-weight:normal;
+	text-align:right;
+}
+
+.result-info table tr {
+	border-bottom:2px solid #eeeeef
+}
+.result-info table tr:last-child {
+	border-bottom:0
+}
+
+.col-wr.left.auth .ticket-info, .col-wr.left.cvc .ticket-info, .col-wr.left.pago-aplazado .ticket-info, .col-wr.left.pago-domiciliado .ticket-info, .col-wr.left.pago-moneda .ticket-info {
+	min-height:144px;
+}
+.price {
+	padding:10px 8px;
+	border:2px solid #fff
+}
+.price .left {
+	width:60%;
+	float:left
+}
+.price .left p {
+	text-align:right;
+	font-size:10pt;
+	font-weight:bold
+}
+.price .right p {
+	display:table-cell;
+	vertical-align:middle;
+	font-size:24pt;
+	font-weight:bold
+}
+.precio {
+	display:table-cell;
+	vertical-align:middle;
+	font-size:18pt;
+	font-weight:bold
+	
+}
+.ticket-header .circle {
+	width: 26px;
+	height: 26px;
+	padding: 13px;	
+	position:absolute;
+	top:50%;
+	margin-top:-13px;
+}
+
+.ticket-header .half-circlel {
+	background: url(/public/sis/graficos/logotipos/comunes/9999circler.png);
+	left: -13px;
+}
+.ticket-header .half-circler {
+	background: url(/public/sis/graficos/logotipos/comunes/9999circlel.png);
+	right: -13px;
+}
+
+/*ticket circles == same background color*/
+.ticket-header .half-circlel, 
+.ticket-header .half-circler{
+	background-repeat: no-repeat;
+	background-image: none, none;
+	border-radius: 13px;
+	background: #eeeeef;
+}
+
+
+.ticket-info .table-condensed>tbody>tr>td {
+	padding:10px 0
+}
+.ticket-info .table-condensed>tbody>tr>td.numeric {
+	padding-left:4px;
+	font-size: 10pt;
+}
+.ticket-info table .text {
+	font-weight:normal;
+	text-align:right;
+	font-size: 10pt;
+}
+.ticket-info table .numeric {
+	font-weight:bold;
+	text-align:left
+}
+.ticket-info table tr {
+	border-bottom:2px solid #eeeeef
+}
+.ticket-info table tr:last-child {
+	border-bottom:0
+}
+.cards-mod-wr {
+	background: #fff;
+	padding: 20px 0px 14px 12px;
+	margin-bottom: 12px;
+	overflow-y: auto;
+	-ms-overflow-y: auto;
+	min-height: 140px;
+	width: 100%;
+}
+.cards-mod-wr .table-condensed>tbody>tr>td {
+	color:#464646
+}
+.cards-mod-wr .table-condensed>tbody>tr>td {
+	padding:10px 0
+}
+.cards-mod-wr .table-condensed>tbody>tr>td.numeric {
+	padding-left:4px
+}
+.cards-mod-wr table .text {
+	font-weight:normal;
+	text-align:left
+}
+.cards-mod-wr table .numeric {
+	font-weight:bold;
+	text-align:left
+}
+.cards-mod-wr-upi {
+	background: #FFF;
+	padding: 20px 0px 14px 12px;
+	margin-bottom: 12px;
+	overflow-y: auto;
+	-ms-overflow-y: auto;
+	min-height: 140px;
+}
+
+div.cards-mod-wr-upi div.datosTarjetaUPI { /* Acordeon UnionPay siempre colapsado */
+	display: none;
+}
+
+.cards-mod-wr-upi .table-condensed>tbody>tr>td {
+	color:#464646
+}
+.cards-mod-wr-upi .table-condensed>tbody>tr>td {
+	padding:10px 0
+}
+.cards-mod-wr-upi .table-condensed>tbody>tr>td.numeric {
+	padding-left:4px
+}
+.cards-mod-wr-upi table .text {
+	font-weight:normal;
+	text-align:left
+}
+.cards-mod-wr-upi table .numeric {
+	font-weight:bold;
+	text-align:left
+}
+.method-mod-wr {
+	background:#fff;
+	padding:12px 12px 4px 12px;
+	margin-bottom: 16px;
+}
+
+.method-mod-wr .box:hover a{
+	color: #fdb411;
+}
+
+#coli {
+	margin-bottom:20px
+}
+.cards-wr {
+	text-align:center
+}
+.cards-wr .form-horizontal .control-label {
+	font-weight:normal;
+	font-style:normal
+}
+.icon-card {
+	display:block;
+	width:18px;
+	height:34px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999icon_card.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%
+}
+.icon-calendar {
+	display:block;
+	width:18px;
+	height:34px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999icon_cal.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%
+}
+.icon-lock {
+	display:block;
+	width:18px;
+	height:34px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999icon_lock.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%
+}
+.icon-cvc-help {
+/*
+	display:inline-block;
+	width:14px;
+	height:14px;
+	margin-left:14px;
+	margin-top:5px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999icon_cvc-help.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	text-indent:-9999px;
+*/
+
+	padding: 0 !important;
+	border-radius: 50%;
+	color: white;
+	background-color: #fdb411;
+	display:inline-block;
+	height: 16px !important;
+	width: 16px;
+	margin: 2px 2px 2px 4px;
+	line-height: 1.063em;
+	font-size: 10pt;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+	line-height: 15px;
+}
+.item-imgwr {
+	background-color:#eeeeef;
+	margin:0 auto
+}
+.item-imgwr img {
+	margin-top:29%;
+	margin-bottom:29%
+}
+.item p {
+	color:#464646;
+	font-size:10pt;
+	margin-top:4px
+}
+.row .logos-verified .col-sm-3 {
+	padding:0
+}
+.btn-cancel {
+	min-width:98px;
+	color:#fff;
+	background-color:#8b8b8b;
+	border:0;
+	margin-right:8px;
+	float: left;
+}
+
+.btn-print {
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999btn-print.png);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	color: #fff;
+	background-color: #8b8b8b;
+	border: 0;
+	margin-right: 8px;
+	text-indent: -9999px;
+	width: 44px;
+}
+
+.btn-pdf {
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999btn-pdf.png);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	color: #fff;
+	background-color: #8b8b8b;
+	border: 0;
+	margin-right: 8px;
+	text-indent: -9999px;
+	width: 44px;
+}
+
+.btn-mail {
+	background-image: url(/public/sis/graficos/logotipos/comunes/9999btn-mail.png);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	color: #fff;
+	background-color: #8b8b8b;
+	border: 0;
+	margin-right: 8px;
+	text-indent: -9999px;
+	width: 44px;
+}
+
+
+.btn-accept, .btn-toggle, .btn-continue {
+	min-width:98px;
+	color:#000;
+	background-color:#fdb411;
+	border:0;
+}
+
+.btn-toggle {
+	display:block;
+	margin: -30px 43% 0px auto;
+	right: 45px;
+	min-width: 150px;
+}
+
+.btn-close, .btn-modal {
+	min-width:98px;
+	color:#fff;
+	background-color:#8b8b8b;
+	border:0;
+}
+
+.btn-disabled, .btn-disabled:hover {
+	color: #717782 !important;
+	border: solid 1px #D0D4DB !important;
+	background-color: #E9ECF1 !important;
+	font-weight: normal !important;
+	cursor: not-allowed;
+}
+
+.help-text p {
+	margin-top:28px;
+	font-size:10pt;
+	color:#4e4e4e;
+	text-align:left;
+	line-height:1.6em;
+	margin-bottom:22px
+}
+.ui-group-buttons .or {
+	position:relative;
+	float:left;
+	width:.3em;
+	height:1.3em;
+	z-index:3;
+	font-size: 10pt;
+}
+.ui-group-buttons .or:before {
+	position:absolute;
+	top:50%;
+	left:50%;
+	content:'or';
+	background-color:#5a5a5a;
+	margin-top:-.1em;
+	margin-left:-.9em;
+	width:1.8em;
+	height:1.8em;
+	line-height:1.55;
+	color:#fff;
+	font-style:normal;
+	font-weight:400;
+	text-align:center;
+	border-radius:500px;
+/*	-webkit-box-shadow:0 0 0 1px rgba(0, 0, 0, 0.1);
+	box-shadow:0 0 0 1px rgba(0, 0, 0, 0.1);
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	box-sizing:border-box*/
+}
+.ui-group-buttons .or:after {
+	position:absolute;
+	top:0;
+	left:0;
+	content:' ';
+	width:.3em;
+	height:2.84em;
+/*	background-color:rgba(0, 0, 0, 0);*/
+	border-top:.6em solid #5a5a5a;
+	border-bottom:.6em solid #5a5a5a
+}
+.ui-group-buttons .or.or-lg {
+	height:1.3em;
+	font-size:14pt
+}
+.ui-group-buttons .or.or-lg:after {
+	height:2.85em
+}
+.ui-group-buttons .or.or-sm {
+	height:1em
+}
+.ui-group-buttons .or.or-sm:after {
+	height:2.5em
+}
+.ui-group-buttons .or.or-xs {
+	height:.25em
+}
+.ui-group-buttons .or.or-xs:after {
+	height:1.84em;
+	z-index:-1000
+}
+.ui-group-buttons {
+	display:inline-block;
+	vertical-align:middle
+}
+.ui-group-buttons:after {
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden
+}
+.ui-group-buttons .btn {
+	float:left;
+	border-radius:0
+}
+.ui-group-buttons .btn:first-child {
+	margin-left:0;
+	border-top-left-radius:.25em;
+	border-bottom-left-radius:.25em;
+	padding-right:15px
+}
+.ui-group-buttons .btn:last-child {
+	border-top-right-radius:.25em;
+	border-bottom-right-radius:.25em;
+	padding-left:15px
+}
+.cip-mod-wr {
+	background:#fff;
+	padding:12px 16px 14px 12px;
+	height:222px
+}
+.cip-wr {
+	margin-top:10%;
+	position:relative;
+	left:50%;
+	margin-left:-20%;
+	padding-bottom:10px;
+	padding-top:10px
+}
+table#auth-cip td {
+	text-align:center;
+	vertical-align:middle
+}
+input[type="password"]#cod-cip {
+	width:70px;
+	margin-left:6px
+}
+table#auth-cip td .icon.i-lock, table#auth-cip td #cod-cip {
+	float:left
+}
+.animation-wr {
+	margin-top:20%;
+	text-align:center
+}
+.animation-wr img#logoXelmon {
+	max-width: 100px;
+}
+
+.aplazado-mod-wr {
+	background:#fff;
+	padding:12px 16px 14px 12px;
+	min-height:222px
+}
+ul.aplazado li {
+	line-height:1.2em;
+	margin-bottom:10px
+}
+ul.aplazado li span {
+	display:inline-block;
+	margin-left:27px
+}
+ul.aplazado li span {
+	display:inline-block;
+	margin-left:27px
+}
+ul.aplazado.check {
+	margin-top:18px
+}
+
+/* TARJETAS GUARDADAS*/
+.disabledColor {
+	opacity: 50%;
+}
+.checkConfirmSaveCardBox {
+	float: left;
+    margin: 10px 0;
+}
+.checkConfirmCardTextSize {
+	font-size: 11.5px;
+}
+.checkConfirmCardText {
+	margin: 0;
+	color: #505050;
+}
+.cvvBoxText {
+	font-size: 11.5px;
+	color: #505050;
+	line-height: 15px;
+}
+.checkConfirmSaveCard {
+	height: auto!important;
+	display: none;
+}
+.checkConfirmSaveCard:checked + label:before{
+	float: left;
+	width: 18px;
+	height: 18px;
+	border-radius: 5px;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	background-color: #333333;
+	content: '';
+	display: inline-block;
+	flex: none;
+	visibility: visible;
+	border: 2px solid #333333;
+}
+				
+.checkConfirmSaveCard + label:before{
+	display: grid;
+	grid-auto-flow: column;
+	float: left;
+    margin-left: 2px;
+    width: 18px!important;
+	height: 18px!important;
+	border-radius: 5px;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	background-color: #ffffff;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid #8f8f8f;
+	background-image: url(/public/sis/graficos/logotipos/comunes/white-checkmark.png)!important;
+    background-repeat: no-repeat;
+	background-size: 10px;
+	background-position: center;
+}
+
+/*icono papelera*/
+.gg-trash {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 10px;
+    height: 12px;
+    border: 2px solid transparent;
+    box-shadow:
+        0 0 0 2px,
+        inset -2px 0 0,
+        inset 2px 0 0;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    margin-top: 4px
+}
+.gg-trash::after,
+.gg-trash::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute
+}
+.gg-trash::after {
+    background: currentColor;
+    border-radius: 3px;
+    width: 16px;
+    height: 2px;
+    top: -4px;
+    left: -5px
+}
+.gg-trash::before {
+    width: 10px;
+    height: 4px;
+    border: 2px solid;
+    border-bottom: transparent;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    top: -7px;
+    left: -2px
+}
+
+
+.domiciliado-mod-wr {
+	background:#fff;
+	padding:12px 14px 18px 12px;
+	min-height:222px
+}
+
+.recibo-mod-wr {
+	background:#fff;
+	padding:12px 16px 14px 12px;
+	min-height:222px
+}
+
+.recibo-mod-wr p{
+	line-height: 1.3em;
+}
+
+.recibo-mod-wr .table-condensed{
+	margin-top: 10px;
+}
+
+
+.table-condensed td.text, .tableresults td.text{
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+.table-condensed td.textb, .tableresults td.textb{
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.table-condensed td.text.green, .table-condensed td.textb.green, td.text.green, .text.green{
+	color: #779500;
+	vertical-align: middle;
+}
+
+.text.green a{
+	color: inherit;
+	text-decoration: none;
+	text-align:	left;
+}
+
+.table-condensed td.text.red, .table-condensed td.textb.red, td.text.red, .text.red{
+	color: #b41100;
+}
+
+.text.red a{
+	color: inherit;
+	text-decoration: none;
+}
+
+
+
+.recibo-mod-wr table tr{
+	line-height: 28px;
+	border-bottom: 2px solid #eeeeef;
+}
+.recibo-mod-wr table tr:last-child{
+	border: none;
+}
+
+.recibo-mod-wr table tr{
+	line-height: 28px;
+	border-bottom: 2px solid #eeeeef;
+}
+.recibo-mod-wr table tr:last-child{
+	border: none;
+}
+
+.table-condensed td{
+	vertical-align: bottom; /* middle; */
+}
+
+table .linkwrap{
+	display: block;
+	width: 160px;
+	white-space: pre;
+	white-space: pre-wrap;
+	white-space: pre-line;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -hp-pre-wrap;
+	word-wrap: break-word;
+}
+
+input[type="radio"] { 
+/*	display:none*/
+}
+input[type="radio"]+label {
+	display:inline;
+	font-size:10pt
+}
+input[type="radio"] + label:before {
+/*	content:'';*/
+	display:inline-block;
+	width:18px;
+	height:18px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999radio.png);
+	background-repeat:no-repeat;
+	vertical-align:middle;
+	margin-right:8px
+}
+input[type="radio"]:checked + label:after {
+/*	content:''; */
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999radio-a.png);
+	background-repeat:no-repeat;
+	margin-right:4px
+}
+input[type="checkbox"] {
+/*	display:none*/
+}
+input[type="checkbox"]+label {
+	margin:0;
+	padding:0;
+	display:inline;
+	font-size:10pt
+}
+input[type="checkbox"]+label:before {
+/*	content:'';*/
+	display:inline-block;
+	width:15px;
+	height:15px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999checkbox.png);
+	background-repeat:no-repeat;
+	vertical-align:middle;
+	margin-right:8px
+}
+input[type="checkbox"]:checked+label:before {
+/*	content:'';*/
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999checkbox-a.png);
+	background-repeat:no-repeat;
+	margin-right:8px
+}
+.domiciliado-mod-wr p {
+	font-size:10pt;
+	color:#2b2b2b;
+	line-height:1.2em;
+	text-align:justify
+}
+table#domiciliacion {
+	margin-top:12px;
+	font-size:10pt;
+}
+table#domiciliacion tr, table#domiciliacion td {
+	padding:0;
+	margin:0;
+	text-align:left
+}
+table#domiciliacion td {
+	padding:5px 2px
+}
+#domiciliacion input.form-control {
+	padding:6px
+}
+
+#domiciliacion input#cc.form-control {
+	width: 70px;
+}
+
+#domiciliacion input#cardOwner.form-control {
+	width: 260px;
+}
+
+table#domiciliacion td.spaceit {
+	padding-top:12px
+}
+span.boldit {
+	font-weight:bold;
+	font-size: 10pt;
+}
+.moneda-mod-wr {
+	background:#fff;
+	padding:12px 12px 18px 12px;
+	min-height:256px;
+}
+.moneda-mod-wr h3 {
+	font-size:10pt;
+	margin-bottom:0;
+}
+.moneda-mod-wr p {
+	margin-bottom:5px;
+}
+span.coin {
+	font-size: 10pt;
+}
+.moneda-mod-wr .legend {
+	margin-top:20px;
+}
+.moneda-mod-wr ul {
+	margin-bottom:16px;
+}
+.moneda-mod-wr li {
+	color:#9d9d9d;
+	line-height:1.2em;
+	font-style:normal;
+	font-weight:normal;
+	font-size:9pt;
+	margin-bottom:4px
+}
+.moneda-mod-wr li:last-child {
+	margin-top:16px
+}
+span.small {
+	font-size: 9pt
+}
+ul.flags li {
+	display:inline-block
+}
+ul.flags label {
+	color:transparent
+}
+ul.flags input[type="radio"]#gbp {
+	display:none
+}
+ul.flags input[type="radio"]#gbp+label {
+	display:inline;
+	font-size:10pt;
+}
+ul.flags input[type="radio"]#gbp+label:before {
+	content:'';
+	display:inline-block;
+	width:45px;
+	height:43px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999gbp.png);
+	background-repeat:no-repeat;
+	vertical-align:middle;
+	margin-right:8px
+}
+ul.flags input[type="radio"]#gbp:checked+label:before {
+	content:'';
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999gbp-a.png);
+	background-repeat:no-repeat;
+	margin-right:8px
+}
+ul.flags input[type="radio"]#eur {
+	display:none
+}
+ul.flags input[type="radio"]#eur+label {
+	display:inline;
+	font-size:10pt;
+}
+ul.flags input[type="radio"]#eur+label:before {
+	content:'';
+	display:inline-block;
+	width:45px;
+	height:43px;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999eur.png);
+	background-repeat:no-repeat;
+	vertical-align:middle;
+	margin-right:8px
+}
+ul.flags input[type="radio"]#eur:checked+label:before {
+	content:'';
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999eur-a.png);
+	background-repeat:no-repeat;
+	margin-right:8px
+}
+#lightbox {
+	display:none;
+	position:fixed;
+	z-index:998;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color:#fff;
+	opacity:.9;
+	text-align:center
+}
+/*#lightbox-panel {
+	display:none;
+	position:absolute;
+	top:100px;
+	left:50%;
+	margin-left:-160px;
+	width:320px;
+	z-index:999
+}*/
+/**********************************************/
+/*************RECORDAR TARJETA ****************/
+/**********************************************/
+#recordarTarjetaBox {
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+}
+#saveCardBox {
+	float: left;
+	margin: 10px 0;
+}
+#saveCardTitle {
+	float: left;
+	font-weight: bold;
+	font-size: 16px;
+	color: #333333;
+	padding: 10px 0;
+}
+.saveCardList {
+	width: 100%;
+	float: left;
+	display: flex;
+	flex-direction: column;
+}
+.saveCardList > li {
+	display: flex;
+	flex-direction: column;
+	padding: 10px 0;
+	border-bottom: 1px solid #d9d9d9;
+}
+.saveCardList > li:last-child {
+	border-bottom: none;
+}
+.saveCardList {
+	margin: 0;
+	padding: 0;
+}
+
+
+/* RADIO BUTTONS */
+input.radioButtonSaveCard[type="radio"] {
+	display: none;
+}
+.radioButtonSaveCard + *::before {
+	 content: "";
+	 width: 15px!important;
+			  height: 15px!important;
+	 border-radius: 50%;
+	 border-style: solid;
+	 border-width: 1px;
+	 border-color: gray;
+	 background-image:none!important;
+}
+
+.radioButtonSaveCard:checked + *::before {
+	background: radial-gradient(grey 40%, transparent 50%)!important;
+}
+/*FIN RADIO BUTTONS*/
+/*CVV*/
+#saveCard-cvv {
+	width: 60px;
+}
+.saveCardCVV {
+	height: 27px;
+	display: flex!important;
+	align-items: center;
+	gap: 10px;
+}
+.saveCardCVVBox {
+	display: flex;
+	margin-left: 40px;
+	flex-direction: column;
+	gap: 7px;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s ease;
+}
+.eliminarTarjeta {
+	display: flex;
+    height: 25px;
+    width: 25px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #979797;
+}
+.eliminarTarjeta:hover {
+    color: #dd1d1d;
+}
+
+/* Ventana emergente borrar tarjeta */
+.ventanaEliminarTarjeta {
+    align-items: center;
+    justify-content: center;
+}
+.ventanaEmergente {
+	flex-direction: column;
+	position: absolute;
+	width: 500px;
+	height: 160px;
+	border: 1px solid #c3c3c3;
+	background-color: #ffffff;
+	border-radius: 5px;
+	margin: 10px;
+	display: none;
+	text-align: center;
+	padding: 10px 20px 20px 20px;
+}
+#ventanaEmergenteModal {
+    width: fit-content;
+    gap: 7px;
+}
+.ventanaEmergenteContent {
+	width: 100%;
+	height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+.ventanaEmergenteContent p, .ventanaEmergenteContent h2{
+	text-align: left;
+	margin: 0;
+}
+#ventanaEmergenteTitle {
+	float: left;
+	font-weight: bold;
+	font-size: 16px;
+	color: #333333;
+}
+.ventanaEmergenteButtonsBox{
+	height: 40px;
+	display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 40% 55%;
+				justify-content: space-between;
+}
+.ventanaEmergenteButtons {
+	cursor: pointer;
+	color: #fff;
+    background-color: #8b8b8b;
+    border: 0;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.ventanaEmergenteBtnEliminar {
+	background-color: #df2828;
+}
+.close-box{
+	text-align: end;
+}
+.close-box img{
+	height: 15px;
+	cursor: pointer;
+}
+/* FIN Ventana emergente borrar tarjeta */
+
+@media (max-width: 750px) {
+	.labelSaveCard {
+		gap: 5px;
+	}
+}
+/**********************************************/
+/*************POLITICA COOKIES ****************/
+/**********************************************/
+.politicaCookiesBox{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.politicaCookiesTextBox {
+	height: 400px;
+	overflow: auto;
+	padding-right: 10px;
+	text-align: justify;
+}
+.politicaCookiesBoxContent {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.politicaCookiesBoxContent h3 {
+	margin: 0;
+}
+.politicaCookiesBoxContent ul {
+	margin-left: 30px;
+}
+.politicaCookiesBoxContent > ul > li {
+	list-style: disc;
+}
+.politicaCookiesBoxContent th, .politicaCookiesBoxContent td {
+	border: 1px solid #000000;
+	padding: 8px;
+}
+
+/********************************************/
+/**************** MODAL *********************/
+/********************************************/
+div#modal.modal {
+	display: none;
+	position: fixed;
+	z-index: 999;
+	/*padding-top: 100px;*/
+	/*left: 0;*/
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.4);
+	font-size: 12px;
+	color: rgb(113, 119, 130);
+}
+div#modal.modal div.modal-content {
+	background-color: #fefefe;
+	margin: 20px auto 0 auto;
+	padding: 20px;
+	border: 1px solid lightgray;
+	width: 438px;
+	height: fit-content;
+	border-radius: 4px;
+	line-height: 16px;
+}
+
+
+/* INFORMACIï¿½N PAE (modal) */
+/*div#lightbox-informacionPAE {
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -160px;
+	width: 320px;
+	z-index: 999;
+	padding: 30px;
+}*/
+div.cancel-wr {
+	text-align: center
+}
+div.cancel-wr h2{
+	font-size: 1.04em;
+	font-weight: bold;
+	padding-left: 12px;
+	color: #E60000;
+	margin-bottom: 5px;
+}
+div#textoInfoPAE, div#entidadesPlazox {
+	padding-top: 15px;
+}
+div#textoInfoPAE h3 {
+	font-size: 18px;
+	padding-top: 15px;
+}
+div#textoInfoPAE p {
+	padding-top: 15px;
+}
+div#entidadesPlazox img {
+	max-width: 75px;
+	padding: 10px;
+}
+div#condicionesPAE {
+	padding-top: 15px;
+}
+
+.textoPlazox {
+	padding-top: 30px;
+	text-align: center;
+	margin-top: 50px;
+}
+
+a.close-panel, a.btn-modal {
+	display:none;
+	position:absolute;
+	top:10px;
+	right:20px;
+	width:38px;
+	height:39px;
+	text-indent:-9999px;
+	z-index:999;
+	background-image:url(/public/sis/graficos/logotipos/comunes/9999close.png);
+	background-repeat:no-repeat
+}
+a.close-panel.mob, a.btn-modal.mob {
+	display:none
+}
+
+.enlaceTitleBox {
+	text-decoration: none !important;
+	padding: 12px;
+}
+
+.boxIupay{
+	width: 100%;
+	background-position: right;
+	background-color: white;
+	background-image: url(/public/sis/graficos/logotipos/comunes/2100abrirgt.png);
+	background-repeat: no-repeat;
+}
+
+.boxIupay:hover{
+   background-color:#8b8b8b;
+}
+
+.titleBoxIupay{
+	font-size: 11pt;
+	color: black;
+	text-align:left;
+	margin-bottom: 12px;
+}
+
+
+
+
+.box-method-wr{
+	display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.box{
+	margin:0!important;
+	min-width:0!important;
+}
+div.method-mod-wr div.box-method-wr div.box {
+	width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.method-mod-wr div.box-method-wr div.box div#AmazonPayButton img {
+	
+}
+div.method-mod-wr div.box-method-wr div.box div#AmazonPayButton img,
+div.method-mod-wr div.box-method-wr div.box div.boxInner img {
+	width: 100%;
+	min-height: 40px;
+	max-height: 40px;
+	max-width: 160px;
+}
+.titleBox {
+	font-size:8pt;
+	color:#696969;
+	text-align:center;
+	margin-top:5px
+}
+.titleBox a {
+	color:inherit;
+	text-decoration:none
+}
+.method-mod-wr .box.last {
+	margin-right:0
+}
+
+.preft {
+	margin-top:20px;
+	margin-bottom:20px
+}
+.verified {
+	padding-left: 15px;
+	width: 294px;
+	margin-top: 5px;
+	margin-left: 5px;
+	float:left;
+	clear: left;
+}
+
+.verified ul{
+	display: block;
+	text-align: center;
+	overflow: hidden;
+}
+
+.verified ul li{
+	width: 120px;
+	float: left;
+	height: 60px;
+	margin-bottom: 10px;
+	margin-right: 9px;
+	text-indent: -9999px;
+}
+
+.verified ul li a{
+	margin: 0;
+	padding: 0;
+	display: block;
+	height: 100%;
+}
+
+.verified ul li a#iv-visa{
+	background: url(/public/sis/graficos/logotipos/comunes/9999verified_01t.png) 50% 50% no-repeat;
+	background-color: #efefef;
+}
+.verified ul li a#iv-mc{
+	background: url(/public/sis/graficos/logotipos/comunes/9999verified_02t.png) 50% 50% no-repeat;
+	background-color: #efefef;
+}
+.verified ul li a#iv-aex{
+	background: url(/public/sis/graficos/logotipos/comunes/9999verified_03t.png) 50% 50% no-repeat;
+	background-color: #efefef;
+}
+.verified ul li a#iv-jcb{
+	background: url(/public/sis/graficos/logotipos/comunes/9999verified_04.png) 50% 50% no-repeat;
+
+}
+.verified ul li a#iv-4b{
+	background: url(/public/sis/graficos/logotipos/comunes/9999secure4b.jpg) 50% 50% no-repeat;
+}
+
+.verified ul li a#iv-Discover{
+	background: url(/public/sis/graficos/logotipos/comunes/discoverDiners.png);
+	height: 50px;
+    width: 90px;
+}
+
+.verified ul li a#iv-upi{
+	background: url(/public/sis/graficos/logotipos/comunes/9999upi.png) 50% 50% no-repeat;
+    background-size: 76px 40px;
+    margin-top: 10px;
+}
+
+
+
+/* grayscale icons support IE6-9 */
+div.half-grayscale-container.m01 {
+    background: url(/public/sis/graficos/logotipos/comunes/9999gsicon-iupay.png) no-repeat;
+}
+div.half-grayscale-container.m01 {
+    background: url(/public/sis/graficos/logotipos/comunes/9999gsicon-upi.png) no-repeat;
+}
+div.half-grayscale-container.m02 {
+    background: url(/public/sis/graficos/logotipos/comunes/9999gsicon-paypal.png) no-repeat;
+}
+div.half-grayscale-container.m03 {
+    background: url(/public/sis/graficos/logotipos/comunes/9999gsicon-vme.png) no-repeat;
+}
+div.half-grayscale-container.m04 {
+    background: url(/public/sis/graficos/logotipos/comunes/9999gsicon-masterpass.png) no-repeat;
+}
+div.half-grayscale-container.m05 {
+    background: url(/public/sis/graficos/logotipos/comunes/9999gsicon-transferencia.png) no-repeat;
+}
+div.half-grayscale-container.m06 {
+    background: url(/public/sis/graficos/logotipos/comunes/9999gsicon-domiciliacion.png) no-repeat;
+}
+
+img.half-grayscale {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'saturate\' values=\'0.6\'/></filter></svg>#grayscale"); /* Firefox 10+ */
+/*    filter: gray alpha(opacity=100); */ /* IE6-9 */
+    -webkit-filter: grayscale(60%); /* Chrome 19+ & Safari 6+ */
+    -webkit-transition: all .4s ease; /* Fade to color for Chrome and Safari */
+    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+}
+
+img.half-grayscale:hover {
+    filter: none;
+    -webkit-filter: grayscale(0%);
+}
+
+a.close-panel {
+	top:-40px
+}
+
+/* - PRIMARY COLORS -
+================================================== */
+
+/* [AZUL - #034d98] || [AMARILLO - #fdb411] */
+body.azul header#header {	border-bottom: 4px solid #034d98!important;}
+body.azul .ticket-header {background-color: #034d98!important;color: #fff!important;}
+body.azul .btn-accept, body.azul .btn-continue {background-color: #034d98!important;color: #fff!important;}
+body.azul .steps-wr .step.active {color: #034d98!important;}
+body.azul #s-method.active {background-image: url(img/s-method-azul-a.png)!important;}
+body.azul #s-auth.active {background-image: url(img/s-auth-azul-a.png)!important;}
+body.azul #s-connect.active {background-image: url(img/s-connect-azul-a.png)!important;}
+body.azul #s-result.active {background-image: url(img/s-result-azul-a.png)!important;}
+body.azul footer#footer {border-top: 4px solid #034d98!important;}
+body.azul div.trigger:after {border-top-color: #034d98!important;}
+body.azul .icon-cvc-help {background-image: url(img/icon_cvc-azul-help.png)!important;}
+body.azul h3.sarrow {background-image: url(img/blue-arrow.png)!important;}
+
+
+
+@media (max-width: 750px) {
+	div#body div.header-mobile {
+		display: flex;
+	}
+	
+	div.datosTarjeta div.col-wr.buttons-wr.right {
+		margin: 12px 0 !important;
+	}
+	
+	.box{
+		margin: 0!important;
+		min-width: 0!important;
+	}
+	
+	#body {
+		width: 300px;
+		margin: 0 auto;
+		padding-top: 10px;
+	}
+	
+	div#body div.header-mobile div.comercio-mobile div.logoEntidad {
+		margin: 0 !important;
+	}
+	/************************************************************************/
+	/* Botonera preft imprimir|continuar que se vea bien en responsive */
+	div#body div.col-wr.right div.preft {
+		margin: 0 auto !important;
+    	width: 90% !important;
+	}
+	div#body div.col-wr.right div.preft div.col-wr.buttons-wr.right {
+		margin: 0 !important;
+		margin-bottom: 10px !important;
+		margin-top: 10px !important;
+    	width: 100% !important;
+	}
+	div#body div.col-wr.right div.preft div.col-wr.buttons-wr.right input[type="button"].btn-print,
+	div#body div.col-wr.right div.preft div.col-wr.buttons-wr.right input[type="button"].btn-continue {
+	    height: 40px !important;
+	}
+	div#body div.col-wr.right div.preft div.col-wr.buttons-wr.right input[type="button"].btn-print {
+		width: 10%;
+		margin-right: 0;
+	}
+	div#body div.col-wr.right div.preft div.col-wr.buttons-wr.right input[type="button"].btn-continue {
+		width: 40%;
+		margin-left: 2%;
+	}
+	/************************************************************************/
+	
+	
+	/************************************************************************/
+	/* Botonera buttons-wr cancelar|continuar al finalizar la operaciï¿½n que se vea bien en responsive */
+	div#body div.result-mod-wr div.result-info div.buttons-wr {
+		width: 90% !important;
+	}
+	div#body div.result-mod-wr div.result-info div.buttons-wr input[type="button"].btn-cancel,
+	div#body div.result-mod-wr div.result-info div.buttons-wr input[type="button"].btn-continue {
+		width: 49%;
+	    height: 40px;
+    }
+    div#body div.result-mod-wr div.result-info div.buttons-wr input[type="button"].btn-cancel { margin: 0 1% 0 0; }
+    div#body div.result-mod-wr div.result-info div.buttons-wr input[type="button"].btn-continue { margin: 0 0 0 1%; }
+    /************************************************************************/
+    
+}
+
+
+@media (max-width: 500px) {
+	/************************************************************************/
+	/* Precio del header para mï¿½vil */
+	div#body div.header-mobile div.precio-mobile {
+		font-size: 20px;
+	}
+	/************************************************************************/
+	/* Botonera preft imprimir|continuar que se vea bien en responsive */
+	div#body div.col-wr.right div.preft div.col-wr.buttons-wr.right input[type="button"].btn-print {
+		width: 18%;
+		min-width: 18%;
+	}
+	div#body div.col-wr.right div.preft div.col-wr.buttons-wr.right input[type="button"].btn-continue {
+		width: 80%;
+		min-width: 80%;
+	}
+	/************************************************************************/
+	/* Estructura del modal */
+	div#modal.modal div.modal-content {
+		width: 350px !important;
+	}
+	/************************************************************************/
+}
+@media (max-width: 400px) {
+	/* Estructura del modal */
+	div#modal.modal div.modal-content {
+		width: 300px !important;
+	}
+}
+
+@media (max-width: 380px){
+	div.box-method-wr {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 360px) {
+	/************************************************************************/
+	/* Botonera preft imprimir|continuar */
+	div#body div.col-wr.right div.result-mod-wr {
+		margin-bottom: 10px;
+	}
+	div#body div.col-wr.right div.preft div.col-wr.buttons-wr.right input[type="button"].btn-print,
+	div#body div.col-wr.right div.preft div.col-wr.buttons-wr.right input[type="button"].btn-continue {
+		width: 100%;
+		margin: 0 0 10px 0;
+	}
+	/************************************************************************/
+	
+	
+	/************************************************************************/
+	/* Botonera buttons-wr cancelar|continuar al finalizar la operaciï¿½n que se vea bien en responsive */
+	div#body div.result-mod-wr div.result-info div.buttons-wr input[type="button"].btn-cancel,
+	div#body div.result-mod-wr div.result-info div.buttons-wr input[type="button"].btn-continue {
+		width: 100%;
+		margin: 0 0 10px 0;
+	}
+	/************************************************************************/
+	
+	/************************************************************************/
+	/* Estructura del modal */
+	div#modal.modal div.modal-content {
+		width: 250px !important;
+	}
+	/* Modal informaciï¿½n PAE */
+	div#lightbox-informacionPAE div.cancel-wr div#textoInfoPAE,
+	div#lightbox-informacionPAE div.cancel-wr div#condicionesPAE {
+		padding: 0 !important;
+	}
+	div#lightbox-informacionPAE div.cancel-wr div#textoInfoPAE h3 {
+		font-size: 15px !important;
+	}
+	div#lightbox-informacionPAE div.cancel-wr div#textoInfoPAE p {
+		padding: 0 !important;
+	}
+	div#lightbox-informacionPAE div.cancel-wr div#textoInfoPAE {
+		padding-top: 10 !important;
+	}
+	/************************************************************************/
+}
+
+
+
+
+@media screen and (min-height:840px) {
+footer#footer {
+	position:fixed;
+}
+
+}
+
+@media (max-width :866px) {
+.lang-wr .left p {
+	display: none;
+}
+}
+
+
+@media screen and (max-width:700px) {
+.col-wr.buttons-wr.right {
+	float: left !important;
+}
+
+div.datosTarjeta div.col-wr.buttons-wr.right button[type="button"],
+div.datosTarjetaUPI div.lineaPagoTarjeta button[type="button"] {
+	margin: 0;
+}
+
+/*.col-wr.left, .col-wr.right {
+float:none;
+}*/
+}
+
+div.cards-mod-wr div.datosTarjeta div#ofrecerPAE {
+	margin: 1em 0 0 0 !important;
+}
+
+@media only screen and (max-width :700px){
+	h1.logo{/*left: 70px;*/
+	position: static;
+	left: 0;
+	margin: 0;
+	float: left;
+	margin-left: 40px;
+	top: 0px;
+	}
+/*	.lang-wr .left{display: none;}*/
+	}
+
+
+@media only screen and (max-width :550px) {
+/*div.copyright {
+	display:none;
+}*/
+}
+
+/*@media only screen and (max-width :700px){h1.logo{left: 70px;}}
+@media only screen and (max-width :940px){h1.logoComercio{left: 200px;}}
+@media only screen and (max-width :940px){h1.logoEntidad{right: 5px;}}*/
+
+@media only screen and (max-width :700px) {
+
+.center-cards{
+	display: none;
+}
+
+.box {
+width:21.5%
+}
+/*h1.logo {
+position:static;
+margin:0 auto;
+margin-bottom:8px
+}*/
+
+/* borrable? */
+.logoComercio{
+	float: left;
+/*	position:absolute;*/
+}
+header#header .logoComercio{
+	display: block;
+	text-align: center;
+}
+
+div[class="zh-TW"] {
+  color: purple;
+}
+
+/*.steps-wr{
+	width: 120px;
+	margin: 16px auto 10px auto;
+}*/
+
+.steps-wr, .steps-wr p, .steps-wr #s-method.step, .steps-wr #s-auth.step, .steps-wr #s-connect.step, .steps-wr #s-result.step {
+	display: none;
+	width: 1%;
+	visibility: hidden;
+}
+.steps-wr #s-method:after{
+	display: inline-block;
+	content: '1.';
+	font-size: 0.875em;
+	line-height: 36px;
+}
+.steps-wr #s-auth:after{
+	display: inline-block;
+	content: '2.';
+	font-size: 0.875em;
+	line-height: 36px;
+}
+.steps-wr #s-connect:after{
+	display: inline-block;
+	content: '3.';
+	font-size: 0.875em;
+	line-height: 36px;
+}
+.steps-wr #s-result:after{
+	display: inline-block;
+	content: '4.';
+	font-size: 0.875em;
+	line-height: 36px;
+}
+/* fin borrable? */
+
+/*div.copyright {
+	display:none;
+}*/
+
+h1.logo {left: 10px;position: absolute;}
+
+/*.lang-wr, */.lang-wr .left, .lang-wr .right {
+float:none;
+margin:0
+}
+
+.lang-wr .left{
+	position:relative;
+	float:left;
+	/*display: none;*/
+}
+
+.lang-wr .left p {
+	line-height:inherit;
+	float:left;
+	margin-top:4px;
+	display:none;
+	/*text-align:center;
+	margin:0*/
+}
+.lang-wr .right {
+	margin:0 auto;
+	width:auto;
+}
+.lang-wr .right select {
+	margin-top:0px;
+}
+
+.verified {
+/*padding-left: 13%;*/
+margin-bottom: 5px;
+}
+.verified a img {
+/*width:80%;*/
+}
+.steps-wr .step {
+margin-bottom:10px
+}
+#s-connect {
+left:0
+}
+#s-result {
+left:-9px;
+width:148px
+}
+.btn-cancel {
+width:100%;
+height:32px;
+line-height:25px;
+margin-right:0;
+margin-bottom:10px
+}
+.btn-mail, .btn-print,.btn-accept, .btn-continue, .btn-pdf{
+width:100%;
+height:32px;
+line-height:25px;
+margin-bottom:10px;
+margin-top:10px;
+}
+
+.btn-toggle {
+	display:none;
+}
+
+#lightbox-panel img {
+width:80%
+}
+
+/*#lightbox-informacionPAE img {
+width:80%
+}*/
+
+/*#lightbox-panel {
+display:none;
+position:absolute;
+top:100px;
+left:50%;
+margin-left:-160px;
+width:320px;
+z-index:999;
+padding:30px
+}*/
+
+/*#lightbox-informacionPAE {
+display:none;
+position:absolute;
+top:100px;
+left:50%;
+margin-left:-160px;
+width:320px;
+z-index:999;
+padding:30px
+}*/
+.ticket-info {
+height:auto;
+margin-bottom:20px
+}
+.cip-mod-wr {
+height:auto;
+margin-top:20px
+}
+.cip-wr {
+margin:0;
+padding:0;
+position:relative;
+left:50%;
+margin-left:-20%;
+padding-bottom:10px
+}
+.animation-wr {
+margin-top:8%;
+text-align:center;
+margin-bottom:7px
+}
+
+#result-ok .paymentbox{
+background-position: -35px 50%;
+padding-bottom: 5px;
+padding-left: 20px;
+padding-right: 20px;
+}
+
+#result-ok .paymentbox .col{
+	float: none;
+	width: 100%;
+}
+#result-ok .paymentbox .col p{
+	margin-bottom: 10px;
+}
+
+/*.steps-wr .step .s-text{display: none;}*/
+.steps-wr #s-method.step,
+.steps-wr #s-auth.step,
+.steps-wr #s-connect.step,
+.steps-wr #s-result.step{
+/*	background-image: none;
+	padding-left: 10px;
+	width: 190px;
+	margin-right: 10px;
+}
+.steps-wr #s-result.step{margin-right:0;}*/
+	display:none;
+}
+
+
+@media only screen and (max-width :650px) and (min-width :481px) {
+.box {
+width:21.5%
+}
+
+}
+@media only screen and (max-width :1050px) and (min-width :651px) {
+.box {
+width:21.5%
+}
+}
+@media only screen and (max-width :1290px) and (min-width :1051px) {
+.box {
+width:21.5%
+}
+}
+@media only screen and (max-width :479px) and (min-width :421px) {
+.verified {
+padding-left: 7%;
+float:none;
+}
+}
+
+@media(max-width:750px) {
+.logoComercio{margin:0!important;}
+
+}
+/*
+SELECT {
+	position: absolute;
+	top: 6px;
+}*/
+
+
+div.evuala-select {
+	font-size:12pt;
+}
+
+.ieselect{
+	font-size: 12pt;
+}
+
+html, body {
+	font-size: 10pt;
+}
+
+h3 {
+	font-size:13pt;
+}
+
+.lang-wr .left p {
+	font-size:12pt;
+}
+
+.main-wrapper h3 {
+	font-size:16pt; /* 1.000em; */
+}
+
+.btn {
+	min-width:98px;
+	/*font-size:12pt;*/
+}
+
+/*.form-control {
+	font-size:12pt;
+}*/
+.cards-mod-wr table {
+	font-size:12pt
+}
+
+.cards-mod-wr-upi table {
+	font-size:12pt
+}
+
+#result-ok .paymentbox h4{
+	font-size: 13pt;
+}
+
+#result-ok .paymentbox p, #result-ok .paymentbox ul li{
+	font-size: 12pt;
+}
+
+.result-header .result-code p{
+	font-size: 12pt;
+}
+.result-info .tableresults>tbody>tr>td.numeric {
+	font-size: 12pt
+}
+.price .left p {
+	font-size:12pt;
+}
+.price .right p {
+	font-size:26pt;
+}
+.ticket-info .table-condensed>tbody>tr>td.numeric {
+	font-size: 12pt;
+}
+.ticket-info table .text {
+	font-size: 12pt;
+}
+.item p {
+	font-size:12pt;
+}
+.help-text p {
+	font-size:12pt;
+}
+.ui-group-buttons .or {
+	font-size: 12pt;
+}
+.ui-group-buttons .or.or-lg {
+	font-size:16pt
+}
+input[type="radio"]+label {
+	font-size:12pt
+}
+input[type="checkbox"]+label {
+	font-size:12pt
+}
+.domiciliado-mod-wr p {
+	font-size:12pt;
+}
+table#domiciliacion {
+	font-size:12pt;
+}
+span.boldit {
+	font-size: 12pt
+}
+.moneda-mod-wr h3 {
+	font-size:12pt;
+}
+span.coin {
+	font-size: 12pt;
+}
+.moneda-mod-wr li {
+	font-size:11pt;
+}
+ul.flags input[type="radio"]#gbp+label {
+	font-size:12pt
+}
+ul.flags input[type="radio"]#eur+label {
+	font-size:12pt;
+}
+.titleBox {
+	font-size:10pt;
+}
+footer#footer {
+	position: static;
+}
+@media (max-width: 750px){
+		.datosDeLaOperacion h1{padding: 12px 0 10px 16px!important;background-color: #EEE;color: #000;text-align: center;border-bottom: 1px solid #DDD;}
+}
+
+:root {
+	--border-width-wechat-symbol: 7px;
+	--height-wechat-symbol: 80px;
+	--width-wechat-symbol: 40px;
+	--border-color-wechat-symbol: white;
+	--border-color-red-wechat-symbol: red;
+}
+
+.check-wechat {
+	display: inline-block;
+	transform: rotate(45deg);
+	height: var(--height-wechat-symbol);
+	width: var(--width-wechat-symbol);
+	border-bottom: var(--border-width-wechat-symbol) solid var(--border-color-wechat-symbol);
+	border-right: var(--border-width-wechat-symbol) solid var(--border-color-wechat-symbol);
+}
+
+.cross-wechat {
+	width: var(--border-width-wechat-symbol-wechat-symbol);
+	height: var(--height-wechat-symbol);
+	position: relative;
+}
+
+.cross-wechat:before,
+.cross-wechat:after {
+	content: '';
+	height: var(--height-wechat-symbol);
+	border-left: var(--border-width-wechat-symbol) solid var(--border-color-red-wechat-symbol);
+	position: absolute;
+	transform: rotate(45deg);
+	left: calc(50% - var(--border-width-wechat-symbol) / 2);
+}
+
+.cross-wechat:before {
+	transform: rotate(-45deg);
+}
+
+.cross-wechat:after {
+	transform: rotate(45deg);
+}
+
+.loading-spinner-wechat {
+	color: official;
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+} 
+.loading-spinner-wechat div {
+	transform-origin: 40px 40px;
+	animation: loading-spinner-wechat 1.2s linear infinite;
+}
+.loading-spinner-wechat div:after {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 3px;
+	left: 37px;
+	width: 6px;
+	height: 18px;
+	border-radius: 20%;
+	background: #fff;
+}
+.loading-spinner-wechat div:nth-child(1) {
+	transform: rotate(0deg);
+	animation-delay: -1.1s;
+}
+.loading-spinner-wechat div:nth-child(2) {
+	transform: rotate(30deg);
+	animation-delay: -1s;
+}
+.loading-spinner-wechat div:nth-child(3) {
+	transform: rotate(60deg);
+	animation-delay: -0.9s;
+}
+.loading-spinner-wechat div:nth-child(4) {
+	transform: rotate(90deg);
+	animation-delay: -0.8s;
+}
+.loading-spinner-wechat div:nth-child(5) {
+	transform: rotate(120deg);
+	animation-delay: -0.7s;
+}
+.loading-spinner-wechat div:nth-child(6) {
+	transform: rotate(150deg);
+	animation-delay: -0.6s;
+}
+.loading-spinner-wechat div:nth-child(7) {
+	transform: rotate(180deg);
+	animation-delay: -0.5s;
+}
+.loading-spinner-wechat div:nth-child(8) {
+	transform: rotate(210deg);
+	animation-delay: -0.4s;
+}
+.loading-spinner-wechat div:nth-child(9) {
+	transform: rotate(240deg);
+	animation-delay: -0.3s;
+}
+.loading-spinner-wechat div:nth-child(10) {
+	transform: rotate(270deg);
+	animation-delay: -0.2s;
+}
+.loading-spinner-wechat div:nth-child(11) {
+	transform: rotate(300deg);
+	animation-delay: -0.1s;
+}
+.loading-spinner-wechat div:nth-child(12) {
+	transform: rotate(330deg);
+	animation-delay: 0s;
+}
+@keyframes loading-spinner-wechat {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}

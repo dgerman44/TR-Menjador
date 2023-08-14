@@ -1,0 +1,118 @@
+/* Loading base-modal */
+.base-modal {
+	display: none;
+	position: fixed;
+	z-index: 999;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(53, 64, 71, 0.8);
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.base-modal .base-modal-content {
+	padding: 20px;
+	border-radius: 5px;
+	background-color: white;
+	width: fit-content !important;
+	height: fit-content !important;
+	margin: 0 !important;
+}
+
+.base-modal-content-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.base-modal-title {
+	font-size: 30px;
+	font-weight: bold;
+	color: #222222;
+}
+
+.base-modal-message {
+	color: #757575;
+}
+
+.base-modal-message p {
+	margin: 13px 0 !important;
+}
+
+
+.base-modal-buttons {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+/* Spinner 2 */
+.lds-ellipsis-loading {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+
+.lds-ellipsis-loading div {
+	position: absolute;
+	top: 33px;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	background: #000;
+	animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis-loading div:nth-child(1) {
+	left: 8px;
+	animation: lds-ellipsis-loading1 0.6s infinite;
+}
+
+.lds-ellipsis-loading div:nth-child(2) {
+	left: 8px;
+	animation: lds-ellipsis-loading2 0.6s infinite;
+}
+
+.lds-ellipsis-loading div:nth-child(3) {
+	left: 32px;
+	animation: lds-ellipsis-loading2 0.6s infinite;
+}
+
+.lds-ellipsis-loading div:nth-child(4) {
+	left: 56px;
+	animation: lds-ellipsis-loading3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis-loading1 {
+	0% {
+		transform: scale(0);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes lds-ellipsis-loading3 {
+	0% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(0);
+	}
+}
+
+@keyframes lds-ellipsis-loading2 {
+	0% {
+		transform: translate(0, 0);
+	}
+
+	100% {
+		transform: translate(24px, 0);
+	}
+}

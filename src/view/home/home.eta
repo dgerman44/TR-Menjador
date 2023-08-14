@@ -1,0 +1,10 @@
+<% layout('../layouts/fullwidth-nav-logx') %>
+<header>
+    <div class="dgb-back">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+           <img src="/public/images/logo comida.png" alt="logo" class="dgb-sice">
+            <h3 class=" dgb-letra my-3 text-uppercase fw-bold">Menjador</h3>
+        </div>
+    </div> 
+</header>
+<body>

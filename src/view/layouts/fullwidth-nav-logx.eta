@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web con ETA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="https://kit.fontawesome.com/f3177a16d8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary dgb-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img src="/public/images/R.png" class="dgb-nav-logo w-50"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <% if (it.currentUser) { %>
+            <%~ includeFile('../partials/navigation.eta', it) %>
+            <% } %>
+            <%~ includeFile('../partials/login-logout.eta', it) %>
+        </div>
+    </nav>  
+    
+    <%~ includeFile ('../partials/message.eta', it) %>
+   
+    <main><%~ it.body %></main>
+</body>
+
+</html>

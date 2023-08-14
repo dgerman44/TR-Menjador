@@ -1,0 +1,82 @@
+<% layout('../../layouts/fullwidth-nav-logx') %>
+<div class="container-fluid p-4">
+  <div class="row">
+    <div class="col-9">
+      <form name="Procesados" action="/comandes" method="POST">
+        <div class="mb-4 d-flex">
+          <div>
+            <h3>Comandes del dia <%=it.fecha%></h3>
+          </div>
+          <div>
+            <select onchange="cambiaProcesados()" name="procesado" class="form-select ms-4" value="<%=it.estado%>">
+              <option value="noProcesado" <%=it.estado ==='noProcesado' ? 'selected' : ''%>>No processades</option>
+              <option value="procesado" <%=it.estado ==='procesado' ? 'selected' : ''%>>Processades</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <div class="d-flex  flex-wrap">
+        <%if (it.reservas.length === 0) {%>
+        <h3>No hi han reservas</h3>
+        <%}%>
+        <%it.reservas.forEach((r) => {%>
+        <div class="card mx-4 mb-4 homeTd3" style="width: 14rem;">
+          <div class="card-body">
+            <form method="POST" action="/detalle">
+              <h4 class="card-title "><%=r.usuario.firstName%> <%=r.usuario.lastName%></h4>
+              <input type="hidden" name="reservaId" value="<%=r._id%>"></input>
+              <input type="hidden" name="procesado" value="<%=r.estado%>"></input>
+              <button type="submit" class="btn btn-primary">Detalls</button>
+            </form>
+          </div>
+        </div>
+        <%})%>
+      </div>
+    </div>
+    <div class="col-3 homeTd3">
+      <%if (it.reserva) {%>
+      <form action="/procesa" method="POST">
+        <h4>Detalls de la reserva de <%=it.reserva.usuario.firstName%></h4>
+        <h5 class="mt-4">Primer plat</h5>
+        <div id="primer"></div>
+        <h5 class="mt-4">Segon plat</h5>
+        <div id="segon"></div>
+        <h5 class="mt-4">Postre</h5>
+        <div id="postre"></div>
+        <input type="hidden" name="reservaId" value="<%=it.reserva._id%>"></input>
+        <%if (it.reserva.estado === 'noProcesado') {%>
+        <button class="btn btn-primary mt-4" type="submit">Procesa</button>
+        <%}%>
+      </form>
+      <%} else {%>
+        <h3>Sel·lecciona una comanda per veure els detalls</h3>
+      <%}%>
+    </div>
+  </div>
+</div>
+<script>
+  <%
+    if (it.reserva) {
+      var primer = it.reserva.getPrimer();
+      var primero = primer ? primer : 'Sense primer';
+      var segon = it.reserva.getSegon();
+      var segundo = segon ? segon : 'Sense segón';
+      var postra = it.reserva.getPostre();
+      var postre = postra ? postra : 'Sense postre';
+%>     
+      var primerDiv = document.getElementById('primer');
+      if (primerDiv) primerDiv.innerHTML = "<%=primero%>";
+      if (primerDiv && <%=!primer%>) primerDiv.setAttribute('style', 'color:red;');
+      var segonDiv = document.getElementById('segon');
+      if (segonDiv) segonDiv.innerHTML = "<%=segundo%>";
+      if (segonDiv && <%=!segon%>) segonDiv.setAttribute('style', 'color:red;');
+      var postreDiv = document.getElementById('postre');
+      if (postreDiv) postreDiv.innerHTML = "<%=postre%>";
+      if (postreDiv && <%=!postra%>) postreDiv.setAttribute('style', 'color:red;');
+<% } %>
+
+  function cambiaProcesados() {
+    document.forms.Procesados.submit()
+  }
+
+</script>

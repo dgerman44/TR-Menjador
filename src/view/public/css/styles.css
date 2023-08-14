@@ -1,0 +1,163 @@
+.dgb-navbar {
+    background-color: #009A93;
+    background-image: -webkit-linear-gradient(right, #009A93 0%, #AFCA0B 25%, #009A93 50%, #AFCA0B 75%, #009A93 100%);
+    background-image: -moz-linear-gradient(right, #009A93 0%, #AFCA0B 25%, #009A93 50%, #AFCA0B 75%, #009A93 100%);
+    background-image: linear-gradient(to right, #009A93 0%, #AFCA0B 25%, #009A93 50%, #AFCA0B 75%, #009A93 100%);
+    background-size: 400% 100%;
+    -webkit-animation: header-anim 160s infinite linear;
+    -moz-animation: header-anim 160s infinite linear;
+    animation: header-anim 160s infinite linear;
+}
+
+.dgb-back {
+    background-image: url(/public/images/comida.jpeg);
+    backdrop-filter: brightness(1);
+}
+
+.dgb-sice {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-color: black;
+    filter: brightness(1);
+}
+
+.dgb-sice2 {
+    width: 150px;
+    height: 40px;
+}
+
+.dgb-letra {
+    color: white;
+    background-color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    filter: brightness(4);
+}
+
+.dgb-nav-logo {
+    border-color: black;
+}
+
+.img-dgb {
+    width: 150px;
+    height: 150px;
+}
+
+.table-dgb {
+    text-align: center;
+}
+
+table#profileTable td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.homeTable {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.homeTd1 {
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 50%;
+    background-color: #009A93;
+    background-image: -webkit-linear-gradient(right, #009A93 0%, #AFCA0B 100%);
+    background-image: -moz-linear-gradient(right, #009A93 0%, #AFCA0B 100%);
+    background-image: linear-gradient(to right, #009A93 0%, #AFCA0B 100%);
+}
+
+.homeTd2 {
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 50%;
+    background-color: #009A93;
+    background-image: -webkit-linear-gradient(right, #009A93 0%, #AFCA0B 100%);
+    background-image: -moz-linear-gradient(right, #009A93 0%, #AFCA0B 100%);
+    background-image: linear-gradient(to right, #009A93 0%, #AFCA0B 100%);
+}
+
+
+.homeTd3 {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #7aede7;
+    background-image: -webkit-linear-gradient(right, #7aede7 0%, #d7eb50 100%);
+    background-image: -moz-linear-gradient(right, #7aede7 0%, #d7eb50 100%);
+    background-image: linear-gradient(to right, #7aede7 0%, #d7eb50 100%);
+    border: 2px solid;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+    border-color: rgb(0, 0, 0);
+}
+
+.pedidoHome {
+    background-color: rgb(241, 209, 104);
+    margin-right: 100px;
+    margin-left: 100px;
+    border: 2px solid;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+    border-color: rgb(0, 0, 0);
+}
+
+.spNombre {
+    font-size: 30px;
+}
+
+.bt {
+    width: 150px;
+    height: 50px;
+    margin-bottom: 20px;
+    background-image: url(/public/images/tick.png);
+}
+
+.link {
+    color: blue;
+    text-decoration: none;
+}
+
+.link:visited {
+    color:blue;
+}
+
+.link:hover {
+    color:blue;
+}
+
+.link:active {
+    color: blue;
+}
+
+.tdSeleccionado {
+    border: 2px solid !important;
+    border-color: rgb(159, 26, 26) !important;
+}
+.menDia {
+    border: 3px solid;
+    border-color: #AFCA0B;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+}
+table#calendario td a {
+    font-size: 1.2em;
+}
+table#calendario td {
+    border: 1px solid;
+    border-color: #bbbbbb;
+    text-align: center;
+}
+.diaConMenu {
+    background-color:#AFCA0B
+}
+.diaConReserva {
+    background-color:#AFCA0B
+}
+.desactivado {
+    color: gray;
+}

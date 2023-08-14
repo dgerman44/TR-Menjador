@@ -1,0 +1,4 @@
+<% layout('./layouts/fullwidth-nav-logx') %>
+
+<h1>dashboard</h1>
+

@@ -1,0 +1,39 @@
+<% layout('../layouts/fullwidth-nav-logx') %>
+
+<div class="container mt-4">
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight"><h1>Gestió d'usuaris</h1></div>
+        <div class="p-2 bd-highlight ms-auto">
+            <a href="/userNew">
+                <button class="btn btn-primary">Nou usuari</button>
+            </a>    
+        </div>
+    </div>
+    <table class="table table-hover">
+    <thead>
+        <tr>
+        <th scope="col">Nom i cognoms</th>
+        <th scope="col">Correu</th>
+        <th scope="col">Rol</th>
+        <th scope="col">Accions</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% it.users.forEach (u => { %>
+        <tr id="trf">            
+            <td><%=u.firstName + ' ' + u.lastName%></td>
+            <td><%=u.email%></td>
+            <td><%=u.rol%></td>
+            <td>
+                <a href="/userEdit?id=<%=u._id%>">
+                    <button class="fa fa-pencil"></button>
+                </a> 
+                <a href="/userDelete?id=<%=u._id%>">
+                    <button class="fa fa-trash"></button>
+                </a> 
+            </td>
+        </tr>
+    <% }) %>
+    </tbody>
+    </table>
+</div>

@@ -1,0 +1,55 @@
+<% layout('../layouts/fullwidth-nav-logx') %>
+<%
+    const titulo = (it.user.email!=='') ? "Edició d'usuari": "Afegeix un usuari";
+    const textoBtn = (it.user.email!=='') ? "Actualitza" : "Crea";
+    const action = (it.user.email !=='') ? "/userUpdate" : "/userNew";
+%>
+<div class="col-md-4 offset-md-4">
+  <div class="card mt-4 text-center">
+    <div class="card-header">
+      <h3><%=titulo%></h3>
+    </div>
+    <div class="card-body">
+      <form action="<%=action%>" method="POST">
+        <input type="hidden" name="_id" value="<%=it.user._id%>">
+        <div class="d-grid gap-2">
+          <div class="form-floating">
+            <input type="text" name="firstName" id="firstName" placeholder="Nom" class="form-control" value="<%=it.user.firstName%>">
+            <label for="firstName">Nom</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" name="lastName" id="lastName" placeholder="Cognoms" class="form-control" value="<%=it.user.lastName%>">
+            <label for="lastName">Cognoms</label>
+          </div>
+          <div class="form-floating">
+            <input type="email" name="email" id="email" placeholder="Correu electrònic" class="form-control" value="<%=it.user.email%>">
+            <label for="email">Correu electrònic</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" name="password" id="password" placeholder="Contrassenya" class="form-control">
+            <label for="password">Contrassenya</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" name="password2" id="password2" placeholder="Confirmar contrassenya" class="form-control">
+            <label for="password">Confirmar contrassenya</label>
+          </div>
+          <div class="form-floating">
+            <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Numero de telèfon" class="form-control" value="<%=it.user.phoneNumber%>">
+            <label for="phoneNumber">Numero de telèfon</label>
+          </div>
+          <div class="text-start">
+            <select name="rol" class="form-select" value="<%=it.user.rol%>">
+                <option value="0">Tria el rol de l'Usuari</option>
+                <option value="normal" <%=it.user.rol==='normal' ? 'selected' : ''%>>Al·lumne</option>
+                <option value="cuina" <%=it.user.rol==='cuina' ? 'selected' : ''%>>Cuina</option>
+                <option value="admin" <%=it.user.rol==='admin' ? 'selected' : ''%>>Administrador</option>
+            </select> 
+          </div>
+          <button type="submit" class="btn btn-primary mt-4">
+            <%=textoBtn%>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

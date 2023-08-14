@@ -1,0 +1,213 @@
+<% layout('../../layouts/fullwidth-nav-logx') %>
+<div class="container">
+<h1 class="my-4">Actualització de menú</h1>
+    <div class="row">
+        <div class="col">
+            <form name="calendarForm" action="/menuDia" method="POST">
+                <input type="hidden" name="dia" id="dia" value="<%=it.dia%>">
+                <div>
+                    <label for="mes">Mes:</label>
+                    <select name="mes" id="mes" onchange="cargarCalendario()">
+                    <option value="1" <%=it.mes==1? 'selected': ''%>>Gener</option>
+                    <option value="2" <%=it.mes==2? 'selected': ''%>>Febrer</option>
+                    <option value="3" <%=it.mes==3? 'selected': ''%>>Març</option>
+                    <option value="4" <%=it.mes==4? 'selected': ''%>>Abril</option>
+                    <option value="5" <%=it.mes==5? 'selected': ''%>>Maig</option>
+                    <option value="6" <%=it.mes==6? 'selected': ''%>>Juny</option>
+                    <option value="7" <%=it.mes==7? 'selected': ''%>>Juliol</option>
+                    <option value="8" <%=it.mes==8? 'selected': ''%>>Agost</option>
+                    <option value="9" <%=it.mes==9? 'selected': ''%>>Setembre</option>
+                    <option value="10" <%=it.mes==10? 'selected': ''%>>Octubre</option>
+                    <option value="11" <%=it.mes==11? 'selected': ''%>>Novembre</option>
+                    <option value="12" <%=it.mes==12? 'selected': ''%>>Decembre</option>
+                    </select>
+                    <label for="anio">Any:</label>
+                    <input type="number" name="anio" id="anio" value ="<%=it.anio%>" style="width: 50px" onchange="cargarCalendario()">
+                </div>
+                <table id="calendario">
+                    <!-- El contenido del calendario será generado dinámicamente aquí -->
+                </table>
+            </form>
+        </div>
+        <%if (it.menu) {%>
+            <div class="col menDia">
+                <h3>Data: <%=it.fechaFormateada%> </h3>
+                <h5 class="mt-4">Primer plat</h5>
+                <form action="/updateMenu" method="POST">
+                    <input type="hidden" name="fecha" value="<%=it.menu.fecha%>"></input>
+                    <ul>
+                        <li class="ms-4"><span style="font-weight: bold; color: green;">Opció 1:</span>
+                        <%if (it.mode === 'view') {%>
+                            <%=it.menu.prOpcio1%> 
+                        <%} else{%>
+                            <input size="40" type="text" name="prOpcio1" placeholder="Introdueix el nom del plat" value="<%=it.menu.prOpcio1%>"></imput>
+                        <%}%>
+                        </li>
+                        <li class="ms-4"><span style="font-weight: bold; color: green;">Opció 2:</span>
+                        <%if (it.mode === 'view') {%>
+                            <%=it.menu.prOpcio2%> 
+                        <%} else{%>
+                            <input size="40" type="text" name="prOpcio2" placeholder="Introdueix el nom del plat" value="<%=it.menu.prOpcio2%>"></imput>
+                        <%}%>
+                        </li>
+                    </ul>
+                    <h5 class="mt-4">Segon plat</h5>
+                    <ul>
+                        <li class="ms-4"><span style="font-weight: bold; color: green;">Opció 1:</span>
+                        <%if (it.mode === 'view') {%>
+                            <%=it.menu.seOpcio1%> 
+                        <%} else{%>
+                            <input size="40" type="text" name="seOpcio1" placeholder="Introdueix el nom del plat" value="<%=it.menu.seOpcio1%>"></imput>
+                        <%}%>
+                        </li>
+                        <li class="ms-4"><span style="font-weight: bold; color: green;">Opció 2:</span>
+                        <%if (it.mode === 'view') {%>
+                            <%=it.menu.seOpcio2%> 
+                        <%} else{%>
+                            <input size="40" type="text" name="seOpcio2" placeholder="Introdueix el nom del plat" value="<%=it.menu.seOpcio2%>"></imput>
+                        <%}%>
+                        </li>
+                    </ul>
+                    <h5 class="mt-4">Postre</h5>
+                    <ul>
+                        <li class="ms-4"><span style="font-weight: bold; color: green;">Opció 1:</span>
+                        <%if (it.mode === 'view') {%>
+                            <%=it.menu.poOpcio1%> 
+                        <%} else{%>
+                            <input size="40" type="text" name="poOpcio1" placeholder="Introdueix el nom del plat" value="<%=it.menu.poOpcio1%>"></imput>
+                        <%}%>
+                        </li>
+                        <li class="ms-4"><span style="font-weight: bold; color: green;">Opció 2:</span>
+                        <%if (it.mode === 'view') {%>
+                            <%=it.menu.poOpcio2%> 
+                        <%} else{%>
+                            <input size="40" type="text" name="poOpcio2" placeholder="Introdueix el nom del plat" value="<%=it.menu.poOpcio2%>"></imput>
+                        <%}%>
+                        </li>
+                    </ul>
+                    <%if (it.mode === 'view') {%>
+                        <button class="mb-2 btn btn-primary" type="button" onclick="editMenuClick()">Modifica-ho</button>
+                    <%} else {%>
+                        <button class="mb-2 btn btn-primary" type="submit">Desa</button>
+                    <%}%>
+                </form>
+            </div>
+        <%} else {%>
+            <div class="col menDia">
+                <h3>No hi ha menú per aquesta data</h3>
+                <a href="#" class="btn btn-primary" onclick="newMenuClick()">Crea menú</a>
+            </div>
+        <%}%>
+    </div>
+</div>
+<script>
+    
+    function diaClick(diaActual) {
+        var diaHidden = document.getElementById('dia');
+        diaHidden.value = diaActual;
+        document.forms.calendarForm.submit();
+        return false;
+    }
+    function newMenuClick() {
+        var diaHidden = document.getElementById('dia');
+        diaHidden.value = <%=it.dia%>;
+        document.forms.calendarForm.action='/newMenu';
+        document.forms.calendarForm.submit();
+        return false;
+    }
+    function editMenuClick() {
+        var diaHidden = document.getElementById('dia');
+        diaHidden.value = <%=it.dia%>;
+        document.forms.calendarForm.action='/editMenu';
+        document.forms.calendarForm.submit();
+        return false;
+    }
+
+    var diasConMenu = eval('[' + '<%=it.diasConMenu%>' + ']');
+      
+    function tieneMenu(d) {
+        for (let i = 0; i < diasConMenu.length; i++) {
+            if (d === diasConMenu[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    function cargarCalendario() {
+        var mesSeleccionado = parseInt(document.getElementById('mes').value);
+        var anioSeleccionado = parseInt(document.getElementById('anio').value);
+        var primerDiaMes = new Date(anioSeleccionado, mesSeleccionado - 1, 1);
+        var ultimoDiaMes = new Date(anioSeleccionado, mesSeleccionado, 0);
+        var numDiasMes = ultimoDiaMes.getDate();
+        var primerDiaSemana = primerDiaMes.getDay();
+
+        var calendario = document.getElementById('calendario');
+        calendario.innerHTML = ''; // Limpiar contenido previo
+
+        var filaEncabezado = document.createElement('tr');
+        var diasSemana = ['Dg', 'Dl', 'Dt', 'Dc', 'Dj', 'Dv', 'Ds'];
+
+        for (var i = 0; i < 7; i++) {
+            var th = document.createElement('th');
+            th.className = "p-2";
+            th.textContent = diasSemana[i];
+            filaEncabezado.appendChild(th);
+        }
+        calendario.appendChild(filaEncabezado);
+
+        var fila = document.createElement('tr');
+        for (var i = 0; i < primerDiaSemana; i++) {
+            var td = document.createElement('td');
+            fila.appendChild(td);
+        }
+        var diaActual = 1;
+        while (diaActual <= numDiasMes) {
+            var td = document.createElement('td');
+            const diaSel = diaActual === <%=it.dia%> ? 'tdSeleccionado' : '';
+            td.setAttribute('class', diaSel)
+            td.setAttribute('id', 'd' + diaActual)
+        
+            var a = document.createElement('a');
+            a.setAttribute('onclick', 'diaClick(' + diaActual + ')');
+            a.setAttribute('class', 'link');
+            a.setAttribute('href', '#');
+    
+            td.appendChild(a);
+            a.textContent = diaActual;        
+
+            if (diaActual === new Date().getDate() && mesSeleccionado === (new Date().getMonth() + 1) && anioSeleccionado === new Date().getFullYear()) {
+                td.style.border = 'solid';
+                td.style.borderColor = '#007bff';
+                td.style.color = '#fff';
+                td.style.fontWeight = 'bold';
+            }
+
+            fila.appendChild(td);
+            if ((primerDiaSemana + diaActual) % 7 === 0) {
+                calendario.appendChild(fila);
+                fila = document.createElement('tr');
+            }
+            diaActual++;
+        }
+
+        while ((primerDiaSemana + diaActual) % 7 !== 0) {
+            var td = document.createElement('td');
+            fila.appendChild(td);
+            diaActual++;
+        }
+        calendario.appendChild(fila);
+    
+    }
+
+    cargarCalendario(); // Cargar el calendario inicialmente
+
+    var diasConMenu = eval('['+'<%=it.diasConMenu%>'+']');
+    for (let i = 0; i < diasConMenu.length; i++) {
+        var id= 'd'+diasConMenu[i];
+        var td= document.getElementById(id);
+        td.setAttribute ('class','diaConMenu');        
+    }
+</script>
+  

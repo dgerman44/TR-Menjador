@@ -1,0 +1,52 @@
+<% layout('../layouts/fullwidth-nav-logx') %>
+<br>
+<header>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <img class="img-dgb" src="/public/images/persona.jpg">
+        <h1><%= it.currentUser.firstName%></h1>
+        <br>
+        <h2>Informació personal</h2>
+        <table id="profileTable" class="table-dgb table-bordered">
+            <tr>
+                <td>
+                    <h5>Nombre:</h5>
+                </td>
+                <td>
+                    <h5><%= it.currentUser.firstName%></h5>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5>Cugnoms:</h5>
+                </td>
+                <td>
+                    <h5><%= it.currentUser.lastName%></h5>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5>Gmail:</h5>
+                </td>
+                <td>
+                    <h5><%= it.currentUser.email%></h5>
+                </td>
+            </tr>
+        <%if (it.currentUser.authType === 'local') {%>
+            <tr>
+                <td>
+                    <h5>Telèfon:</h5>
+                </td>
+                <td>
+                    <h5>
+                    <% if (it.currentUser.phoneNumber !== null) { %>                    
+                    <%=it.currentUser.phoneNumber%>
+                    <%}%>
+                    </h5>
+                </td>
+            </tr>
+        <%};%>
+        </table>
+        <br>
+        <a class="btn btn-primary" href="/profile-edit">Modifica-ho</a>
+        </div>
+</header>
