@@ -16,8 +16,9 @@
               <h5>Nom:</h5>
             </td>
             <td id="td1">
-              <span id="rem1"><%= it.currentUser.firstName%></span>
-              <span id="pen1" class="fa fa-pencil" onclick="pen1('td1', 'rem1', 'pen1', 'Nombre')"></span>
+              <input type="hidden" name="Nombre" value="<%=it.currentUser.firstName%>" id="inputName"></input>
+              <span id="rem1"><%=it.currentUser.firstName%></span>
+              <span id="pen1" class="fa fa-pencil" onclick="pen1('td1', 'rem1', 'pen1', 'Nombre', 'inputName')"></span>
             </td>
           </tr>
           <tr>
@@ -25,8 +26,9 @@
               <h5>Cognoms:</h5>
             </td>
             <td id="td2">
+              <input type="hidden" name="Cognoms" value="<%=it.currentUser.lastName%>" id="inputLastName"></input>
               <span id="rem2"><%= it.currentUser.lastName%></span>
-              <span id="pen2" class="fa fa-pencil" onclick="pen1('td2', 'rem2', 'pen2', 'Cognoms')"></span>
+              <span id="pen2" class="fa fa-pencil" onclick="pen1('td2', 'rem2', 'pen2', 'Cognoms', 'inputLastName')"></span>
             </td>
           </tr>
           <tr>
@@ -43,7 +45,8 @@
               <h5>Contrasenya:</h5>
             </td>
             <td id="td4">
-              <span id="pen4" class="fa fa-pencil" onclick="pen2 ('td4', 'pen4', 'Contrasenya')"></span>
+              <input type="hidden" name="pwd1" value="<%=it.currentUser.password%>" id="inputpwd1"></input>
+              <span id="pen4" class="fa fa-pencil" onclick="pen2 ('td4', 'pen4', 'Contrasenya', 'inputpwd1')"></span>
             </td>
           </tr>
           <%}%>
@@ -53,11 +56,12 @@
                     </td>
                     <td id="td5">
                         <span id="rem5">
-                        <% if (it.currentUser.phoneNumber !== null) { %>
-          <%=it.currentUser.phoneNumber%>
-          <%}%>
+                            <input type="hidden" name="Telefon" value="<%=it.currentUser.phoneNumber%>" id="inputPhone"></input>
+                            <% if (it.currentUser.phoneNumber !== null) { %>
+                                <%=it.currentUser.phoneNumber%>
+                            <%}%>
                         </span>
-                        <span id="pen5" class="fa fa-pencil" onclick="pen1('td5', 'rem5', 'pen5', 'Telefon')"></span>
+                        <span id="pen5" class="fa fa-pencil" onclick="pen1('td5', 'rem5', 'pen5', 'Telefon', 'inputPhone')"></span>
                     </td>
                 </tr>
             </table>
@@ -69,12 +73,14 @@
     </div>
 <header>
 <script>
-    function pen1 (idPadre,idRem, idPen, name) {
+    function pen1 (idPadre,idRem, idPen, name, idInput) {
         const Text1 = document.createElement ('input');
         const rem = document.getElementById (idRem);
         const continer = document.getElementById (idPadre);
         const pen = document.getElementById (idPen);
+        const input = document.getElementById(idInput);
         pen.remove();
+        input.remove();
         Text1.setAttribute('type', 'text');
         Text1.setAttribute('name', name)
         Text1.value = rem.textContent;

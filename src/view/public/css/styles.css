@@ -28,10 +28,9 @@
 }
 
 .dgb-letra {
+    font-size: 3em;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-top: 20px;
-    margin-bottom: 20px;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 2);
     filter: brightness(4);
 }
 
