@@ -1,19 +1,10 @@
-import { config } from 'dotenv';
-
-config();
-
-
 export const cfg = {
     general: {
-        PORT: process.env.PORT || 3000,
-        APP_URL: 'http://localhost:3000'
-    },
-    mysql: {
-        DB_HOST: process.env.DB_HOST || 'swahili',
-        DB_PORT: process.env.DB_PORT || 3306,
-        DB_USER: process.env.DB_USER || 'carlos',
-        DB_PASSWORD: process.env.DB_PASSWORD || 'dario',
-        DB_DATABASE: process.env.DB_DATABASE || 'expressrestapicrud'
+        HTTP_PORT: 3000,
+        HTTPS_PORT: 443,
+        FORCE_HTTPS: false,
+        APP_URL: 'http://localhost:3000',
+        SESSION_SECRET: 'asdfasdfasdfasdf'
     },
     mongodb: {
         // Esta es la especificacion de la url de conexion a mongoDB: 
@@ -27,9 +18,5 @@ export const cfg = {
     googleAuth: {
         GOOGLE_CLIENT_ID: '388845113719-kdkuvbm28okal24kbaf9bmct52rfcc8s.apps.googleusercontent.com',
         GOOGLE_CLIENT_SECRET: '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'
-    },    
-    jwtAuth: {
-        JWT_SECRET: 'My secret key',
-        JWT_TOKEN_EXPIRATION: '30s'
     }
 };
