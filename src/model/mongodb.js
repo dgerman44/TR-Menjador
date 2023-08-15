@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import { cfg } from '../config.js';
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import {cfg} from '../config.js'
+
 
 mongoose.set('strictQuery', true);
 mongoose.connect(cfg.mongodb.URI, {})
@@ -23,12 +23,6 @@ userSchema.methods.cifrarPassword = (password) => {
 
 userSchema.methods.compararPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
-};
-
-userSchema.methods.createToken = function () {
-    const u = { id: this._id, email: this.email };
-    const token = jwt.sign(u, cfg.jwtAuth.JWT_SECRET, { expiresIn: cfg.jwtAuth.JWT_TOKEN_EXPIRATION });
-    return token;
 };
 
 const menuSchema = new mongoose.Schema({
