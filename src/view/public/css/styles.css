@@ -19,7 +19,6 @@
     height: 150px;
     margin-top: 20px;
     margin-bottom: 20px;
-    border-color: black;
     filter: brightness(1);
 }
 
@@ -30,7 +29,7 @@
 
 .dgb-letra {
     color: white;
-    background-color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
     margin-bottom: 20px;
     filter: brightness(4);
@@ -160,4 +159,7 @@ table#calendario td {
 }
 .desactivado {
     color: gray;
+}
+.icono{
+    font-size: 120px;
 }

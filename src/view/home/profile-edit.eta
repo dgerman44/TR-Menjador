@@ -1,59 +1,61 @@
 <% layout('../layouts/fullwidth-nav-logx') %>
 <br>
 <header>
-    <div class="d-flex flex-column justify-content-center align-items-center">
-        <img class="img-dgb" src="/public/images/persona.jpg">
-        <h1><%= it.currentUser.firstName%></h1>
-        <br>
-        <h2>Informació personal</h2>
-        <form action="/profile-edit" method="POST">
-            <input type="hidden" name="_id" value="<%= it.currentUser._id %>" />
-            <table id="profileTable" class="table-dgb table-bordered">
-                <tr>
-                    <td>
-                        <h5>Nom:</h5>
-                    </td>
-                    <td id="td1">
-                        <span id="rem1"><%= it.currentUser.firstName%></span>
-                        <span id="pen1" class="fa fa-pencil" onclick="pen1('td1', 'rem1', 'pen1', 'Nombre')"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <h5>Cognoms:</h5>
-                    </td>
-                    <td id="td2">
-                        <span id="rem2"><%= it.currentUser.lastName%></span>
-                        <span id="pen2" class="fa fa-pencil" onclick="pen1('td2', 'rem2', 'pen2', 'Cognoms')"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <h5>Correu:</h5>
-                    </td>
-                    <td id="td3">
-                        <span id="rem3"><%= it.currentUser.email%></span>                        
-                    </td>
-                </tr>
-                <%if (it.currentUser.authType === 'local'){%>
-                <tr id="trCon">
-                    <td>
-                        <h5>Contrasenya:</h5>
-                    </td>
-                    <td id="td4">
-                        <span id="pen4" class="fa fa-pencil" onclick="pen2 ('td4', 'pen4', 'Contrasenya')"></span>
-                    </td>
-                </tr>
-                <%}%>
+  <div class="d-flex flex-column justify-content-center align-items-center row">
+    <div class="col-4">
+    </div>
+    <div class="col-4 homeTd3">
+      <span class="fa-regular fa-user fa-2x1 icono mb-2"></span>
+      <h1 class="mb-2"><%= it.currentUser.firstName%></h1>
+      <h2>Informació personal</h2>
+      <form action="/profile-edit" method="POST">
+        <input type="hidden" name="_id" value="<%= it.currentUser._id %>" />
+        <table id="profileTable" class="table-dgb table-bordered ms-5">
+          <tr>
+            <td>
+              <h5>Nom:</h5>
+            </td>
+            <td id="td1">
+              <span id="rem1"><%= it.currentUser.firstName%></span>
+              <span id="pen1" class="fa fa-pencil" onclick="pen1('td1', 'rem1', 'pen1', 'Nombre')"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>Cognoms:</h5>
+            </td>
+            <td id="td2">
+              <span id="rem2"><%= it.currentUser.lastName%></span>
+              <span id="pen2" class="fa fa-pencil" onclick="pen1('td2', 'rem2', 'pen2', 'Cognoms')"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h5>Correu:</h5>
+            </td>
+            <td id="td3">
+              <span id="rem3"><%= it.currentUser.email%></span>
+            </td>
+          </tr>
+          <%if (it.currentUser.authType === 'local'){%>
+          <tr id="trCon">
+            <td>
+              <h5>Contrasenya:</h5>
+            </td>
+            <td id="td4">
+              <span id="pen4" class="fa fa-pencil" onclick="pen2 ('td4', 'pen4', 'Contrasenya')"></span>
+            </td>
+          </tr>
+          <%}%>
                 <tr>
                     <td>
                         <h5>Telèfon:</h5>
                     </td>
                     <td id="td5">
                         <span id="rem5">
-                        <% if (it.currentUser.phoneNumber !== null) { %>                    
-                        <%=it.currentUser.phoneNumber%>
-                        <%}%>
+                        <% if (it.currentUser.phoneNumber !== null) { %>
+          <%=it.currentUser.phoneNumber%>
+          <%}%>
                         </span>
                         <span id="pen5" class="fa fa-pencil" onclick="pen1('td5', 'rem5', 'pen5', 'Telefon')"></span>
                     </td>
@@ -61,7 +63,9 @@
             </table>
             <button class="btn btn-primary mt-2" type="submit">Guarda</button>
         </form>
-        <br>
+        </div>
+        <div class="col-4">
+        </div>
     </div>
 <header>
 <script>
