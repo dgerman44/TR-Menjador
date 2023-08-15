@@ -2,8 +2,9 @@ import passport from 'passport';
 import LocalStrategy from 'passport-local';
 import MicrosoftStrategy from 'passport-microsoft';
 import GoogleStrategy from 'passport-google-oauth20';
-import { cfg } from '../../config.js';
 import UserMgr from '../../model/userMgr.js';
+import { cfg } from '../../config.js'
+
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
