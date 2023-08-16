@@ -1,7 +1,7 @@
 <% layout('../layouts/fullwidth-nav-logx') %>
 <div class="container">
   <div class="row">
-    <div class="col ">
+    <div class="col calendario mt-4 me-4">
       <h1 class="my-4">Fes la teva reserva</h1>
       <form name="calendarForm" action="/newReserva" method="POST">
         <input type="hidden" name="dia" id="dia" value="<%=it.dia%>">
@@ -30,7 +30,7 @@
       </form>
     </div>
     <% if (it.reserva && it.menu && it.mode === 'edit') {%>
-    <div class="col menDia mt-4">
+    <div class="col calendario mt-4">
       <form name="reservaForm" action="/pago" method="POST">
         <h3>Data: <%=it.menu.formateaFecha()%> </h3>
         <h4>Selecciona una opció de cada grup</h4>
@@ -99,7 +99,7 @@
         </div>
       </form>
     </div>
-    <div class="col menDia ms-4 mt-4">
+    <div class="col calendario ms-4 mt-4">
       <h3>Preu</h3>
       <div class="px-4 d-flex py-2" id="tipoMenu">
         <div class="me-auto" id="tipoMenu_texto"></div>
