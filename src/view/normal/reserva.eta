@@ -31,7 +31,7 @@
     </div>
     <% if (it.reserva && it.menu && it.mode === 'edit') {%>
     <div class="col calendario mt-4">
-      <form name="reservaForm" action="/pago" method="POST">
+      <form name="reservaForm" action="/pago" method="POST" id="table">
         <h3>Data: <%=it.menu.formateaFecha()%> </h3>
         <h4>Selecciona una opció de cada grup</h4>
         <h5 class="mt-4">Primer plat</h5>
@@ -185,7 +185,8 @@
         const suplementoTexto = document.getElementById('suplemento_texto');
         const platoPrecio = document.getElementById('tipoMenu_precio');
         const suplementoPrecio = document.getElementById('suplemento_precio');
-        const precioTotal = document.getElementById('total_precio')
+        const precioTotal = document.getElementById('total_precio');
+        const table = document.getElementById('table');
 
         if (!primeroSel || !segundoSel || !postreSel) return;
         if (primeroSel.value && segundoSel.value && postreSel.value) {

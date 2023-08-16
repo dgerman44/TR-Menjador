@@ -922,7 +922,7 @@
 <p lngid="importe">Importe</p>
 </div>
 <div class="right">
-<p>33,00&nbsp;&euro;</p>
+<p><%=it.totalPrice%></p>
 </div>
 <br class="clear-fix">
 </div>
