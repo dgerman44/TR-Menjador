@@ -15,7 +15,8 @@ const userSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
     phoneNumber: String,
-    rol: String
+    rol: String,
+    estado: String
 });
 userSchema.methods.cifrarPassword = (password) => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));

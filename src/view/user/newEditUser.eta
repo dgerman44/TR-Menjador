@@ -1,8 +1,8 @@
 <% layout('../layouts/fullwidth-nav-logx') %>
 <%
-    const titulo = (it.user.email!=='') ? "Edició d'usuari": "Afegeix un usuari";
-    const textoBtn = (it.user.email!=='') ? "Actualitza" : "Crea";
-    const action = (it.user.email !=='') ? "/userUpdate" : "/userNew";
+    const titulo = (it.user.estado === 'creado') ? "Edició d'usuari": "Afegeix un usuari";
+    const textoBtn = (it.user.estado === 'creado') ? "Actualitza" : "Crea";
+    const action = (it.user.estado === 'creado') ? "/userUpdate" : "/userNew";
 %>
 <div class="col-md-4 offset-md-4">
   <div class="card mt-4 text-center">

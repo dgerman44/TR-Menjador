@@ -43,7 +43,6 @@ export const doNewUser = async (req, res) => {
                 }
             });
         }
-
         const newUser = await userMgr.addUser({
             authType: 'local',
             email, password, firstName, lastName, phoneNumber, rol

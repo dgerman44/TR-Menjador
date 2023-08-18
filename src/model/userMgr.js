@@ -20,6 +20,7 @@ function createUserMgr() {
             u.phoneNumber = '';
             u.rol = '';
             u.authType = '';
+            u.estado = '';
             return u;
         }
         async addUser(props) {
@@ -38,6 +39,7 @@ function createUserMgr() {
             newUser.rol = props.rol;
             newUser.lastName = props.lastName || null;
             newUser.phoneNumber = props.phoneNumber || null;
+            newUser.estado = 'creado';
             await newUser.save();
             return newUser;
         }
