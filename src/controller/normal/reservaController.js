@@ -48,11 +48,13 @@ export const goNewReserva = async (req, res) => {
     });
 }
 export const goPago = async (req, res) => {
-    const { primer, segon, postre, tupper } = req.body;
+    const { primer, segon, postre, tupper, totalPrice } = req.body;
     const reserva = req.session.reserva;
     reserva.contenido = { primer, segon, postre };
     if (tupper) reserva.tupper = true;
-    res.render('normal/pago');
+    res.render('normal/pago',{
+        precioTotal: totalPrice
+    });
 }
 export const doPagoCompletado = async (req, res) => {
     const reserva = req.session.reserva;

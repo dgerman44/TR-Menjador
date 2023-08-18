@@ -922,7 +922,7 @@
 <p lngid="importe">Importe</p>
 </div>
 <div class="right">
-<p><%=it.totalPrice%></p>
+<p><%=it.precioTotal%></p>
 </div>
 <br class="clear-fix">
 </div>
@@ -934,8 +934,8 @@
 <td lngid="comercio" class="text">Comercio:<br>
 <br>
 <br>
-</td><td class="numeric">JUMPING<br>
-<br>(ESPAÑA)
+</td><td class="numeric">GINEBRÓ<br>
+<br>
                     	</td>
 </tr>
 <tr id="filaCodigoComercio">
@@ -944,14 +944,7 @@
 <tr id="filaNumeroPedido">
 <td lngid="pedido" class="text">Pedido:</td><td class="numeric">23080907594</td>
 </tr>
-<tr id="filaFecha">
-<td lngid="fecha" class="text">Fecha:</td><td class="numeric">09/08/2023
-		                    &nbsp;
-	                    	22:32</td>
-</tr>
-<tr id="filaDescripcionProducto">
-<td lngid="descripcion" class="text">Descripción producto:</td><td class="numeric">Sesión 16/08/2023 JUMPERS TARDA AGOST 2 17:16-17:31</td>
-</tr>
+
 </tbody>
 </table>
 </div>

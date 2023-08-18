@@ -1,13 +1,13 @@
 <% layout('../layouts/fullwidth-nav-logx') %>
 <div class="container">
   <div class="row">
-    <div class="col calendario mt-4 me-4">
+    <div class="col  mt-4 me-4">
       <h1 class="my-4">Fes la teva reserva</h1>
       <form name="calendarForm" action="/newReserva" method="POST">
         <input type="hidden" name="dia" id="dia" value="<%=it.dia%>">
         <div>
           <label for="mes">Mes:</label>
-          <select name="mes" id="mes" onchange="cargarCalendario()">
+          <select name="mes" id="mes" onchange="cargarCalendario()" class="calendario ">
             <option value="1" <%=it.mes==1? 'selected': ''%>>Gener</option>
             <option value="2" <%=it.mes==2? 'selected': ''%>>Febrer</option>
             <option value="3" <%=it.mes==3? 'selected': ''%>>Març</option>
@@ -22,9 +22,9 @@
             <option value="12" <%=it.mes==12? 'selected': ''%>>Decembre</option>
           </select>
           <label for="anio">Any:</label>
-          <input type="number" name="anio" id="anio" value="<%=it.anio%>" style="width: 50px" onchange="cargarCalendario()">
+          <input type="number" name="anio" id="anio" value="<%=it.anio%>" style="width: 50px" onchange="cargarCalendario()" class="calendario ">
         </div>
-        <table id="calendario">
+        <table id="calendario" class="calendario">
           <!-- El contenido del calendario será generado dinámicamente aquí -->
         </table>
       </form>
@@ -32,6 +32,7 @@
     <% if (it.reserva && it.menu && it.mode === 'edit') {%>
     <div class="col calendario mt-4">
       <form name="reservaForm" action="/pago" method="POST" id="table">
+        <input type="hidden" name="totalPrice" id="hiddenT"></input>
         <h3>Data: <%=it.menu.formateaFecha()%> </h3>
         <h4>Selecciona una opció de cada grup</h4>
         <h5 class="mt-4">Primer plat</h5>
@@ -115,6 +116,7 @@
       <div class="px-4 d-flex" id="suplemento">
         <div class="me-auto px-4 mt-auto">Preu total:</div>
         <div id="total_precio"></div>
+        
       </div>
       <div class="px-4 d-flex">
         <div class="me-auto"></div>
@@ -225,6 +227,8 @@
           suplemento_texto.innerHTML = '';
           suplemento_precio.innerHTML = '';
         }
+        const hidden = document.getElementById('hiddenT');
+        hidden.value = precioTotal.textContent;
       }
 
       function diaClick(diaActual) {
