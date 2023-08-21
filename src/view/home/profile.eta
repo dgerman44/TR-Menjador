@@ -11,7 +11,7 @@
       <table id="profileTable" class="table-dgb table-bordered ms-5">
         <tr>
           <td>
-            <h5>Nombre:</h5>
+            <h5>Nom:</h5>
           </td>
           <td>
             <h5><%= it.currentUser.firstName%></h5>
@@ -27,7 +27,7 @@
         </tr>
         <tr>
           <td>
-            <h5>Gmail:</h5>
+            <h5>Correu:</h5>
           </td>
           <td>
             <h5><%= it.currentUser.email%></h5>
