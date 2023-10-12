@@ -6,30 +6,31 @@ import reservaMgr from '../../model/reservaMgr.js';
 export const goWellcome = async (req, res) => {
     if (!req.user) return res.render('home/home');
 
-    const fecha = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate());
+    const fecha = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
 
     if (req.user.rol === 'normal') {
         res.render('home/homeNormal');
     } else if (req.user.rol === 'cuina') {
         const m = await menuMgr.getMenuByDate(fecha);
-        const reservas = await reservaMgr.getAllReservas(fecha);
+        const reservas = await reservaMgr.getAllReservas(fecha, 'noProcesado');
+        console.log('reservas', reservas)
         const contenidos = reservas.map(r => {
-            let o = {}
-            if(r.contenido.primer == 1) o.prOpcio1 = 1; 
-            else o.prOpcio1 = 0; 
-            if(r.contenido.primer == 2) o.prOpcio2 = 1; 
-            else o.prOpcio2 = 0; 
-            if(r.contenido.segon == 3) o.seOpcio1 = 1; 
-            else o.seOpcio1 = 0; 
-            if(r.contenido.segon == 4) o.seOpcio2 = 1; 
-            else o.seOpcio2 = 0; 
-            if(r.contenido.postre == 5) o.poOpcio1 = 1; 
-            else o.poOpcio1 = 0; 
-            if(r.contenido.postre == 6) o.poOpcio2 = 1; 
-            else o.poOpcio2 = 0; 
+            let o = {};
+            if (r.contenido.primer == 1) o.prOpcio1 = 1;
+            else o.prOpcio1 = 0;
+            if (r.contenido.primer == 2) o.prOpcio2 = 1;
+            else o.prOpcio2 = 0;
+            if (r.contenido.segon == 3) o.seOpcio1 = 1;
+            else o.seOpcio1 = 0;
+            if (r.contenido.segon == 4) o.seOpcio2 = 1;
+            else o.seOpcio2 = 0;
+            if (r.contenido.postre == 5) o.poOpcio1 = 1;
+            else o.poOpcio1 = 0;
+            if (r.contenido.postre == 6) o.poOpcio2 = 1;
+            else o.poOpcio2 = 0;
             return o;
         });
-        const totales = contenidos.reduce(function (previous, current) {            
+        const totales = contenidos.reduce(function (previous, current) {
             return {
                 prOpcio1: previous.prOpcio1 + current.prOpcio1,
                 prOpcio2: previous.prOpcio2 + current.prOpcio2,
@@ -37,14 +38,15 @@ export const goWellcome = async (req, res) => {
                 seOpcio2: previous.seOpcio2 + current.seOpcio2,
                 poOpcio1: previous.poOpcio1 + current.poOpcio1,
                 poOpcio2: previous.poOpcio2 + current.poOpcio2,
-            }}, {
+            }
+        }, {
             prOpcio1: 0,
             prOpcio2: 0,
             seOpcio1: 0,
             seOpcio2: 0,
             poOpcio1: 0,
             poOpcio2: 0
-        })
+        });
         res.render('home/homeCuina', {
             totales: totales,
             menu: m
