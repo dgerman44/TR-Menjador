@@ -1,4 +1,4 @@
-/ copia este fichero a config.js, y sustituye los valores dummy que
+// copia este fichero a config.js, y sustituye los valores dummy que
 // contiene por los valores reales de tu entorno de ejecucion
 export const cfg = {
     general: {
